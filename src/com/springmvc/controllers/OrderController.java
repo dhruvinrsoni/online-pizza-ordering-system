@@ -2,6 +2,7 @@ package com.springmvc.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -35,19 +36,20 @@ public class OrderController {
 	OrderService orderService ;
 	
     @RequestMapping(value="/order", method=RequestMethod.POST,  produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<OrderItem>> createOrder(@RequestBody String[] orderList, HttpServletRequest req) {
+	public ResponseEntity<List<OrderItem>> createOrder(@RequestBody Map<Integer, Integer> orderList, HttpServletRequest req) {
 		System.out.println("Inside create Order Controller.java") ;
 		HttpSession session= req.getSession();
+		Object emailObj = req.getAttribute("email");
 		User user =(User)session.getAttribute("email");
 
 		System.out.println("Order orderList is:"+orderList);
 		//int returned = orderService.saveOrder(orderList) ;
-		
+		String email=req.getHeader("email");
 		HttpHeaders headers = new HttpHeaders() ;
 		System.out.println(orderList + " ") ;
 		Order order = new Order();
 		List<OrderItem> orderItems = new ArrayList<OrderItem>();
-		orderItems = orderService.saveOrder(orderList) ;
+		orderItems = orderService.saveOrder(orderList, email) ;
 		System.out.println("Printing the orderItems list.................");
 		System.out.println(orderItems);
 		/*if(returned == 1) {

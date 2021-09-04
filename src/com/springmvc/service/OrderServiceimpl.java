@@ -10,22 +10,15 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.UsesJava7;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.springmvc.model.Order;
 import com.springmvc.model.OrderItem;
-
 import com.springmvc.model.User;
-
-import com.springmvc.service.*;
-import com.springmvc.service.UserService;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 
 
@@ -294,7 +287,7 @@ public class OrderServiceimpl implements OrderService {
     }
 	
 	//@Override
-	public List<OrderItem> saveOrder(String[] orderList) {
+	public List<OrderItem> saveOrder(Map<Integer, Integer> orderList, String email) {
 		System.out.println("inside saveOrder of orderServiceImpl...");
 		//delete
 		//List<OrderItem> orderItems =  (List<OrderItem>) new OrderItem();
@@ -307,17 +300,14 @@ public class OrderServiceimpl implements OrderService {
 		int subtotal=0, total=0, itemPrice=0;
 		String itemName="";
 		User user = new User();
-		System.out.println("email is:-"+orderList[0]);
-		if(userService.findByEmail(orderList[0])!=null)
-		{
-			user = userService.findByEmail(orderList[0]);
-		}
-		else
-		{
-			System.out.println("The email id field is null... Error...!");
-			//return 0;
+
+		System.out.println("email is:-" + email);
+		if (userService.findByEmail(email) != null) {
+			user = userService.findByEmail(email);
+		} else {
+			System.out.println("The email id field is null... Error...!"); // return 0;
 			return nullOrderObj;
-		}
+		} 
 		
 		order.setOrderTS(date);
 		order.setOrderAddresss(user.getAddress());
@@ -334,26 +324,26 @@ public class OrderServiceimpl implements OrderService {
 			return nullOrderObj;
 		}
 		
-		System.out.println("Length of orderList:- "+orderList.length);
-		for(int i=1;i<orderList.length;i++)
+		System.out.println("Length of orderList:- "+orderList.size());
+		for(Map.Entry<Integer, Integer> entry : orderList.entrySet())
 		{
-			System.out.println("\n-----------------------------------\norderList["+i+"]:-"+orderList[i]+" ");
-			if(orderList[i]!=null)
+			System.out.println("\n-----------------------------------\norderList["+entry.getKey()+"]:-"+entry.getValue()+" ");
+			if(entry.getValue()!=null)
 			{
 				OrderItem orderItem=new OrderItem();
-				itemPrice=getItemPrice(i);
-				System.out.println(" for i:"+i+" the itemPrice:-"+itemPrice);
-				subtotal=Integer.parseInt(orderList[i])*itemPrice;
+				itemPrice=getItemPrice(entry.getKey());
+				System.out.println(" for i:"+entry.getKey()+" the itemPrice:-"+itemPrice);
+				subtotal=entry.getValue()*itemPrice;
 				total+=subtotal;
-				itemName=getItemName(i);
-				System.out.println(" for i:"+i+" the itemName:-"+itemName);
+				itemName=getItemName(entry.getKey());
+				System.out.println(" for i:"+entry.getKey()+" the itemName:-"+itemName);
 				
 				orderItem.setItemName(itemName);
 				orderItem.setSubTotal(subtotal);
-				orderItem.setQty(Integer.parseInt(orderList[i]));
+				orderItem.setQty(entry.getValue());
 				orderItem.setPrice(itemPrice);
 				
-				setOrderItem(orderItem, i, orderId);
+				setOrderItem(orderItem, entry.getKey(), orderId);
 				System.out.println(orderItem.getItemName());
 				orderItem.setOrderTS(date);
 				orderItem.setOrderAddresss(user.getAddress());

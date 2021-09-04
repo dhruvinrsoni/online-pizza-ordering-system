@@ -21,7 +21,9 @@
         	console.log(order);
         	console.log("$localStorage.email:- "+$localStorage.email);
         	console.log("sending data to server...");
-        	var dataObj1 = $http.post(serverUrl + '/order' ,order)
+        	const headers = {'email': $localStorage.email};
+        	//const options = new RequestOptions({headers: headers});
+        	var dataObj1 = $http.post(serverUrl + '/order/'  ,order, {headers})
             .then(handleSuccess1, handleError1('Error creating order'));
         	console.log("dataObj1->") ;
         	console.log(dataObj1) ;

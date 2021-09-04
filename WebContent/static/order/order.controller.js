@@ -57,8 +57,8 @@
             //console.log("vm.order1:- "+vm.order1+" & vm.order1.peppyPaneer:- "+vm.order1.peppyPaneer+" & vm.order1.email:-"+vm.order1.email);
             //console.log("vm.order1.peppyPaneer_id:- "+vm.order1.peppyPaneer_id);
             //vm.order1 = scope;
-
-            vm.order1.item[0]=$localStorage.email;
+            vm.order1.email=$localStorage.email;
+            //vm.order1.item[0]=$localStorage.email;
             console.log("==================================Order Object");
             console.log(vm.order1.item);
             console.log("calling orderservice");
