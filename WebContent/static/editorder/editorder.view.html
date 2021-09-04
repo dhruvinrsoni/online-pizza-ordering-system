@@ -1,0 +1,80 @@
+<div id="fullscreen_bg" class="fullscreen_bg"/ ng-cloak ng-app="MyApp">
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.js"></script>
+
+
+<div>
+    <div style="float:right;">
+    <div class=container>
+	<table id="cart" class="table table-condensed"><h1 style="color:yellow; text-align:center;">Order Summary</h1>
+		<div style="color:white;text-align:center;font-size:150%;">	
+		<b>Name:-</b><b><span ng-bind="vm.Allitems[0].orderName"></span> </b><br>
+		<b>Address:-</b><b><span ng-bind="vm.Allitems[0].orderAddresss" ></span> </b><br>		
+		<b>Email ID:-</b><b><span ng-bind="vm.Allitems[0].orderEmail" ></span></b><br>	
+		<b>Mobile Number:-</b><b><span ng-bind="vm.Allitems[0].orderMobile" ></span> </b><br>	
+		<b>Order Time:-</b><b><span ng-bind="vm.Allitems[0].orderTS  | date:'yyyy-MM-dd HH:mm:ss '" ></span> </b>	</div>		
+ 				<thead>
+			<tr>
+				<th style="width:50%; float:right;"><h2 style="color:yellow;">Order Items</h2></th>
+				<th style="width:10%"><h2 style="color:yellow;">Price</h2></th>
+				<th style="width:8%"><h2 style="color:yellow;">Quantity</h2></th>
+				<th style="width:22%" class="text-center"><h2 style="color:yellow;">Subtotal</h2></th>
+				<th style="width:10%"></th>
+			</tr>
+		</thead>
+		<tbody style="padding-left:20%" >
+			<tr>
+				<td data-th="Product" style="padding-left:20%">
+				
+					<div ng-repeat="u in vm.Allitems">
+						<b><span ng-bind="u.itemName" style="color:white;"></span> </b>								
+					</div>
+				</td><br>
+				<td data-th="Price" style="color:orange;">
+				<div ng-repeat="u in vm.Allitems">
+						<b><span ng-bind="u.price" ></span> </b>								
+					</div>
+				</td>
+				<td data-th="Quantity"style="color:white;">
+				<div ng-repeat="u in vm.Allitems">
+						<b><span ng-bind="u.qty" style="color:white;"></span> </b>								
+					</div>
+				</td>
+				<td data-th="Subtotal" class="text-center" style="color:white";>
+				<div ng-repeat="u in vm.Allitems">
+						<b><span ng-bind="u.subTotal" style="color:white;"></span> </b>								
+					</div>
+				</td>
+				<td class="actions" data-th="">
+					<div ng-repeat="u in vm.Allitems">
+						<button class="btn btn-danger btn-sm" onclick="alert('Can not delete item at this moment...');"><i class="fa fa-trash-o"></i></button>							
+					</div>
+													
+				</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr class="visible-xs" >
+				<td class="text-center"style="color:white;">
+				<strong><b><span ng-bind="vm.Allitems[vm.Allitems.length-1].ordertotal" ></span> </b></strong></td>
+			</tr>
+			<tr>
+				<td><a href="#/order" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+				<td colspan="2" class="hidden-xs"></td>
+				<td class="hidden-xs text-center"style="color:white;font-size:150%;">
+				<strong>Total:<strong><b><span ng-bind="vm.Allitems[vm.Allitems.length-1].ordertotal" ></span> </b></strong></td>
+				
+				<td><a href="#/payment" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+			</tr>
+		</tfoot>
+	</table>
+    
+    
+    </div>	
+    	
+    </div>
+    
+</div>

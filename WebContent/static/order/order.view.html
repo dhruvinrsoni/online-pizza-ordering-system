@@ -1,0 +1,148 @@
+<style>
+input[type=number]
+{
+	margin:auto;
+}
+</style>
+<div style="background-color:;">
+<!--   <style>
+    @import url('https://fonts.googleapis.com/css?family=Cedarville+Cursive'); 
+</style> -->
+   <link rel="stylesheet" type="text/css"  href="static/css/order1.css">
+  <div style="padding-top:; text-align:center;">
+    <h1 style=" color: #ffc107; font-size: 70px; margin-bottom: -10px;display:none;">Menu</h1><br>
+  <form name="form" ng-submit="vm.order()" role="form">
+  
+
+<div class="container-fluid padding">
+<div class="row text-center padding">
+	<div ng-repeat="u in vm.itemList">
+    <div class="col-md-4" >
+        <div class="card" ><br>
+  		<img class= "card-img-top" src={{u.imageUrl}}>
+			<div class="card-body">
+                   <h4 class="card-title" ng-bind="u.itemName"></h4>
+                   <p class="card-text" ng-bind="u.description"></p>
+                    <p class="card-text" ng-bind="u.price"></p>
+                    <p>{{u.itemId}}</p><br>
+                    <p>{{vm.order1}}</p>
+                    
+                   <a href="#" class="btn btn-primary" style="display:none;" >Order Now</a>     
+                    <input value="0" placeholder="0" type="number"  name="peppyPaneer" min="0" style="width:50px;" ng-model="vm.order1.peppyPaneer" class="form-control" id="peppyPaneer"/>
+                    <input value="0" placeholder="0" type="number"  name="u.itemName.{u.itemId}" min="0" style="width:50px;" ng-model="vm.order1.item[u.itemId]" class="form-control" id="item_u.itemId"/>
+                    <!-- <button ng-model="vm.order1.item[u.itemId]" id="u.itemId" ng-click="addToCart(u.itemId);" class="btn btn-primary">Add This To cart</button> -->           
+               </div><br>
+  		</div><br>
+ 	 </div>
+  </div>
+  
+  
+  </div>
+  </div>
+  
+    
+    <div class="container-fluid padding">
+    <div class="row text-center padding">
+        <div class="col-md-4" >
+            <div class="card" ><br>
+                <img class= "card-img-top" src="static/images/pizza/veg/Peppy_Paneer.jpg">
+                <div class="card-body">
+                    <h4 class="card-title">Peppy Paneer</h4>
+                    <p class="card-text">Chunky paneer with crisp capsicum and spicy red pepper - quite a mouthful!</p>
+                    <a href="#" class="btn btn-primary" style="display:none;" >Order Now</a>     
+                    <input value="0" placeholder="0" type="number"  name="peppyPaneer" min="0" style="width:50px;" ng-model="vm.order1.peppyPaneer" class="form-control" id="peppyPaneer"/>
+                    <input type="hidden" disabled value="2" style="width:50px;" ng-model="vm.order1.peppyPaneer_id" class="form-control" id="peppyPaneer_id"/>             
+                </div>   <br>           
+            </div>          
+        </div>
+        <div class="col-md-4">
+            <div class="card" ><br>
+                <img class= "card-img-top" src="static/images/pizza/veg/Farmhouse.jpg">
+                <div class="card-body">
+                    <h4 class="card-title">Farmhouse</h4>
+                    <p class="card-text">Farmhouse is a pizza that goes ballistic on veggies!</p>
+                    <a href="#" class="btn btn-primary" style="display:none;" >Order Now</a>     
+                    <input value="0"  placeholder="0"  type="number"  name="farmhouse" min="0" style="width:50px;" ng-model="vm.order1.farmhouse" class="form-control" id="farmhouse"/>              
+                </div> <br>             
+            </div>          
+        </div>
+        <div class="col-md-4">
+            <div class="card" ><br>
+                <img class= "card-img-top" src="static/images/pizza/veg/Margherita.jpg">
+                <div class="card-body">
+                    <h4 class="card-title">Margherita</h4>
+                    <p class="card-text">A hugely popular margherita, with a deliciously tangy single cheese topping </p>
+                    <a href="#" class="btn btn-primary" style="display:none;" >Order Now</a>  
+                    <input value="0"  placeholder="0"  type="number"  name="margherita" min="0" style="width:50px;" ng-model="vm.order1.margherita" class="form-control" id="margherita"/>                 
+                </div>    <br>          
+            </div>          
+        </div>
+        
+    </div>  
+</div>
+
+<br>
+<div class="container-fluid padding">
+    <div class="row text-center padding">
+        <div class="col-md-4">
+            <div class="card" ><br>
+                <img class= "card-img-top" src="static/images/pizza/nonveg/Chicken_Fiesta.jpg">
+                <div class="card-body">
+                    <h4 class="card-title">Chicken Fiesta</h4>
+                    <p class="card-text">Chewy pizza crust topped with tender strips of taco-seasoned chicken, Colby Jack cheese and salsa.</p>
+                    <a href="#" class="btn btn-primary" style="display:none;" >Order Now</a>     
+                    <input  value="0"  placeholder="0"  type="number"  name="chickenFiesta" min="0" style="width:50px;" ng-model="vm.order1.chickenFiesta" class="form-control" id="chickenFiesta"/>              
+                </div>   <br>           
+            </div>          
+        </div>  
+        <div class="col-md-4">
+            <div class="card" ><br>
+                <img class= "card-img-top" src="static/images/pizza/nonveg/Chicken_Golden_Delight.jpg">
+                <div class="card-body">
+                    <h4 class="card-title">Chicken Golden Delight</h4>
+                    <p class="card-text">Barbeque chicken with a topping of golden corn loaded with extra cheese</p>
+                    <a href="#" class="btn btn-primary" style="display:none;" >Order Now</a>     
+                    <input  value="0"  placeholder="0"  type="number"   name="chickenGoldenDelight" min="0" style="width:50px;" ng-model="vm.order1.chickenGoldenDelight" class="form-control" id="chickenGoldenDelight"/>              
+                </div>     <br>         
+            </div>          
+        </div>
+        <div class="col-md-4">
+            <div class="card"><br>
+                <img class= "card-img-top" src="static/images/pizza/nonveg/Non_Veg_Supreme.jpg">
+                <div class="card-body">
+                    <h4 class="card-title">Non Veg Supreme</h4>
+                    <p class="card-text">Bite into supreme delight of Black Olives, Onions, Grilled Mushrooms, Pepper BBQ Chicken, Peri-Peri Chicken, Grilled Chicken Rashers</p>
+                    <a href="#" class="btn btn-primary" style="display:none;" >Order Now</a>  
+                    <input value="0"  placeholder="0"   type="number"  name="nonVegSupreme" min="0" style="width:50px;" ng-model="vm.order1.nonVegSupreme" class="form-control" id="nonVegSupreme"/>                 
+                </div>      <br>        
+            </div>          
+        </div>
+    </div>  
+</div>
+  <br><br><br><br><br><br><br><br>
+  <!-- <div style="float: right;margin-right: 5%;position: fixed;right: 1%;bottom: 5%;">
+    <a href="#/" class="btn btn-danger">Cancel</a>&nbsp&nbsp&nbsp
+    <input type="reset" class="btn btn-warning"  value="Reset">
+    <input type="submit" class="btn btn-success" value="Add to Cart">
+  </div> -->
+  
+  
+		  <div style="padding:10px;background-color: #000000b8;margin:0;position: fixed;left: 0%;bottom: 0%;width:100%;">
+		  
+		  	 <a href="#/" class="btn btn-danger btn-lg hover">< Cancel</a>&nbsp;
+		  	 <input type="reset" class="btn btn-warning  btn-lg hover"  value="Reset O">&nbsp;
+		  	<!-- <input type="submit" class="btn btn-success  btn-lg hover" value="Add to Cart >">&nbsp; -->
+		  <a href="#/payment" class="btn btn-success btn-lg hover">Pay ></a>&nbsp;
+		  <!-- <div style="/*float: left;margin-right: 5%;position: fixed;left: 1%;bottom: 5%;*/">
+		    <a href="#/" class="btn btn-danger btn-lg hover">< Cancel</a>&nbsp;
+		  </div>
+		  <div style="/*float: right;margin-right: 5%;position: fixed;right: 45%;bottom: 5%;*/">
+		    <input type="reset" class="btn btn-warning  btn-lg hover"  value="Reset O">&nbsp;
+		  </div>
+		  <div style="/*float: right;margin-right: 5%;position: fixed;right: 2%;bottom: 5%;*/">
+		    <input type="submit" class="btn btn-success  btn-lg hover" value="Add to Cart >">&nbsp;
+		  </div> -->
+		  </div>
+      </form>
+  </div>
+</div>

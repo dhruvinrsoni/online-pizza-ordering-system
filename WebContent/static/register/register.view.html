@@ -1,0 +1,71 @@
+<link rel="stylesheet" type="text/css"  href="static/css/register.css">
+ <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+ <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+ 
+ 
+ 
+<div class="container"id="register_form" style=" width: max-content;height:100%;position:fixed;">
+<br><br><br><br>
+    <form name="form" ng-submit="vm.register()" role="form" style=" top:60%;left:65%;position:fixed;height: inherit;overflow-y: overlay;    text-align: center; -ms-transform: translateX(-50%) translateY(-50%);
+     transform: translate(-50%,-50%);">
+      
+     
+		   <div style="color: white;font-size: 70px;">
+ 	<h1><b>Registration Form</b></h1>
+   	</div>
+     
+         <div class="form-group" >
+         <label for = "name"> Name:  </label>
+            <input type="text" ng-model="vm.user.name" class="form-control" name="name" id="name" placeholder="Enter Name" required/>
+            <span ng-show="form.name.$dirty && form.name.$error.required" class="help-block">Name is required</span>
+        </div>
+        <br>
+        <div class="form-group">
+        <label for = "email"> Email Id:  </label>
+            <input type="email" name="email" ng-model="vm.user.email" email="true" class="form-control" id="emailAddress"  placeholder="Enter Email" required/>
+            <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block" >Email is required</span>
+        </div>
+        <br>
+        <div class="form-group">
+        <label for = "password"> Password:  </label>
+            <input type="password" name="password" ng-model="vm.user.password" class="form-control" id="password" placeholder="Enter Password" required/>
+            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+        </div>
+        <br>
+        <div class="form-group">
+        <label for = "address"> Address:  </label>
+            <input type="textarea" rows="3" name="address" ng-model="vm.user.address" class="form-control" id="address" placeholder="Enter Address" required/>
+            <span ng-show="form.address.$dirty && form.address.$error.required" class="help-block" >Address is required</span>
+        </div>
+        <br>
+         <div class="form-group">
+         <label for = "mobileNum"> Mobile Number:  </label>
+            <input type="number" name="mobileNum" ng-model="vm.user.mobileNum" max="10" class="form-control" id="mobileNum" placeholder="Enter Mobile Number" required/>
+            <span ng-show="form.mobileNum.$dirty && form.mobileNum.$error.required" class="help-block" >Mobile Number is required</span>
+        </div>
+        <br>
+         <div class="form-group">
+         <label for = "mobileNum"> Pincode:  </label>
+            <input type="number" name="pincode" ng-model="vm.user.pincode" max="6" class="form-control" id="pincode" placeholder="Enter Pincode" required/>
+            <span ng-show="form.pincode.$dirty && form.pincode.$error.required" class="help-block" >Pincode is required</span>
+        </div>
+        <br>
+         <!-- <div class="form-group">
+         <label for = "mobileNum"> You are a:  </label>
+            <select name="userType" ng-model="vm.user.userType" class="form-control" id="userType" required>
+            <option selected disabled hidden style='display: none' value=''></option>
+            	<option value="3" selected="selected" >Customer</option>
+            	<option value="2" selected="" >Employee</option>
+            </select>
+            <span ng-show="form.pincode.$dirty && form.userType.$error.required" class="help-block" >User Type is required</span>
+        </div> -->
+        <br><br><br>
+        <div class="form-actions">
+            <input type="submit" class="btn btn-primary" value="Register">
+            <input type="reset" class="btn btn-primary"  value="Reset">
+            
+            
+        </div><br><br><br><br>
+    </form>
+</div>

@@ -1,0 +1,132 @@
+
+
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+a {
+    color: white;
+    display: block;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff9c09;
+    text-decoration: none;
+}
+.address{
+  padding-top: 22px;
+  float:right;
+  font-family: Café Françoise, cursive;
+  font-size: 15px;
+  color:#DACA9F;
+
+}
+input[type=text]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: white;
+    color: #292929;
+    font-size: 30px;
+    transition: color 0.85s;
+}
+
+input[type=text]:hover{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #dee7f4;
+    
+
+}
+
+input[type=password]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: white;
+    color: #292929;
+    font-size: 30px;
+    transition: color 0.85s;
+}
+
+input[type=password]:hover{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #dee7f4;
+    
+}
+
+input[type=submit] {
+    width: 56%;
+   /* background-color: #292929;*/
+    color: white;
+    padding: 10px;
+    margin: 3px;
+    font-size: 30px;
+    /*color: #FF7C00;*/
+    border: none;
+    cursor: pointer;
+    transition: color 0.85s;
+}
+
+input[type=submit]:hover {
+    width: 56%;
+   /* background-color: blue;*/
+    /*color: #292929;*/
+    border: none;
+    padding: 10px;
+    margin: 3px;
+
+}
+
+.login {
+
+    text-align: center;
+    border-radius: 5px;
+    background-color: #1E1E20;
+    padding: 20px;
+    margin-top: 10%;
+}
+textarea{
+    width: 75%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #1E1E20;
+    color: white;
+  }
+
+span{
+  color: white; font-size:15px;
+
+}
+
+label{
+  color:#ff9800; font-size:20px;
+}
