@@ -26,7 +26,7 @@
                 	console.log("login.controller:-> login success. showing the response", response);
                 	$localStorage.email=vm.email;
                 	$localStorage.userName=response.data.name;
-                	
+                	$localStorage.userType=response.data.userType;
                 	
                 	console.log($localStorage.email);
                 	
@@ -40,7 +40,7 @@
                 			
                 		case 2:
                 			$location.path('/employee') ;
-               			 $location.replace("http://localhost:8080/PizzaWale/#/login");
+               			 	$location.replace("http://localhost:8080/PizzaWale/#/login");
                 			// alert("Employee Login successful");  
                 			break;
                 			

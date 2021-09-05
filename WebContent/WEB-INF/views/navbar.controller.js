@@ -10,6 +10,7 @@
         var vm= this;
         vm.getUserName=getUserName;
     	$scope.userName=$localStorage.email;
+    	$scope.userType=$localStorage.userType;
         /*$scope.checkLoggedIn = function(){
         	if($localStorage.email!=null){
         		return true;
@@ -50,5 +51,13 @@
         	else{
         		return false;
         	}
+		})();
+		(function checkEmployeeLogin() {
+			if($localStorage.userType==2){
+				return true;
+			}
+			else{
+				return false;
+			}
 		})();
 }})();

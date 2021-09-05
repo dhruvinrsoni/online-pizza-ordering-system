@@ -4,6 +4,8 @@ package com.springmvc.service;
 
 import com.springmvc.model.Order;
 import com.springmvc.model.OrderItem;
+import com.springmvc.model.Orders;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -26,5 +28,5 @@ public interface OrderService {
 	public OrderItem getOrderItem(OrderItem orderItem);
 	String printOrder(List<String> orderItem);
 	
-	
+	List<Orders> getAllOrders();
 }

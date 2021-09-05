@@ -1,7 +1,8 @@
 package com.springmvc.model;
+
 import java.time.LocalDateTime;
-import java.util.Date;
-public class Order {
+
+public class Orders {
 	
 	private String orderEmail; 
 	private String orderAddresss;
@@ -9,14 +10,14 @@ public class Order {
 	private String orderPinCode;
 	private String orderMobile;
 	private int ordertotal;
-	private LocalDateTime orderTS;
+	private String orderTS;
 	private int paymentID;
 	private int orderStatus;
 	
-	public Order() {}
+	public Orders() {}
 	
-	public Order(String orderEmail, String orderAddresss, String orderName, String orderPinCode, String orderMobile,
-			int ordertotal, LocalDateTime orderTS, int paymentID, int orderStatus) {
+	public Orders(String orderEmail, String orderAddresss, String orderName, String orderPinCode, String orderMobile,
+			int ordertotal, String orderTS, int paymentID, int orderStatus) {
 		super();
 		this.orderEmail = orderEmail;
 		this.orderAddresss = orderAddresss;
@@ -64,10 +65,10 @@ public class Order {
 	public void setOrdertotal(int ordertotal) {
 		this.ordertotal = ordertotal;
 	}
-	public LocalDateTime getOrderTS() {
+	public String getOrderTS() {
 		return orderTS;
 	}
-	public void setOrderTS(LocalDateTime orderTS) {
+	public void setOrderTS(String orderTS) {
 		this.orderTS = orderTS;
 	}
 	public int getPaymentID() {
@@ -92,6 +93,7 @@ public class Order {
 				+ ", orderPinCode=" + orderPinCode + ", orderMobile=" + orderMobile + ", ordertotal=" + ordertotal
 				+ ", orderTS=" + orderTS + ", paymentID=" + paymentID + ", orderStatus=" + orderStatus + "]";
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -107,6 +109,7 @@ public class Order {
 		result = prime * result + paymentID;
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -115,7 +118,7 @@ public class Order {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Order other = (Order) obj;
+		Orders other = (Orders) obj;
 		if (orderAddresss == null) {
 			if (other.orderAddresss != null)
 				return false;
@@ -155,7 +158,5 @@ public class Order {
 		return true;
 	}
 	
-	
-
 	
 }

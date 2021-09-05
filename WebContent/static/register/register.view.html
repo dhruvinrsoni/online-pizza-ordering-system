@@ -5,10 +5,10 @@
  
  
  
-<div class="container"id="register_form" style=" width: max-content;height:100%;position:fixed;">
-<br><br><br><br>
-    <form name="form" ng-submit="vm.register()" role="form" style=" top:60%;left:65%;position:fixed;height: inherit;overflow-y: overlay;    text-align: center; -ms-transform: translateX(-50%) translateY(-50%);
-     transform: translate(-50%,-50%);">
+<div class="container"id="register_form" style="/* width: max-content;height:100%;position:fixed;*/">
+
+    <form name="form" ng-submit="vm.register()" role="form" style="margin-left:50%; /*top:60%;left:65%;position:fixed;height: inherit;overflow-y: overlay;    text-align: center; -ms-transform: translateX(-50%) translateY(-50%);
+     transform: translate(-50%,-50%);*/">
       
      
 		   <div style="color: white;font-size: 70px;">
@@ -41,14 +41,26 @@
         <br>
          <div class="form-group">
          <label for = "mobileNum"> Mobile Number:  </label>
-            <input type="number" name="mobileNum" ng-model="vm.user.mobileNum" max="10" class="form-control" id="mobileNum" placeholder="Enter Mobile Number" required/>
+            <input type="number" name="mobileNum" ng-model="vm.user.mobileNum"  class="form-control" id="mobileNum" placeholder="Enter Mobile Number" required/>
             <span ng-show="form.mobileNum.$dirty && form.mobileNum.$error.required" class="help-block" >Mobile Number is required</span>
         </div>
         <br>
          <div class="form-group">
          <label for = "mobileNum"> Pincode:  </label>
-            <input type="number" name="pincode" ng-model="vm.user.pincode" max="6" class="form-control" id="pincode" placeholder="Enter Pincode" required/>
+            <input type="number" name="pincode" ng-model="vm.user.pincode" class="form-control" id="pincode" placeholder="Enter Pincode" required/>
             <span ng-show="form.pincode.$dirty && form.pincode.$error.required" class="help-block" >Pincode is required</span>
+        </div>
+        <br>
+         <div class="form-group">
+         <label for = "userType"> You Are:  </label>
+            <!-- <input type="number" name="userType" ng-model="vm.user.userType" class="form-control" id="userType" placeholder="Enter Pincode" required/> --> 
+            <select  name="userType" id="userType" ng-model="vm.user.userType" class="form-control" placeholder="Select User Type" required>
+				<option value="" disabled selected>Select User Type</option>
+				<option value="1">Admin</option>
+				<option value="2">Employee</option>
+				<option value="3">Customer</option>
+			</select> 
+			<span ng-show="form.userType.$dirty && form.userType.$error.required" class="help-block" >User Type is required</span>
         </div>
         <br>
          <!-- <div class="form-group">
@@ -60,12 +72,12 @@
             </select>
             <span ng-show="form.pincode.$dirty && form.userType.$error.required" class="help-block" >User Type is required</span>
         </div> -->
-        <br><br><br>
+        
         <div class="form-actions">
             <input type="submit" class="btn btn-primary" value="Register">
             <input type="reset" class="btn btn-primary"  value="Reset">
             
             
-        </div><br><br><br><br>
+        </div>
     </form>
 </div>

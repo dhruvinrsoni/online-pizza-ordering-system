@@ -9,10 +9,17 @@ This project has been given a simple name for convenience as **PizzaWale**
 
 ### Features of the product
 
-- User Profiling based login and further customizations
-- Registration of User Details (Signing Up)
-- Selection of the products
-- Payments page to make the payments online
+- Addition of new Users by Registration page and storing User Details
+- Login/Logout with User Profiling
+- Login Persistence even if browser is closed
+- Separate Accesses based on User Profiling
+- For Customers:
+	- Ordering the items and checkout page for customer login
+	- Payments page redirection to make the payments online post checkout
+- For Employees:
+	- Updation of the order statuses which can be reflected further
+- For Admins:
+	- Updation of the menu to add/remove items from order page
 
 This is created using: 
 
@@ -22,10 +29,12 @@ This is created using:
 
 ### Specifics about the Project (Technical)
 
-- AngularJS based routing
+- Session Persistence even if browser is closed
 - SQL Injection proof login
 - Encrypted password storage
-- Dynamically storing of data into DB
+- AngularJS based UI routing
+- Dynamically storing of data into DB(users, orders)
+- Real-Time Updation of statuses
 
 ## Pre-requisites
 1.This project needs to be run with the help of Apache Tomcat: [Refer This Link](http://tomcat.apache.org/)
@@ -61,3 +70,62 @@ Navigate to [this link](http://localhost:8080/PizzaWale/#/) to see the home page
 You can register to create new user and then login since the user will be added into DB.
 
 To access previous users with admin, employee etc. profiles the credentials are avaialble *in the code* as well as they can be decoded from hashed passwords *in the SQL script* via md5 algorithm.
+
+
+## Screenshots
+
+
+### PizzaWale-home-welcome-page
+![PizzaWale-home-welcome-page.png](/images/PizzaWale-home-welcome-page.png)
+
+
+### PizzaWale-contact-us-page
+![PizzaWale-contact-us-page.png](/images/PizzaWale-contact-us-page.png)
+
+
+### PizzaWale-registration-signup-form
+![PizzaWale-registration-signup-form.png](/images/PizzaWale-registration-signup-form.png)
+
+
+### PizzaWale-login-page
+![PizzaWale-login-page.png](/images/PizzaWale-login-page.png)
+
+
+### PizzaWale-order-page-1
+![PizzaWale-order-page-1.png](/images/PizzaWale-order-page-1.png)
+
+
+### PizzaWale-order-page-2
+![PizzaWale-order-page-2.png](/images/PizzaWale-order-page-2.png)
+
+
+### PizzaWale-order-page-3
+![PizzaWale-order-page-3.png](/images/PizzaWale-order-page-3.png)
+
+
+### PizzaWale-order-page-4
+![PizzaWale-order-page-4.png](/images/PizzaWale-order-page-4.png)
+
+
+### PizzaWale-order-in-cart-summary
+![PizzaWale-order-in-cart-summary.png](/images/PizzaWale-order-in-cart-summary.png)
+
+
+### PizzaWale-order-checkout-payment-page
+![PizzaWale-order-checkout-payment-page.png](/images/PizzaWale-order-checkout-payment-page.png)
+
+
+### PizzaWale-logout-successful
+![PizzaWale-logout-successful.png](/images/PizzaWale-logout-successful.png)
+
+
+### PizzaWale-employee-login-order-status-updation
+![PizzaWale-employee-login-order-status-updation.png](/images/PizzaWale-employee-login-order-status-updation.png)
+
+
+### PizzaWale-admin-login-menu-updation-1
+![PizzaWale-admin-login-menu-updation-1.png](/images/PizzaWale-admin-login-menu-updation-1.png)
+
+
+
+# Thank You !

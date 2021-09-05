@@ -7,6 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.temporal.TemporalAccessor;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.springmvc.model.Order;
 import com.springmvc.model.OrderItem;
+import com.springmvc.model.Orders;
 import com.springmvc.model.User;
 
 
@@ -296,7 +301,7 @@ public class OrderServiceimpl implements OrderService {
 		Order order = new Order();
 		List<OrderItem> orderItems=new ArrayList<OrderItem>();
 		//java.sql.Date now = new java.sql.Date(System.currentTimeMillis());
-		Date date = new Date();
+		LocalDateTime dateTime = LocalDateTime.now();
 		int subtotal=0, total=0, itemPrice=0;
 		String itemName="";
 		User user = new User();
@@ -309,7 +314,7 @@ public class OrderServiceimpl implements OrderService {
 			return nullOrderObj;
 		} 
 		
-		order.setOrderTS(date);
+		order.setOrderTS(dateTime);
 		order.setOrderAddresss(user.getAddress());
 		order.setOrderEmail(user.getEmail());
 		order.setOrderMobile(user.getMobileNum());
@@ -345,7 +350,7 @@ public class OrderServiceimpl implements OrderService {
 				
 				setOrderItem(orderItem, entry.getKey(), orderId);
 				System.out.println(orderItem.getItemName());
-				orderItem.setOrderTS(date);
+				orderItem.setOrderTS(dateTime);
 				orderItem.setOrderAddresss(user.getAddress());
 				orderItem.setOrderEmail(user.getEmail());
 				orderItem.setOrderMobile(user.getMobileNum());
@@ -466,5 +471,34 @@ public class OrderServiceimpl implements OrderService {
 		return orderItem;
 	}
 	
+	//@Override
+	public List<Orders> getAllOrders(){
+		List<Orders> orders = new ArrayList<Orders>();
+		try {
+			connectToDB();
+			Statement stmt = connection.createStatement();
+
+			String getOrdersQuery = "select * from pizzawale.order;";
+			System.out.println("Select  Query of getOrdersQuery:- " + getOrdersQuery);
+
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery(getOrdersQuery);
+			while (resultSet.next()) {
+				LocalDateTime localDateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(resultSet.getTimestamp("order_ts").getTime()), ZoneId.systemDefault());
+				
+				Orders order = new Orders(resultSet.getString("order_email"), resultSet.getString("order_address"),
+						resultSet.getString("order_name"), resultSet.getString("order_pincode"),
+						resultSet.getString("order_mobile"), resultSet.getInt("order_total"),
+						localDateTime.toString(), resultSet.getInt("payment_id"), resultSet.getInt("order_status"));
+
+				orders.add(order);
+			}
+
+			closeDBconnection();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return orders;
+	}
 }
 

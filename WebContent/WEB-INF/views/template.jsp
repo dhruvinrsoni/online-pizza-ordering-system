@@ -83,7 +83,9 @@
             <!-- Navbar Menu -->
             <ul class="nav navbar-nav navbar-right">
                 <li class="" id="home_li"><a class="homered" href="#/home">HOME</a></li>
-                <li ng-show="checkLoggedIn()" id="order_li"><a class="homeblack" href="#/order">ORDER</a></li>
+                <li ng-show="checkCustomerLogin()" id="order_li"><a class="homeblack" href="#/order">ORDER</a></li>
+                <li ng-show="checkEmployeeLogin()" id="employee_li"><a class="homeblack" href="#/employee">EMPLOYEE</a></li>
+                <li ng-show="checkAdminLogin()" id="admin_li"><a class="homeblack" href="#/admin">ADMIN</a></li>
                 <li id="aboutus_li"><a class="homeblack" href="#/aboutus">CONTACT US</a></li>
                 <li ng-hide="checkLoggedIn()" id="register_li"><a class="homeblack" href="#/register">REGISTER</a></li>				
                 <li ng-hide="checkLoggedIn()" id="login_li"><a class="homegreen" href="#/login">LOGIN</a>
@@ -112,6 +114,7 @@
         <script src="static/js/app.js"></script>
         <!-- Include services -->
         <script src="static/app-services/order.service.js"></script>
+        <script src="static/app-services/employee.service.js"></script>
 
         <script src="static/app-services/user.service.js"></script>
         <!-- Include angular controller scripts -->
@@ -152,6 +155,7 @@
              	}
          	};*/
          	$scope.checkLoggedIn=function() {
+         		
          		console.log("inside checkLoggedIn()");
      			if($localStorage.email!=null){
              		if($localStorage.email!=null)
@@ -164,6 +168,30 @@
              	else{
              		return false;
              	}
+     		};
+         	$scope.checkAdminLogin=function() {
+         		console.log("inside checkAdminLogin()");
+         		if($localStorage.userType==1) {
+     				return true;
+     			} else {
+     				return false;
+     			}
+     		};
+     		$scope.checkEmployeeLogin=function() {
+         		console.log("inside checkEmployeeLogin()");
+         		if($localStorage.userType==2) {
+     				return true;
+     			} else {
+     				return false;
+     			}
+     		};
+         	$scope.checkCustomerLogin=function() {
+         		console.log("inside checkCustomerLogin()");
+         		if($localStorage.userType==3) {
+     				return true;
+     			} else {
+     				return false;
+     			}
      		};
          	function checkLogin()
          	{

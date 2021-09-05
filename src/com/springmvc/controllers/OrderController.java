@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.springmvc.model.Order;
 import com.springmvc.model.OrderItem;
+import com.springmvc.model.Orders;
 import com.springmvc.model.User;
 
 import com.springmvc.service.OrderService;
@@ -69,6 +70,40 @@ public class OrderController {
 			return new ResponseEntity<List<OrderItem>>(orderItems ,HttpStatus.CONFLICT) ;
 		}
 	}
+    @RequestMapping(value="/orders", method=RequestMethod.GET,  produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Orders>> getOrders(HttpServletRequest req) {
+    	System.out.println("Inside create Order Controller.java") ;
+    	HttpSession session= req.getSession();
+    	Object emailObj = req.getAttribute("email");
+    	User user =(User)session.getAttribute("email");
+    	
+    	
+    	//int returned = orderService.saveOrder(orderList) ;
+    	String email=req.getHeader("email");
+    	HttpHeaders headers = new HttpHeaders() ;
+    	
+    	Order order = new Order();
+    	List<Orders> orders = new ArrayList<Orders>();
+    	orders = orderService.getAllOrders();
+    	System.out.println("Printing the orders list.................");
+    	System.out.println(orders);
+    	/*if(returned == 1) {
+			return new ResponseEntity<Order>(order, HttpStatus.CREATED) ;
+			
+    		
+		}
+		else {
+			return new ResponseEntity<Order>(order ,HttpStatus.CONFLICT) ;
+		}*/
+    	if(orders != null) {
+    		return new ResponseEntity<List<Orders>>(orders, HttpStatus.CREATED) ;
+    		
+    		
+    	}
+    	else {
+    		return new ResponseEntity<List<Orders>>(orders ,HttpStatus.CONFLICT) ;
+    	}
+    }
     
 
     @RequestMapping(value="/orderitems", method=RequestMethod.POST,  produces = MediaType.APPLICATION_JSON_VALUE)

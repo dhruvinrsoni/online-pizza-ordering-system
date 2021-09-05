@@ -211,11 +211,11 @@ public class UserServiceImpl implements UserService {
 		System.out.println(user);
 		try {
 			connectToDB() ;
-			
+			int userType = user.getUserType()==0?3:user.getUserType();
 			Statement stmt = connection.createStatement() ;
 			String query = "insert into user (email, user_name, address, password, mobile_num , user_type, pincode) values ('"+ user.getEmail()+"','"+ 
 							user.getName()+"','"+user.getAddress() +"','"+ getHash(user.getPassword())+"','"+
-							user.getMobileNum()+"','"+3+"','"+user.getPincode()+"');" ;
+							user.getMobileNum()+"','"+userType+"','"+user.getPincode()+"');" ;
 			System.out.println("saveUser Query:- "+query) ;
 			int returned = stmt.executeUpdate(query) ;
 			if(returned == 1) 

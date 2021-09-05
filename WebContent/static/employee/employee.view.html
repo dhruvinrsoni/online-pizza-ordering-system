@@ -103,12 +103,13 @@
   <hr class="style2">
 <div ng-class="getTheme(theme)" style="margin:-11px; min-height:733px;">
   <input type="button" ng-click="theme=!theme" value="Change Theme" style="float:left; margin:14px; width: 10%; background-color: #1E1E20; color: white; border: single white; border-radius: 4px;">
-  <div style="margin: auto;width:80% ; padding-top: 10px">
+  <div style="margin: auto;width:100% ; padding-top: 10px">
     <h3 style= "color:white"><br>All Orders</h3>
 		
 		
     <div  ng-repeat="order in orders"   ng-class="getorderClass(order.done)">
-      <span style="    font-size: 17px;    color:white;"> &nbsp {{order.serialKey}}. &nbsp&nbsp OrderID: &nbsp {{order.orderid}} &nbsp&nbsp Name: &nbsp {{order.name}} </span>
+      <span style="    font-size: 17px;    color:white;"> {{order.serialKey}}. OrderEmail:&nbsp;{{order.orderEmail}} | OrderAddresss:&nbsp;{{order.orderAddresss}} | OrderMobile:&nbsp;{{order.orderMobile}} | Name:&nbsp;{{order.orderName}} | OrderPinCode:&nbsp;{{order.orderPinCode}} | OrderTime:&nbsp;{{order.orderTS}} | Total:&nbsp;{{order.ordertotal}} | paymentID:&nbsp;{{order.paymentID}} </span>
+      <!-- <span style="    font-size: 17px;    color:white;"> &nbsp {{order.serialKey}}. &nbsp&nbsp OrderID: &nbsp {{order.orderid}} &nbsp&nbsp Name: &nbsp {{order.name}} </span> -->
       <!--input type="checkbox" ng-model="myVar" ng-init="myVar = false" -->
       <input type="button" ng-click="order.done=!order.done" value="Change Order Status" style=" width: 15%; background-color: #1E1E20; color: white; border: single white; border-radius: 4px;"></div><br>
       
@@ -126,14 +127,14 @@
     <h3 style="color:white">Pending Orders<br></h3>
 
     <div ng-repeat="order in orders" ng-class="getorderClass(order.done)">
-      <span ng-show="!order.done" style="font-family: Café Françoise, cursive;    font-size: 17px;    color:white;"> &nbsp {{order.serialKey}} &nbsp&nbsp OrderID: &nbsp {{order.orderid}} &nbsp&nbsp Name: &nbsp {{order.name}}</span>
+      <span ng-show="!order.done" style="font-family: Café Françoise, cursive;    font-size: 17px;    color:white;"> {{order.serialKey}}. OrderEmail:&nbsp;{{order.orderEmail}} | OrderAddresss:&nbsp;{{order.orderAddresss}} | OrderMobile:&nbsp;{{order.orderMobile}} | Name:&nbsp;{{order.orderName}} | OrderPinCode:&nbsp;{{order.orderPinCode}} | OrderTime:&nbsp;{{order.orderTS}} | Total:&nbsp;{{order.ordertotal}} | paymentID:&nbsp;{{order.paymentID}} </span>
 
     </div>
 
       <h3 style="color:white">Completed Orders</h3>
 
     <div ng-repeat="order in orders" ng-class="getorderClass(order.done)">
-      <span ng-show="order.done"  style="font-family: Café Françoise, cursive;    font-size: 17px;    color:white;"> &nbsp {{order.serialKey}} &nbsp&nbsp OrderID: &nbsp {{order.orderid}} &nbsp&nbsp Name: &nbsp {{order.name}} </span>
+      <span ng-show="order.done"  style="font-family: Café Françoise, cursive;    font-size: 17px;    color:white;"> {{order.serialKey}}. OrderEmail:&nbsp;{{order.orderEmail}} | OrderAddresss:&nbsp;{{order.orderAddresss}} | OrderMobile:&nbsp;{{order.orderMobile}} | Name:&nbsp;{{order.orderName}} | OrderPinCode:&nbsp;{{order.orderPinCode}} | OrderTime:&nbsp;{{order.orderTS}} | Total:&nbsp;{{order.ordertotal}} | paymentID:&nbsp;{{order.paymentID}} </span>
 
     </div><br>
 
