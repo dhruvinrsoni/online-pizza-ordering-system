@@ -1,0 +1,11 @@
+# syntax=docker/dockerfile:1
+FROM mysql:8.0.26
+
+ENV MYSQL_ROOT_PASSWORD=root
+COPY "./sql/Pizzawale.20190821.0922.sql" "/docker-entrypoint-initdb.d/Pizzawale.20190821.0922.sql"
+
+#RUN mysqld
+#RUN mysql --user=root --password=root < /sql/Pizzawale.20190821.0922.sql
+
+
+EXPOSE 3306 33060

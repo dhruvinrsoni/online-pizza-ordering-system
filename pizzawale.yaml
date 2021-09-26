@@ -1,0 +1,47 @@
+version: '2'
+# networks:
+  # mynetwork: 
+networks:
+  pizzawale-network:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1
+services:
+    mysql:
+        image: mysql:8.0.26
+        ports:
+        -   3306:3306
+        -   33060:33060
+        environment:
+        - MYSQL_ROOT_PASSWORD=root
+        volumes:
+        - "./sql:/docker-entrypoint-initdb.d"
+        networks:
+          pizzawale-network:
+            ipv4_address: 10.5.0.5
+        #command: /bin/bash -c "/mysqlscript/mysqlscript.sh"
+        # networks:
+        # - mynetwork
+        #command:
+        #- "/usr/bin/mysql --user=root --password=root < /sql/Pizzawale.20190821.0922.sql"
+    tomcat:
+        build: .
+        image: tomcat:9-jdk8-openjdk
+        ports:
+        -   8080:8080
+        volumes: 
+        - "./tomcatscript/:/temp/"
+        - "./war/:/usr/local/tomcat/webapps/"
+        networks:
+          pizzawale-network:
+            ipv4_address: 10.5.0.6
+        depends_on:
+         - mysql
+        command: /bin/bash -c "/temp/tomcatscript.sh && catalina.sh run"
+        #entrypoint: ["/bin/bash", "-c","'/tomcatscript/tomcatscript.sh && catalina.sh run'"]
+        # environment:
+            # SERVICE_URL: 'http://localhost/'
+        # networks:
+        # - mynetwork

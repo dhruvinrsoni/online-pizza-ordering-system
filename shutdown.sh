@@ -1,0 +1,1 @@
+docker-compose -f .\pizzawale.yaml down
