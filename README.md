@@ -1,42 +1,50 @@
 # online-pizza-ordering-system
-Here is a small project that implements online pizza ordering system using angular and spring mvc in tomcat.
+This project that implements online pizza ordering system using angular and spring mvc in tomcat with mysql.
 
-## About the Project
+## About Project
 
 This project has been given a simple name for convenience as **PizzaWale**
 
-### ```For this name, We don't claim any copyright.```
+ **```For this name, We don't claim any copyright.```**
 
-### Features of the product
+---
 
-- Addition of new Users by Registration page and storing User Details
+## Features of this product
+
+- Addition of new Users using Registration page and storing User Details
 - Login/Logout with User Profiling
-- Login Persistence even if browser is closed
 - Separate Accesses based on User Profiling
-- For Customers:
-	- Ordering the items and checkout page for customer login
+- Login Persistence even if browser is closed for ease of access
+- For Customers Login:
+	- Ordering the items and checkout page 
 	- Payments page redirection to make the payments online post checkout
-- For Employees:
-	- Updation of the order statuses which can be reflected further
-- For Admins:
+- For Employees Login:
+	- Real - Time listing of the orders to update statuses
+- For Admin Login:
 	- Updation of the menu to add/remove items from order page
 
-This is created using: 
-
-#### Frontend: `HTML`, `CSS`, `JS`, `AngularJS`
-
-#### Backend: `Java`, `SpringMVC`, `MySQL`
-
-### Specifics about the Project (Technical)
+## Technical Specifications
 
 - Session Persistence even if browser is closed
 - SQL Injection proof login
 - Encrypted password storage
 - AngularJS based UI routing
 - Dynamically storing of data into DB(users, orders)
-- Real-Time Updation of statuses
+- Real-Time Updation of statuses(ordering)
 
-## Pre-requisites
+## Technologies
+
+### Frontend: 
+
+> **`HTML`**, **`CSS`**, **`JS`**, **`AngularJS`**
+
+### Backend: 
+
+> **`Java`, `SpringMVC`, `MySQL`**
+
+---
+
+## Pre-Requisites
 1.This project needs to be run with the help of Apache Tomcat: [Refer This Link](http://tomcat.apache.org/)
   
   Kindly install the Apache Tomcat.
@@ -47,9 +55,11 @@ This is created using:
   Kindly set-up a DB Server with default configurations and host it locally.
   Current code is configured for the ```MySQL Community Server 8.0.26 @ jdbc:mysql://localhost:3306/, root, root```
 
-### Requerements Check List
+### Requirements Check List
 - [ ] Apache Tomcat Installation
 - [ ] MySQL Server @ jdbc:mysql://localhost:3306/, root, root
+
+---
 
 ## Building and Running the Project
 
@@ -71,6 +81,73 @@ You can register to create new user and then login since the user will be added 
 
 To access previous users with admin, employee etc. profiles the credentials are avaialble *in the code* as well as they can be decoded from hashed passwords *in the SQL script* via md5 algorithm.
 
+---
+
+## Direct Run
+
+Now you can even directly deploy and use the application. :rocket:
+
+As mentioned above are the two pre-requisite softwares [check here](#pre-requisites)
+
+1. You can initialize the mysql db with the script given. (**`Pizzawale 20190821 0922.sql`**)
+2. Start the tomcat server and navigate to `Manager App` which would be mostly [here](http://localhost:8080/manager/html) 
+	Further Navigate to `Deploy` Section > `Deploy directory or WAR file located on server` where you can define the 
+	- Context Path : **/PizzaWale**
+	- WAR or Directory path : **<location_to_PizzaWale.war>**
+3. Click on Deploy to host the application on local system
+
+Navigate to [this link](http://localhost:8080/PizzaWale/#/) to see the home page of started application.
+
+---
+
+## Deploying Using Docker :rocket:
+
+**GREAT NEWS!!!....**  :smiley:
+
+Now this application is available as on docker images also. There are two options available.
+
+> **Docker Engine is the only pre-requisite for this**
+
+### 1 Using docker-compose
+
+The **`pizzawale.yaml`** file has all the needful configurations to deploy this application. 
+
+1. Clone the repository.
+2. Run **`startup.sh`** or this command to start the application: **`docker-compose -f .\pizzawale.yaml up -d`**
+	This command will fetch the existing images of mysql and tomcat server and create their images customized with our application and connect them using docker's internal network. (This step might take some time in the first run to download all the images.)
+3. Run **`shutdown.sh`** or this command to stop and remove the containers of this application: **`docker-compose -f .\pizzawale.yaml down`**
+
+Navigate to [this link](http://localhost:8080/PizzaWale/#/) to see the home page of started application.
+
+### 2 Using docker images with scripts
+
+Here there are couple of scripts(docker commands eventually) which will create the images, containers and then connect them on an internal network.
+
+The ready-made images for the application are already available in the docker hub repository of [dhruvinrsoni@dockerhub](https://hub.docker.com/u/dhruvinrsoni) by names of **`pizzawale-mysqldb`**, **`pizzawale-tomcatserver`**
+
+Sr No. | Script Name | Descirption
+-------|-------------|--------------
+1 | **`pull.sh`** | to fetch the images required for the application and available on docker hub. 
+2 | **`create.sh`** | to create containers and network, connect them in same network.
+3 | **`deploy.sh`** | to start the containers which will start the application eventually. By this the application should get up with some initial time delay required for startup. Navigate to [this link](http://localhost:8080/PizzaWale/#/) to see the home page of started application.
+4 | **`undeploy.sh`** | to stop the containers which will undeploy the application.
+5 | **`clean.sh`** | to remove the containers and the network.
+
+---
+
+## Default Users
+
+> **Below is the table with the credentails of the default users.**
+
+Email Id               | Password
+-----------------------|-------------
+dhruvin@gmail.com      | dhruvin
+tommy@gmail.com        | t
+dhruvin@pizzawale.com  | dhruvin
+admin@pizzawale.com    | admin
+employee@pizzawale.com | emp
+
+---
 
 ## Screenshots
 
