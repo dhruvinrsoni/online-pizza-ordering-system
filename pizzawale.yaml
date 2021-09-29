@@ -27,7 +27,6 @@ services:
         #command:
         #- "/usr/bin/mysql --user=root --password=root < /sql/Pizzawale.20190821.0922.sql"
     tomcat:
-        build: .
         image: tomcat:9-jdk8-openjdk
         ports:
         -   8080:8080
