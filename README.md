@@ -5,7 +5,7 @@ This project that implements online pizza ordering system using angular and spri
 
 This project has been given a simple name for convenience as **PizzaWale**
 
- **```For this name, We don't claim any copyright.```**
+ **```For this name, We don't claim any copyright. (Unless this hasn't been claimed... :P)```**
 
 ---
 
