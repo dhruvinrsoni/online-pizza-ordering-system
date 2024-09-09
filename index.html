@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<title>Notes App</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="index.css" />
+</head>
+<body ng-controller="MainCtrl as ctrl">
+<h1 style="text-align:center;">Welcome to Pizza Center</h1>
+<div>
+<form ng-submit="ctrl.submit()" name="myForm" action="loginSuccessful.html">
+<table style="margin:auto;">
+<tr>
+	<td><b>Username:</b></td>
+	<td><input required type="text" placeholder="Enter Username here..." ng-model="ctrl.user.username"/>
+	<span ng-show="myForm.uname.$error.required">*</span>
+	</td>
+	
+  </form
+</tr>
+<tr>
+	<td><b>Password:</b></td>
+	<td><input required type="password" placeholder="Enter your password..." <span ng-show="myForm.uname.$error.required">*</span>/></td>
+	<span ng-show="myForm.uname.$error.required">*</span>
+  </form
+</tr>
+<tr style="text-align:center;">
+	<td colspan="2"><input type="submit" value="Login" /></td>
+</tr>
+<tr style="text-align:center;">
+	<td colspan="2">&nbsp;</td>
+</tr>
+<tr style="text-align:center;">
+	<td colspan="2">New User? <a href="Register.html">Register Here</a></td>
+</tr>
+</table>
+</form>
+</div>
+</body>
+</html>
