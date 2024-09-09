@@ -1,0 +1,124 @@
+
+<div>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Cedarville+Cursive');
+  </style>
+  <link rel="stylesheet" type="text/css"  href="static/css/order1.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <div style="padding-top:5%; text-align:center;">
+    <h1 style=" color: #FF7C00; font-size: 70px; margin-bottom: -10px;">Menu</h1>
+  <form name="form" ng-submit="vm.order()" role="form">
+    <fieldset class="field">
+        <div class="image">
+           <img src="static/images/Margherit.jpg" style="height:21%">
+        </div>
+        <div class="textpizza"  style="padding-bottom: 10px;">
+            <h1 style=" color: #FF7C00;">&nbspMargherita </h1><br>
+            <span>A hugely popular margherita, with a deliciously tangy single cheese topping.</span><br><br><br>
+
+            <input type="number"  name="margherita" min="0" style="width:50px;" ng-model="vm.order1.margherita" class="form-control" id="margherita"/>
+
+        </div>
+    </fieldset>
+    <br>
+    
+    <div class="container-fluid padding">
+    <div class="row text-center padding">
+        <div class="col-md-4">
+            <div class="card" style="background-color:white">
+                <img class= "card-img-top" src="static/images/Deluxe_Veggie.jpg">
+                <div class="card-body">
+                    <h4 class="card-title">Deluxe Veggie</h4>
+                    <p class="card-text">Deluxe Veggie is ......</p>
+                    <a href="#" class="btn btn-primary">Order Now</a>                   
+                </div>              
+            </div>          
+        </div>  
+        <div class="col-md-4">
+            <div class="card">
+                <img class= "card-img-top" src="static/images/Farmhouse.jpg">
+                <div class="card-body">
+                    <h4 class="card-title">Farmhouse</h4>
+                    <p class="card-text">Farmhouse is ......</p>
+                    <a href="#" class="btn btn-primary">Order Now</a>                   
+                </div>              
+            </div>          
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="background-color:#ffc107"">
+                <img class= "card-img-top" src="static/images/Double_Cheese_Margherita.jpg">
+                <div class="card-body">
+                    <h4 class="card-title">Double Cheese Margherita</h4>
+                    <p class="card-text">Double Cheese Margherita is ......</p>
+                    <a href="#" class="btn btn-primary">Order Now</a>                   
+                </div>              
+            </div>          
+        </div>  
+    </div>  
+</div>
+    
+    
+    <fieldset class="field">
+        <div class="image">
+           <img src="static/images/Double_Cheese_Margherita.jpg" style="height:21%">
+        </div>
+        <div class="textpizza"  style="padding-bottom: 10px;">
+            <h1 style=" color: #FF7C00;">&nbspDouble Cheese Margherita </h1><br>
+            <span>The ever-popular Margherita - loaded with extra cheese... oodies of it!</span><br><br><br>
+            <input type="number"  name="dcmargherita" min="0" style="width:50px;" ng-model="vm.order1.dcmargherita" class="form-control" id="dcmargherita"/>
+        </div>
+    </fieldset>
+    <br>
+    <fieldset class="field">
+        <div class="image">
+           <img src="static/images/Farmhouse.jpg" style="height:21%">
+        </div>
+        <div class="textpizza"  style="padding-bottom: 10px;">
+            <h1 style=" color: #FF7C00;">&nbspFarm House </h1><br>
+            <span>A pizza that goes ballistic on veggies!</span><br><br><br>
+              <input type="number"   name="farmhouse" min="0" style="width:50px;" ng-model="vm.order1.farmhouse" class="form-control" id="farmhouse"/>
+        </div>
+    </fieldset>
+    <br>
+    <fieldset class="field">
+        <div class="image">
+           <img src="static/images/Deluxe_Veggie.jpg" style="height:21%">
+        </div>
+        <div class="textpizza"  style="padding-bottom: 10px;">
+            <h1 style=" color: #FF7C00;">&nbspDeluxe Veggie </h1><br>
+            <span>For a vegetarian looking for a BIG treat that goes easy on the spices, this one's got it all.</span><br><br><br>
+              <input type="number"  name="deluxeVeggie" min="0" style="width:50px;" ng-model="vm.order1.deluxeVeggie" class="form-control" id="deluxeVeggie"/>
+        </div>
+    </fieldset>
+    <br>
+    <fieldset class="field">
+        <div class="image">
+           <img src="static/images/Mexican_Green_Wave.jpg" style="height:21%">
+        </div>
+        <div class="textpizza" style="padding-bottom: 10px;">
+            <h1 style=" color: #FF7C00;">&nbspMexican Green Wave </h1><br>
+            <span>A pizza loaded with crunchy onions, crisp capsicum with a liberal sprinkling of exotic Mexican herbs.</span><br><br><br>
+            <input type="number"  name="mexGW" min="0" style="width:50px;" ng-model="vm.order1.mexGW" class="form-control" id="mexGW"/>
+
+        </div>
+    </fieldset>
+    <br>
+    <fieldset class="field">
+        <div class="image">
+           <img src="static/images/Peppy_Paneer.jpg" style="height:21%">
+        </div>
+        <div class="textpizza"  style="padding-bottom: 10px;">
+            <h1 style=" color: #FF7C00;">&nbspPeppy Paneer </h1><br>
+            <span>Chunky paneer with crisp capsicum and spicy red pepper - quite a mouthful!</span><br><br><br>
+          <input type="number"  name="peppyPan" min="0" style="width:50px;" ng-model="vm.order1.peppyPan" class="form-control" id="peppyPan"/>
+
+        </div>
+    </fieldset>
+    
+    
+    
+    <input type="submit" class="btn btn-primary" value="Add to Cart">
+    <br><a href="#/" class="btn btn-link">Cancel</a>
+    </form>
+  </div>
+</div>

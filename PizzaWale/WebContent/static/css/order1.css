@@ -1,0 +1,125 @@
+@font-face{
+    font-family:'squeaky chalk sound';
+    src: url('SqueakyChalkSound.ttf') format('truetype');
+}
+
+@font-face{
+    font-family:'Café Françoise';
+    src: url('Café Françoise.ttf') format('truetype');
+}
+
+@font-face{
+    font-family:'Scribble Box';
+    src: url('scribble box demo.ttf') format('truetype');
+}
+
+@font-face{
+    font-family:'Stardust Adventure';
+    src: url('StardustAdventure.ttf') format('truetype');
+}
+
+@font-face{
+    font-family:'Lemonade Stand';
+    src: url('Lemonade Stand D.otf') format('opentype');
+}
+
+@font-face{
+    font-family:'Cut the crap';
+    src: url('Cut the crap.ttf') format('truetype');
+}
+
+@font-face{
+    font-family:'Eutemia I';
+    src: url('Eutemia.ttf') format('truetype');
+}
+@font-face{
+    font-family:'Alegreya SC';
+    src: url('AlegreyaSC-Black.ttf') format('truetype');
+}
+@font-face{
+    font-family:'Alegreya';
+    src: url('Alegreya-Black.ttf') format('truetype');
+}
+
+
+input[type=submit] {
+    width: 30%;
+    background-color: #292929;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    font-size: 30px;
+    
+    color: #FF7C00;
+    border: none;
+    cursor: pointer;
+    transition: color 0.85s;
+}
+
+input[type=submit]:hover {
+    width: 30%;
+    background-color: #FF7C00;
+    color: #292929;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+
+
+}
+span{
+   color: #FF7C00; font-size:20px;
+
+}
+
+label{
+  color:#DACA9F; font-size:20px;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #292929;
+}
+
+a {
+    
+    color: #292929;
+    display: block;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #FF7C00;
+    text-decoration: none;
+}
+
+
+
+.field
+{
+  height: 300px;
+  margin:0 auto;
+  border:single;
+  width:80%;
+  background-color: white;
+  color: black;
+}
+.image
+{
+	float:left; padding-top:10px; padding-left:15px; background-color: white;
+}
+.textpizza
+{
+  height: 250px;
+  float:right;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding-top: 10px;
+  padding-left: 10px;
+  width:70%;
+  
+  background-color: #1E1E20;
+  color: white;
+}
