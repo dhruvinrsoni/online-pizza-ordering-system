@@ -1,7 +1,7 @@
 #outer
 {
-margin:0% 20% 0%;
-width:60%;
+    /*margin: 10% 50% 0%;
+width:40%;*/
 }
 
 #second 
@@ -13,11 +13,12 @@ border:1px solid white;
 {
 color:white; 
 background:white;
+margin:10px 10px 10px 10px:
 }
 
 .container
 {
-	color:cadetblue;
+	color:white;
 }
 
 td

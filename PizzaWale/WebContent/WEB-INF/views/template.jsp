@@ -49,6 +49,7 @@
 			height:45px;
 			float:left;
 			border-radius: 100% ;
+			border-color:black:
 		}
 	</style>
 </head>
@@ -67,7 +68,7 @@
 		</ul>
 	</div>
 	
-<nav class="navbar navbar-inverse navbar-fixed-top" style="margin:0px;" role="navigation" ng-controller="NavBarController">
+<nav class="navbar navbar-inverse navbar-fixed-top" style="margin:0px;color:orange;" role="navigation" ng-controller="NavBarController">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#exampleNavComponents" aria-expanded"false">

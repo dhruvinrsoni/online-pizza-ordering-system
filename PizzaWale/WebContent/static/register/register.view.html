@@ -23,7 +23,7 @@
         <br>
         <div class="form-group">
         <label for = "email"> Email Id:  </label>
-            <input type="email" name="email" ng-model="vm.user.email" class="form-control" id="emailAddress"  placeholder="Enter Email" required/>
+            <input type="email" name="email" ng-model="vm.user.email" email="true" class="form-control" id="emailAddress"  placeholder="Enter Email" required/>
             <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block" >Email is required</span>
         </div>
         <br>
@@ -41,13 +41,13 @@
         <br>
          <div class="form-group">
          <label for = "mobileNum"> Mobile Number:  </label>
-            <input type="text" name="mobileNum" ng-model="vm.user.mobileNum" max=10 class="form-control" id="mobileNum" placeholder="Enter Mobile Number" required/>
+            <input type="number" name="mobileNum" ng-model="vm.user.mobileNum" max="10" class="form-control" id="mobileNum" placeholder="Enter Mobile Number" required/>
             <span ng-show="form.mobileNum.$dirty && form.mobileNum.$error.required" class="help-block" >Mobile Number is required</span>
         </div>
         <br>
          <div class="form-group">
          <label for = "mobileNum"> Pincode:  </label>
-            <input type="text" name="pincode" ng-model="vm.user.pincode" max=6 class="form-control" id="pincode" placeholder="Enter Pincode" required/>
+            <input type="number" name="pincode" ng-model="vm.user.pincode" max="6" class="form-control" id="pincode" placeholder="Enter Pincode" required/>
             <span ng-show="form.pincode.$dirty && form.pincode.$error.required" class="help-block" >Pincode is required</span>
         </div>
         <br>

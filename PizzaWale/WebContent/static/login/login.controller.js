@@ -34,21 +34,26 @@
                 	{
                 		case 1:
                 			 $location.path('/admin') ;
+                			 $location.replace("http://localhost:8080/PizzaWale/#/login");
                 			 //alert("Admin Login successful");
                 			break;
                 			
                 		case 2:
                 			$location.path('/employee') ;
+               			 $location.replace("http://localhost:8080/PizzaWale/#/login");
                 			// alert("Employee Login successful");  
                 			break;
                 			
                 		case 3:
                 			$location.path('/order') ;
+                			 $location.replace("http://localhost:8080/PizzaWale/#/login");
                 			//alert("User Login successful");
                 			break;
                 			
                 		case 4:
                 			//$location.path('/order') ;
+                			$location.path('/home') ;
+               			 $location.replace("http://localhost:8080/PizzaWale/#/login");
                 			alert("Guest Login successful");
                 			break;
                 			
@@ -57,6 +62,7 @@
                 			
                 		default:
                 			$location.path('/order');
+              			 $location.replace("http://localhost:8080/PizzaWale/#/login");
                 			
                 	}
                 	/*if(vm.email=="dhruvin@pizzawale"){ $location.path('/admin') ;alert("Admin Login successful");          		

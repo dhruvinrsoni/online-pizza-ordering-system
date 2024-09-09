@@ -14,7 +14,8 @@
 		<b>Name:-</b><b><span ng-bind="vm.Allitems[0].orderName"></span> </b><br>
 		<b>Address:-</b><b><span ng-bind="vm.Allitems[0].orderAddresss" ></span> </b><br>		
 		<b>Email ID:-</b><b><span ng-bind="vm.Allitems[0].orderEmail" ></span></b><br>	
-		<b>Mobile Number:-</b><b><span ng-bind="vm.Allitems[0].orderMobile" ></span> </b>	</div>		
+		<b>Mobile Number:-</b><b><span ng-bind="vm.Allitems[0].orderMobile" ></span> </b><br>	
+		<b>Order Time:-</b><b><span ng-bind="vm.Allitems[0].orderTS  | date:'yyyy-MM-dd HH:mm:ss '" ></span> </b>	</div>		
  				<thead>
 			<tr>
 				<th style="width:50%; float:right;"><h2 style="color:yellow;">Order Items</h2></th>
