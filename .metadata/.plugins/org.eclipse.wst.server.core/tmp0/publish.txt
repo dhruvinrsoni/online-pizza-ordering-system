@@ -1,3 +1,0 @@
-#Tomcat publish data
-#Tue Aug 13 20:54:55 IST 2019
-org.eclipse.jst.jee.server\:/binary\:Z\:\\Projects\ 2019\ Batch\\P8_Online_Pizza_Ordering_System\\00_Eclipse_Project_Root\\pizza\ order\\WebContent\\WEB-INF\\lib\\spring-web-4.2.0.RELEASE.jar=WEB-INF/lib/spring-web-4.2.0.RELEASE.jar
