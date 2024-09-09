@@ -85,6 +85,7 @@ public class UserServiceImpl implements UserService {
 	public User findByemail(String email) {
 		for(User user : users){
 			if(user.getEmail().equalsIgnoreCase(email)){
+				System.out.println(" Still finding...");
 				return user;
 			}
 		}

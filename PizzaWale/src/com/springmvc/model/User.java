@@ -10,6 +10,7 @@ public class User {
 	private String address ;
 	private String pincode ;
 	private String name ;
+	
 	public int getUserId() {
 		return userId;
 	}

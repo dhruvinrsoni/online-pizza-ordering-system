@@ -18,11 +18,11 @@
         </div>
     </form-->
     
-	<div class="" style="margin:auto;display: table;border: grey 1px solid;">
+	<div class="" style="margin:auto;display: table;border: grey 0px solid;">
 	  <form class="px-4 py-3"  ng-submit="vm.login()" role="form"><h2 style="text-align:center;">Login</h2>
 	    <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
 	      <label for="Email">Email address</label>	      
-	      <input type="email" name="email" class="form-control" id="Email" placeholder="email@example.com" ng-model="vm.username" required >
+	      <input type="email" name="email" class="form-control" id="email" placeholder="email@example.com" ng-model="vm.email" required >
 	       <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Email is required</span>
 	    </div>
 	    <div class="form-group">
@@ -39,7 +39,7 @@
 	    </div>
 	    <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Login</button>
 	  </form>
-	  <div class="dropdown-divider"></div>
+	  <div class="dropdown-divider"></div><br>
 	  <a class="dropdown-item"  href="#/register">New around here? Sign up</a>
 	  <a class="dropdown-item" href="#">Forgot password?</a>
 	</div>

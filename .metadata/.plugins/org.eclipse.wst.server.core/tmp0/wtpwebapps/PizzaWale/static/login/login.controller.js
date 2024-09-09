@@ -17,9 +17,10 @@
 		var user = {};
 		
 		function login() {
-			  console.log("inside login");
+			  console.log("inside login of login.controller");
 
 			vm.dataLoading = true;
+			console.log("calling user service with email as "+vm.email+" and password as:"+vm.password);
 			UserService.Login(vm.email, vm.password)
 		    .then(function(response) {
             	console.log(response) ;
@@ -35,14 +36,5 @@
                     alert("Unsuccessful Login");
                 }
             }) ;
-		    
-		
-		
-		
-	
-
-
-
 	}
-
 }})();
