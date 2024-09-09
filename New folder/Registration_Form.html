@@ -1,0 +1,161 @@
+
+<html ng-app="notesApp">
+<head>
+	<title>Registration Form</title>
+</head>
+<body ng-controller="MainCtrl as ctrl">
+<div>
+	<table style="margin:auto;border:3px double black;">
+	<tr><td>
+		<form action="./Registration_Form_Submitted.html"  ng-submit="ctrl.submit()" name="registrationForm">
+			<table style="margin:auto;">
+				<tr>
+					<td><h2 style="text-align:center;color:green;">Online Pizza Delivery System</h2></td>
+				</tr>
+				<tr>
+					<td><h3 style="text-align:center;color:yellowgreen;">Login Page</h3></td>
+				</tr>
+			</table>
+			<hr>
+			<table>
+				<tr>
+					<td>
+					<fieldset style="color:red;">
+						<legend>Notes:</legend>
+						1.Field Names marked as * are Mandatory.<br>
+						2.Click Register when done.
+					</fieldset>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<table  style="margin:auto;">
+				<tr>
+					<td><b>Name</b></td>
+					<td>:</td>
+					<td><input required id="name" name="name" ng-model="ctrl.name"></input><span style="color:red;" ng-show="registrationForm.name.$error.required">*</span></td>
+				</tr>
+				<tr>
+					<td><b>Address</b></td>
+					<td>:</td>
+					<td><textarea id="address" name="address" rows="3" cols="50" ng-model="ctrl.address" ></textarea><span style="color:red;" ng-show="registrationForm.address.$error.required">*</span></td>
+				</tr>
+				<tr>
+					<td><b>City</b></td>
+					<td>:</td>
+					<td>
+						<select id="city" name="city">
+							<option disabled selected="selected">Select City</option>
+							<option>Ahmedabad</option>
+							<option>Bombay</option>
+							<option>Chennai</option>
+							<option>Delhi</option>
+							<option>Kolkata</option>
+							<option>Pune</option>
+							<option>Banglore</option>
+							<option>Hyderabad</option>
+						</select><font style="color:red;">*</font>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Pincode</b></td>
+					<td>:</td>
+					<td><input id="pincode" name="pincode" ng-model="ctrl.pincode" ></input><span style="color:red;" ng-show="registrationForm.pincode.$error.required">*</span><font style="color:red;">*</font></td>
+				</tr>
+				<tr>
+					<td><b>Gender</b></td>
+					<td>:</td>
+					<td><input type="radio" id="gender_male" name="gender_male" ></input> Male  <input type="radio" id="gender_female" name="gender_female"></input> Female </td>
+				</tr>
+				<tr>
+					<td><b>Date Of Birth</b></td>
+					<td>:</td>
+					<td><input required type="date" id="dateofbirth" name="dateofbirth" ng-model="ctrl.dateofbirth" ></input><span style="color:red;" ng-show="registrationForm.dateofbirth.$error.required">*</span></td>
+				</tr>
+				<tr>
+					<td><b>Mobile No</b></td>
+					<td>:</td>
+					<td><input  required id="mobileno" name="mobileno" size="30" ng-model="ctrl.mobileno" ></input><span style="color:red;" ng-show="registrationForm.mobileno.$error.required">*</span></td>
+				</tr>
+				<tr>
+					<td><b>Email Id</b></td>
+					<td>:</td>
+					<td><input required  id="emailid" name="emailid" size="30" ng-model="ctrl.emailid" ></input><span style="color:red;" ng-show="registrationForm.emailid.$error.required">*</span></td>
+				</tr>
+				
+			</table>
+			<hr>
+			<table style="margin:auto;">
+				<tr>
+					<td>
+						<input required  type="checkbox"/></input>
+						I accept all the terms and conditions.
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:center;">
+						<input  type="button" id="register" name="register" value="Register" onclick="return formValildate();"></input>
+						<input  type="reset" value="Cancel"></input>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</td></tr>
+	</table>
+</div>
+<script src="./angular-1.5.7/angular.min.js"></script>
+<script type="text/javascript">
+  angular.module('notesApp', [])
+    .controller('MainCtrl', [function() {
+      var self = this;
+      self.submit = function() {
+        // Create user object to send to the server
+        var user = {name: self.name, address: self.addresss, pincode: self.pincode, dateofbirth: self.dateOfBirth, mobileNo: self.mobileNo, emailid: self.emailid};
+        console.log('First form submit with ', user);
+      };
+    }]);
+</script>
+</body>
+<script type="text/javascript">
+function formValildate()
+{
+	var name=document.getElementById("name");
+	var address=document.getElementById("address");
+	var pincode=document.getElementById("pincode");
+	var mobileno=document.getElementById("mobileno");
+	//var =document.getElementByID("").value;
+	
+	var letterNumberRegEx = /^[0-9a-zA-Z]+$/;
+	var numberRegEx = /^[0-9]+$/;
+	var letterRegEx = /^[a-zA-Z]+$/;
+	
+	if(!(name.value.match(letterRegEx))) 
+	{
+		alert("You entered incorrect name field. Please Enter only letters.");
+		return false;
+	}
+	if(!(address.value.match(letterNumberRegEx))) 
+	{
+		alert("You entered incorrect address field. Please Enter letters and numbers.");
+		return false;
+	}
+	if(!(pincode.value.match(numberRegEx))) 
+	{
+		alert("You entered incorrect pincode field. Please Enter Numbers.");
+		return false;
+	}
+	if(!(mobileno.value.match(numberRegEx))) 
+	{
+		alert("You entered incorrect Mobile Numbers field. Please Enter Numbers.");
+		return false;
+	}
+	if(!(mobileno.value.match(numberRegEx))) 
+	{
+		alert("You entered incorrect Mobile Numbers field. Please Enter Numbers.");
+		return false;
+	}
+	document.location="./Registration_Form_Submitted.html";
+	return true;
+}
+</script>
+</html>
