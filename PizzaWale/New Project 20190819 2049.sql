@@ -95,45 +95,24 @@ CREATE TABLE `order` (
   `order_pincode` varchar(45) NOT NULL,
   `order_mobile` varchar(45) NOT NULL,
   `order_total` int(10) unsigned NOT NULL DEFAULT '0',
-  `order_ts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `payment_id` int(10) unsigned NOT NULL DEFAULT '1',
-  `order_status` varchar(45) NOT NULL DEFAULT '"Pending"',
+  `order_ts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `payment_id` int(10) unsigned NOT NULL,
+  `order_status` int(10) unsigned NOT NULL DEFAULT '1',
+  `order_paid` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`order_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `order`
 --
 
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
-INSERT INTO `order` (`order_id`,`order_email`,`order_address`,`order_name`,`order_pincode`,`order_mobile`,`order_total`,`order_ts`,`payment_id`,`order_status`) VALUES 
- (1,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',2100,'2019-08-18 15:26:18',1,'\"Pending\"'),
- (2,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',2100,'2019-08-18 15:27:28',1,'\"Pending\"'),
- (3,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',2100,'2019-08-18 15:30:37',1,'\"Pending\"'),
- (4,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',1050,'2019-08-18 15:42:06',1,'\"Pending\"'),
- (5,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',2100,'2019-08-18 15:44:13',1,'\"Pending\"'),
- (6,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',5700,'2019-08-18 15:46:18',1,'\"Pending\"'),
- (7,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',5400,'2019-08-18 15:49:05',1,'\"Pending\"'),
- (8,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',2100,'2019-08-18 15:54:46',1,'\"Pending\"'),
- (9,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',2100,'2019-08-18 15:56:35',1,'\"Pending\"'),
- (10,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',2100,'2019-08-18 15:58:20',1,'\"Pending\"'),
- (11,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',1250,'2019-08-18 15:59:40',1,'\"Pending\"'),
- (12,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',900,'2019-08-18 16:02:23',1,'\"Pending\"'),
- (13,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',1000,'2019-08-18 16:09:21',1,'\"Pending\"'),
- (14,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',900,'2019-08-18 16:17:51',1,'\"Pending\"'),
- (15,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',750,'2019-08-18 16:21:44',1,'\"Pending\"'),
- (16,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',1350,'2019-08-18 16:23:50',1,'\"Pending\"'),
- (17,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',1350,'2019-08-18 16:25:16',1,'\"Pending\"'),
- (18,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',2350,'2019-08-18 16:26:41',1,'\"Pending\"'),
- (19,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',1650,'2019-08-18 16:27:15',1,'\"Pending\"'),
- (20,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',1550,'2019-08-18 16:31:24',1,'\"Pending\"'),
- (21,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',1350,'2019-08-18 16:35:45',1,'\"Pending\"'),
- (22,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',1750,'2019-08-18 16:38:02',1,'\"Pending\"'),
- (23,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',900,'2019-08-18 16:42:41',1,'\"Pending\"'),
- (24,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',900,'2019-08-18 16:49:41',1,'\"Pending\"'),
- (25,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',1550,'2019-08-18 16:50:03',1,'\"Pending\"'),
- (26,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',2200,'2019-08-18 16:51:44',1,'\"Pending\"'),
- (27,'dhruvin@pizzawale','cosmos, magarpatta.','dhruvin','411028','987654321',0,'2019-08-18 16:52:38',1,'\"Pending\"');
+INSERT INTO `order` (`order_id`,`order_email`,`order_address`,`order_name`,`order_pincode`,`order_mobile`,`order_total`,`order_ts`,`payment_id`,`order_status`,`order_paid`) VALUES 
+ (1,'pizza@pizza','pizzawale','pizza','000000','999666333',1850,'2019-08-19 19:36:17',1,1,0),
+ (2,'pizza@pizza','pizzawale','pizza','000000','999666333',1150,'2019-08-19 19:37:20',1,1,0),
+ (3,'pizza@pizza','pizzawale','pizza','000000','999666333',1250,'2019-08-19 19:37:50',1,1,0),
+ (4,'pizza@pizza','pizzawale','pizza','000000','999666333',1250,'2019-08-19 19:38:25',1,1,0),
+ (5,'pizza@pizza','pizzawale','pizza','000000','999666333',1150,'2019-08-19 20:06:58',1,1,0);
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 
 
@@ -149,7 +128,7 @@ CREATE TABLE `orderitem` (
   `order_id` int(10) unsigned NOT NULL,
   `subtotal` int(10) unsigned NOT NULL,
   PRIMARY KEY (`order_item_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=126 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `orderitem`
@@ -157,108 +136,44 @@ CREATE TABLE `orderitem` (
 
 /*!40000 ALTER TABLE `orderitem` DISABLE KEYS */;
 INSERT INTO `orderitem` (`order_item_id`,`item_id`,`quantity`,`order_id`,`subtotal`) VALUES 
- (25,1,1,1,250),
- (26,2,1,1,300),
- (27,3,1,1,350),
- (28,4,1,1,350),
- (29,5,1,1,400),
- (30,6,1,1,450),
- (31,1,1,2,250),
- (32,2,1,2,300),
- (33,3,1,2,350),
- (34,4,1,2,350),
- (35,5,1,2,400),
- (36,6,1,2,450),
- (37,1,1,3,250),
- (38,2,1,3,300),
- (39,3,1,3,350),
- (40,4,1,3,350),
- (41,5,1,3,400),
- (42,6,1,3,450),
- (43,4,3,4,1050),
- (44,1,1,5,250),
- (45,2,1,5,300),
- (46,3,1,5,350),
- (47,4,1,5,350),
- (48,5,1,5,400),
- (49,6,1,5,450),
- (50,1,2,6,500),
- (51,2,1,6,300),
- (52,3,3,6,1050),
- (53,4,5,6,1750),
- (54,5,3,6,1200),
- (55,6,2,6,900),
- (56,1,2,7,500),
- (57,2,2,7,600),
- (58,3,2,7,700),
- (59,4,3,7,1050),
- (60,5,3,7,1200),
- (61,6,3,7,1350),
- (62,1,1,8,250),
- (63,2,1,8,300),
- (64,3,1,8,350),
- (65,4,1,8,350),
- (66,5,1,8,400),
- (67,6,1,8,450),
- (68,1,1,9,250),
- (69,1,1,9,250),
- (70,2,1,9,300),
- (71,3,1,9,350),
- (72,4,1,9,350),
- (73,5,1,9,400),
- (74,6,1,9,450),
- (75,1,1,10,250),
- (76,2,1,10,300),
- (77,3,1,10,350),
- (78,4,1,10,350),
- (79,5,1,10,400),
- (80,6,1,10,450),
- (81,1,1,11,250),
- (82,2,1,11,300),
- (83,3,1,11,350),
- (84,4,1,11,350),
- (85,1,1,12,250),
- (86,2,1,12,300),
- (87,3,1,12,350),
- (88,1,1,13,250),
- (89,4,1,13,350),
- (90,5,1,13,400),
- (91,1,1,14,250),
- (92,2,1,14,300),
- (93,3,1,14,350),
- (94,3,1,15,350),
- (95,5,1,15,400),
- (96,2,1,16,300),
- (97,3,3,16,1050),
- (98,2,1,17,300),
- (99,3,3,17,1050),
- (100,1,3,18,750),
- (101,2,3,18,900),
- (102,3,2,18,700),
- (103,2,2,19,600),
- (104,3,3,19,1050),
- (105,1,1,20,250),
- (106,2,2,20,600),
- (107,4,2,20,700),
- (108,2,2,21,600),
- (109,3,1,21,350),
- (110,5,1,21,400),
- (111,1,3,22,750),
- (112,2,1,22,300),
- (113,3,2,22,700),
- (114,1,1,23,250),
- (115,2,1,23,300),
- (116,3,1,23,350),
- (117,1,1,24,250),
- (118,2,1,24,300),
- (119,3,1,24,350),
- (120,1,1,25,250),
- (121,2,2,25,600),
- (122,3,2,25,700),
- (123,1,1,26,250),
- (124,2,3,26,900),
- (125,3,3,26,1050);
+ (1,4,3,1,1050),
+ (2,5,2,1,800),
+ (3,1,1,2,250),
+ (4,2,3,2,900),
+ (5,5,2,3,800),
+ (6,6,1,3,450),
+ (7,5,2,4,800),
+ (8,6,1,4,450),
+ (9,1,1,5,250),
+ (10,2,3,5,900);
 /*!40000 ALTER TABLE `orderitem` ENABLE KEYS */;
+
+
+--
+-- Definition of table `orderstatus`
+--
+
+DROP TABLE IF EXISTS `orderstatus`;
+CREATE TABLE `orderstatus` (
+  `order_status_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `order_status_name` varchar(45) NOT NULL,
+  PRIMARY KEY (`order_status_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orderstatus`
+--
+
+/*!40000 ALTER TABLE `orderstatus` DISABLE KEYS */;
+INSERT INTO `orderstatus` (`order_status_id`,`order_status_name`) VALUES 
+ (1,'In Cart'),
+ (2,'Payment Pending'),
+ (3,'Payment Recieved'),
+ (4,'Order Accepted'),
+ (5,'Order Preparing'),
+ (6,'Order Dispatched'),
+ (7,'Delivered');
+/*!40000 ALTER TABLE `orderstatus` ENABLE KEYS */;
 
 
 --
@@ -269,8 +184,8 @@ DROP TABLE IF EXISTS `payment`;
 CREATE TABLE `payment` (
   `payment_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `payment_mode` int(10) unsigned NOT NULL,
-  `payment_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `payment_status` int(10) unsigned NOT NULL,
+  `payment_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `payment_status` int(10) unsigned NOT NULL DEFAULT '4',
   PRIMARY KEY (`payment_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -310,12 +225,36 @@ INSERT INTO `paymentmode` (`payment_mode_id`,`payment_mode_name`,`payment_mode_d
 
 
 --
+-- Definition of table `paymentstatus`
+--
+
+DROP TABLE IF EXISTS `paymentstatus`;
+CREATE TABLE `paymentstatus` (
+  `payment_status_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `payment_status_name` varchar(45) NOT NULL,
+  PRIMARY KEY (`payment_status_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `paymentstatus`
+--
+
+/*!40000 ALTER TABLE `paymentstatus` DISABLE KEYS */;
+INSERT INTO `paymentstatus` (`payment_status_id`,`payment_status_name`) VALUES 
+ (1,'Payment Not Initiated'),
+ (2,'Payment Initiated'),
+ (3,'Payment Pending'),
+ (4,'Payment Done');
+/*!40000 ALTER TABLE `paymentstatus` ENABLE KEYS */;
+
+
+--
 -- Definition of table `user`
 --
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `user_id` int(10) unsigned NOT NULL,
+  `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `email` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   `mobile_num` varchar(45) NOT NULL,
@@ -324,7 +263,7 @@ CREATE TABLE `user` (
   `pincode` varchar(45) NOT NULL,
   `user_name` varchar(45) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
@@ -335,7 +274,8 @@ INSERT INTO `user` (`user_id`,`email`,`password`,`mobile_num`,`user_type`,`addre
  (1,'dhruvin@pizzawale','dhruvin','987654321',1,'cosmos, magarpatta.','411028','dhruvin'),
  (2,'pranav@pizzawale','pranav','123456789',1,'hadapsar','411028','pranav'),
  (3,'siddhant@pizzawale','sid','465798123',1,'mundhwa','411028','siddhant'),
- (4,'pizza@pizza','piz','999666333',2,'pizzawale','000000','pizza');
+ (4,'pizza@pizza','piz','999666333',2,'pizzawale','000000','pizza'),
+ (5,'employee@pizzawale','emp','123123123',0,'Employee, PIzzaWale','100000','Employee');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 

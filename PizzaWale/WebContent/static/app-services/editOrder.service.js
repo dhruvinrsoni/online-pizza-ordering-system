@@ -1,25 +1,25 @@
 (function() {
     'use strict' ;
     angular.module('app')
-    .factory('OrderService', OrderService);
+    .factory('editOrderService', editOrderService);
 
-    OrderService.$inject = ['$http','$localStorage'] ;
+    editOrderService.$inject = ['$http','$localStorage','$scope'] ;
 
-    function OrderService ($http,$localStorage) {
+    function OrderService ($http,$localStorage,$scope) {
         var serverUrl = 'http://localhost:8080/PizzaWale' ;
         var service = {} ;
-       
-        
-        service.create = Create;
+
+      
+        service.Postorder = Postorder;
         service.Update = Update;
-        service.GetAll=GetAll;
-       function Create(order) {
-        	console.log("Inside create order of order.service");
+     
+       function Postorder(editorder) {
+        	console.log("Inside post editorder of editOrder.service");
         	console.log("order=>");
-        	console.log(order);
+        	console.log(editorder);
         	console.log("$localStorage.email:- "+$localStorage.email);
         	console.log("sending data to server...");
-        	var dataObj1 = $http.post(serverUrl + '/order' ,order)
+        	var dataObj1 = $http.post(serverUrl + '/editorder' ,editorder)
             .then(handleSuccess1, handleError1('Error creating order'));
         	console.log("dataObj1->") ;
         	console.log(dataObj1) ;
@@ -32,17 +32,19 @@
         	var dataObj2 = $http.post(serverUrl +'/updateorder', order)
         	.then(handleSuccess1, handleError1('Error updating user'));
         	return dataObj2 ;
-        };
-        
-        function GetAll(email) {
-			
-       	 console.log("in editordersummary ");
-           return $http.get(serverUrl + '/editorder').then(handleSuccess1, handleError1('Error getting all users'));
-       }
-         
+        }
 
-        
-        
+        /*
+        function EditOrder(order){
+        	console.log("Inside edit order");
+        	console.log("$localStorage.email:- "+$localStorage.email);
+        	
+        	var dataObj3 = $http.post(serverUrl + '/editorder' ,order)
+        	.then(handleSuccess1, handleError1('Error updating user'));
+        	console.log("dataObj3->") ;
+        	console.log(dataObj3) ;
+        	return dataObj3 ;
+        };*/
         
         
 

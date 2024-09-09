@@ -61,14 +61,42 @@ public class UserServiceImpl implements UserService {
 		return false ;
 	}
 	public User findByEmail(String email) {
-		users = findAllUsers() ;
+		try
+		{
+			connectToDB() ;
+			System.out.println("findByEmail email:-"+email);
+			String qry="select * from `user` where `email`='"+email+"';";
+
+			System.out.println("findByEmail qry:-"+qry);
+			PreparedStatement statement = connection.prepareStatement(qry) ;
+			ResultSet resultSet = statement.executeQuery() ;
+			if(resultSet.next()) {
+				User user = new User() ;
+				user.setUserId(resultSet.getInt("user_id")) ;
+				user.setEmail(resultSet.getString("email")) ;
+				user.setPassword(resultSet.getString("password")) ;
+				user.setMobileNum(resultSet.getString("mobile_num")) ;
+				user.setName(resultSet.getString("user_name")) ;
+				user.setAddress(resultSet.getString("address")) ;
+				user.setPincode(resultSet.getString("pincode"));
+				user.setUserType(resultSet.getInt("user_type")) ;
+				return user;
+			}
+			else return null;
+		}
+		catch(SQLException e) {
+			e.printStackTrace(); return null;
+		}
+		finally {
+			closeDBconnection() ;
+		}
+		/*users = findAllUsers() ;
 		for(User user : users) {
 			if(user.getEmail().equals(email)) {
-				System.out.println("Inside findByEmail method and email found...! user:"+user.getName()+" and email:"+user.getEmail());
+				System.out.println("Inside findByEmail in UserServiceImpl method and email found...! user:"+user.getName()+" and email:"+user.getEmail());
 				return user ;
 			}
-		}
-		return null ;
+		}*/
 	}
 
 	public User findByID(int user_id) {
@@ -98,7 +126,45 @@ public class UserServiceImpl implements UserService {
 		return null;
 	}
 	
+	//String loginQuery = "select * from user where user_id=? and password=?;";
 	
+	public int validateLogin(User user)
+	{
+		User loginUser = new User();
+		User nullLoginUser = new User();
+		System.out.println("inside validatLogin() function...:-"+user);
+		try {
+			connectToDB() ;
+			String loginQuery = "select * from `user` where `email`=? and `password`=?;";
+			
+			PreparedStatement statement = connection.prepareStatement(loginQuery) ;
+			String email =  user.getEmail();
+			String password = user.getPassword();
+			System.out.println("User Email:-"+email+" & password:-"+password);
+			statement.setString(1,email);
+			statement.setString(2, password);
+			System.out.println(statement);
+			ResultSet resultSet = statement.executeQuery() ;
+			if(resultSet.next()) 
+			{
+				System.out.println("Success!");
+				//return loginUser;
+				return 1;
+			}
+			else
+			{
+				System.out.println("Failure!");
+				//return nullLoginUser;
+				return 0;
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace(); return 0;
+		}
+		finally {
+			closeDBconnection() ;
+		}
+	}
 	
 	public ArrayList<User> findAllUsers() {
 		connectToDB() ;

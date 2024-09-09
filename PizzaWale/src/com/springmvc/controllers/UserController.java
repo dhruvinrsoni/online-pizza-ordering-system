@@ -56,30 +56,65 @@ public class UserController {
     public ResponseEntity<User> getUser(@RequestBody User user,HttpServletRequest req ) 
     {
         System.out.println("inside getUser for login: Fetching User with Email " + user.getEmail());
-        
-        User user1 = userService.findByEmail(user.getEmail());
-        if (user1 == null) {
-            System.out.println("User with Email " + user.getEmail() + " not found");
-            return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+        boolean sql=true;
+        if(sql)
+        {
+        	//SQL Injection proof
+        	 int returnVal=userService.validateLogin(user);
+        	 System.out.println("returnVal is:-"+returnVal);
+             if(returnVal!=0)
+             {
+             	HttpSession session= req.getSession();
+         		session.setAttribute("email", user);
+         		System.out.println("UserController.java: getUser: User password correct.!");
+         		return new ResponseEntity<User>(user, HttpStatus.OK);
+             }
+             else
+             {
+             	System.out.println("User passwrod incorrect.!");
+        		 	return new ResponseEntity<User>(HttpStatus.FORBIDDEN);
+             }
         }
-        else {
-        	System.out.println("User with Email " + user.getEmail() + " found..!");
-        
-        	if (user1.getPassword().equals(user.getPassword())){ 
-        		
-        		HttpSession session= req.getSession();
-        		session.setAttribute("email", user);
-        		
-        		return new ResponseEntity<User>(user, HttpStatus.OK);
-        	}
-        	else {
-        		System.out.println("User passwrod incorrect.!");
-        		 return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
-        	}
+        else
+        {
+        	//Potential to SQL Injection
+        	User user1 = userService.findByEmail(user.getEmail());
+            if (user1 == null) {
+                System.out.println("User with Email " + user.getEmail() + " not found");
+                return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+            }
+            else {
+            	System.out.println("User with Email " + user.getEmail() + " found..!");
+            
+            	if (user1.getPassword().equals(user.getPassword())){ 
+            		
+            		HttpSession session= req.getSession();
+            		session.setAttribute("email", user);
+            		
+            		return new ResponseEntity<User>(user, HttpStatus.OK);
+            	}
+            	else {
+            		System.out.println("User password incorrect.!");
+            		 return new ResponseEntity<User>(HttpStatus.FORBIDDEN);
+            	}
+            }
+
+            //User loginUser = new User();
         }
     }
     
-  
+	
+	@RequestMapping(value="/logout", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<User> logout(HttpServletRequest req ) 
+	{
+		System.out.println("Inside User Controller: logout method...") ;
+		int returned = 1;
+		HttpSession session= req.getSession();
+ 		session.removeAttribute("email");
+ 		session.invalidate();
+		User user = new User();
+ 		return new ResponseEntity<User>(user, HttpStatus.OK) ;
+	}
 
     
     

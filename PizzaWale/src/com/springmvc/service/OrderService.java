@@ -16,6 +16,7 @@ public interface OrderService {
 	public int setOrder(Order order);
 	public int setOrderTotal(Order order, int orderId);
 	public int setOrderItem(OrderItem orderItem, int itemId, int OrderId);
+	public int setPayment(int paymentMode);
 	
 	public int updateOrder(OrderItem orderItem);
 	public String printOrder(OrderItem orderItem);

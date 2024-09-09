@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -153,7 +154,45 @@ public class OrderServiceimpl implements OrderService {
 			closeDBconnection() ;
 		}
 	}
-
+	
+	@Override
+	public int setPayment(int paymentMode)
+	{
+		try
+		{
+			int paymentId=0;
+			//java.sql.Timestamp ts = new java.sql.Timestamp(new Date().getTime());
+			connectToDB() ;
+			java.sql.Timestamp sqlTs = new Timestamp(new Date().getTime());
+			Statement statement = connection.createStatement() ;
+			String insertQuery = "insert into `payment` ( payment_mode, payment_time ) values ("+paymentMode+", "+sqlTs+");";
+			System.out.println("Insert Query to setPayment:- "+insertQuery) ;
+			int returnValue=statement.executeUpdate(insertQuery) ;
+			if(returnValue==1)
+			{
+				Statement stmt = connection.createStatement();
+				String getPaymentIdQuery =  "select `payment_id` from `payment` where payment_time='"+sqlTs+"';" ;
+				System.out.println("Select Query to setPayment:- "+getPaymentIdQuery) ;
+				ResultSet resultSet = statement.executeQuery(getPaymentIdQuery) ;
+				if(resultSet.next())
+				{
+					paymentId=resultSet.getInt("order_id");
+				}
+				return paymentId;
+			}
+			else
+			{
+				return 0;
+			}
+		
+			
+		}catch(SQLException e) {
+			e.printStackTrace() ; return 0 ;
+		}
+		finally {
+			closeDBconnection() ;
+		}
+	}
 	
 	@Override
 	public int setOrder(Order order)
@@ -163,9 +202,9 @@ public class OrderServiceimpl implements OrderService {
 			int orderId=0;
 			//java.sql.Timestamp ts = new java.sql.Timestamp(new Date().getTime());
 			connectToDB() ;
-			
+			//int paymentId=setPayment(1);
 			Statement statement = connection.createStatement() ;
-			String insertQuery = "insert into `order` ( order_email, order_address, order_name, order_pincode, order_mobile) values ('"+order.getOrderEmail()+"', '"+order.getOrderAddresss()+"', '"+order.getOrderName()+"', '"+order.getOrderPinCode()+"', '"+order.getOrderMobile()+"');";
+			String insertQuery = "insert into `order` ( order_email, order_address, order_name, order_pincode, order_mobile, payment_id) values ('"+order.getOrderEmail()+"', '"+order.getOrderAddresss()+"', '"+order.getOrderName()+"', '"+order.getOrderPinCode()+"', '"+order.getOrderMobile()+"', "+1+");";
 			System.out.println("Insert Query to setOrder:- "+insertQuery) ;
 			int returnValue=statement.executeUpdate(insertQuery) ;
 			if(returnValue==1)
@@ -268,9 +307,9 @@ public class OrderServiceimpl implements OrderService {
 		String itemName="";
 		User user = new User();
 		System.out.println("email is:-"+orderList[0]);
-		if(userService.findByemail(orderList[0])!=null)
+		if(userService.findByEmail(orderList[0])!=null)
 		{
-			user = userService.findByemail(orderList[0]);
+			user = userService.findByEmail(orderList[0]);
 		}
 		else
 		{

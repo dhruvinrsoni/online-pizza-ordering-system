@@ -9,12 +9,15 @@
 	<title>Pizza Wale</title>
 	<!-- link rel="stylesheet" href="static/bootstrap/bootstrap.min.css"-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        
+        
 	<link rel="shortcut icon" href="static/images/favicon.ico"/>
+	<!-- script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script-->
 	<!--  script src="static/bootstrap/bootstrap.min.js"></script-->
 	<style>
 		body
 		{
-			//background-image: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.6)), url(static/images/pizza_background.jpg);
+			background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.1)), url(static/images/pizza_background.jpg);
 			background-repeat: no-repeat;
 			background-size: cover;
 			background-position: center;
@@ -46,10 +49,9 @@
 		</ul>
 	</div>
 	
-<nav class="navbar navbar-inverse navbar-fixed-top" style="margin:0px;">
+<nav class="navbar navbar-inverse navbar-fixed-top" style="margin:0px;" role="navigation" ng-controller="NavBarController">
     <div class="container">
         <div class="navbar-header">
-           
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#exampleNavComponents" aria-expanded"false">
                 <i class="glyphicon glyphicon-align-center" style=color:grey;></i>
             </button>
@@ -58,16 +60,15 @@
                Pizza Wale
             </a>
         </div>
-        <div class="collapse navbar-collapse" id="exampleNavComponents">
-
+        <div class="collapse navbar-collapse" id="exampleNavComponents" style="display:;" >
             <!-- Navbar Menu -->
             <ul class="nav navbar-nav navbar-right">
-                <li class="active" id="home_li"><a class="homered" href="#/home">HOME</a></li>
-                <li ng-show="$localStorage.email" id=""><a class="homeblack" href="#/order">ORDER</a></li>
+                <li class="" id="home_li"><a class="homered" href="#/home">HOME</a></li>
+                <li ng-show="checkLoggedIn()" id="order_li"><a class="homeblack" href="#/order">ORDER</a></li>
                 <li id="aboutus_li"><a class="homeblack" href="#/aboutus">ABOUT US</a></li>
-                <li ng-hide="$localStorage.email" id="register_li"><a class="homeblack" href="#/register">REGISTER</a></li>				
-                <li ng-hide="$localStorage.email" id="login_li"><a class="homegreen "href="#/login">LOGIN</a>
-                <li ng-show="$localStorage.email" id="logout_li"><a class="homegreen "href="#/logout">LOGOUT</a>
+                <li ng-hide="checkLoggedIn()" id="register_li"><a class="homeblack" href="#/register">REGISTER</a></li>				
+                <li ng-hide="checkLoggedIn()" id="login_li"><a class="homegreen" href="#/login">LOGIN</a>
+                <li ng-show="checkLoggedIn()" id="logout_li"><a class="homegreen" href="#/logout">LOGOUT</a>
                 </li>             
             </ul>
         </div>
@@ -99,6 +100,9 @@
         <script src="static/register/register.controller.js"></script>
          <script src="static/order/order.controller.js"></script>
          <script src="static/editorder/editorder.controller.js"></script>
+         <script src="static/logout/logout.controller.js"></script>
+           <script src="static/aboutus/aboutus.controller.js"></script>
+           <script src="static/employee/employee.controller.js"></script>
          <!-- <script src="static/end/end.controller.js"></script> -->
          <script type="text/javascript">
          app
@@ -106,8 +110,47 @@
         	 var vm = function(){
         		 if($localStorage.email){return true;}
         		 else { return; }
+        		 
         	 }
          });
+         </script>
+         <script type="text/javascript">
+         
+         app
+     	.controller('NavBarController', NavBarController);
+
+         NavBarController.$inject = ['$scope', '$location', 'UserService','$localStorage'];
+     	function NavBarController($scope, $location, UserService,$localStorage) {
+             console.log("inside NavBarController");
+             /*$scope.checkLoggedIn = function(){
+             	if($localStorage.email!=null){
+             		return true;
+             	}
+             	else{
+             		return false;
+             	}
+         	};*/
+         	$scope.checkLoggedIn=function() {
+     			if($localStorage.email!=null){
+             		return true;
+             	}
+             	else{
+             		return false;
+             	}
+     		};
+     		
+         	
+     		/* (function checkLoggedIn() {
+     			if($localStorage.email!=null){
+             		return true;
+             	}
+             	else{
+             		return false;
+             	}
+     		}
+     		)(); */
+         	
+     	}
          </script>
 </body>
 </html>

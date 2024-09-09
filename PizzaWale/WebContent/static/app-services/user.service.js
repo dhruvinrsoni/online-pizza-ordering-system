@@ -26,15 +26,26 @@
         	var user = {};
         	user.email=email;
         	user.password=password;
-        	
-            return $http.post(serverUrl + '/user/login',user ).then(handleSuccess1, handleError1('Error getting user by email'));
-            console.log("fetching account...");
+        	console.log("fetching account...");
+            //return $http.post(serverUrl + '/user/login',user ).then(handleSuccess1, handleError1('Error getting user by email'));
+        	return $http.post(serverUrl + '/user/login',user ).then(function(response){
+        		console.log("user.service.js:-> Login():-> Login Successful!...");
+        		return true;    		
+        	}, function(response){
+        		
+        		console.log("Login Credentials wrong");
+        		return false;
+        	});
+            
         };
         
   
               
-        function logout() {
-			alert('inside logout...');
+        function logout(email, password) {
+        	var user = {};
+        	user.email=email;
+        	user.password=password;
+			console.log('inside user.service: logout...');
             return $http.get(serverUrl + '/logout').then(handleSuccess, handleError('Error while logging out'));
         }
 
