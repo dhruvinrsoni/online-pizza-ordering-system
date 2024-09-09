@@ -13,7 +13,7 @@
         service.create = Create;
         service.Update = Update;
      
-       function Create(order) {
+       function create(order) {
         	console.log("Inside create order of order.service");
         	console.log("order:- "+order);
         	console.log("$localStorage.email:- "+$localStorage.email);
