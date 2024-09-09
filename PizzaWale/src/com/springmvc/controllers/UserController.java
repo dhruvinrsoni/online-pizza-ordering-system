@@ -33,14 +33,14 @@ public class UserController {
 	
 	@RequestMapping(value="/register", method=RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<User> createUser(@RequestBody User user) {
-		System.out.println("Inside User Controller") ;
+		System.out.println("Inside User Controller: createUser method...") ;
 		if(userService.doesUserExist(user)) {
-			System.out.println("A user with email id " + user.getEmail() + " already exist") ;
+			System.out.println("A user with email id " + user.getEmail() + " already exist!") ;
 			return new ResponseEntity<User>(user,HttpStatus.CONFLICT) ;
 		}
 		int returned = userService.saveUser(user) ;
 		HttpHeaders headers = new HttpHeaders() ;
-		System.out.println(user + " " + returned) ;
+		System.out.println("user object:-"+user + " & return value:-" + returned) ;
 		if(returned == 1) {
 			return new ResponseEntity<User>(user, HttpStatus.CREATED) ;
 		}
@@ -55,7 +55,7 @@ public class UserController {
     @RequestMapping(value = "/user/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<User> getUser(@RequestBody User user,HttpServletRequest req ) 
     {
-        System.out.println("Fetching User with Email " + user.getEmail());
+        System.out.println("inside getUser for login: Fetching User with Email " + user.getEmail());
         
         User user1 = userService.findByEmail(user.getEmail());
         if (user1 == null) {
@@ -69,7 +69,7 @@ public class UserController {
         		
         		HttpSession session= req.getSession();
         		session.setAttribute("email", user);
-        	
+        		
         		return new ResponseEntity<User>(user, HttpStatus.OK);
         	}
         	else {

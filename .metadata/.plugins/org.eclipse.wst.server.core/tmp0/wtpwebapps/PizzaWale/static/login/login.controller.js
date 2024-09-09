@@ -28,11 +28,11 @@
                 	$localStorage.email=vm.email;
                 	console.log($localStorage.email);
                     $location.path('/order') ;
-                    alert("abdec");
+                    alert("Login successful");
                 }
                 else {
                     vm.dataLoading = false ;
-                    alert("abc");
+                    alert("Unsuccessful Login");
                 }
             }) ;
 		    

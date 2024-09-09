@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
 	private static ArrayList<User> users ;
 	private Connection connection = null ;
 	private String dB_URL = "jdbc:mysql://localhost:3306/" ;
-	private String dB_name = "pizza" ;
+	private String dB_name = "pizzawale" ;
 	private String driver = "com.mysql.jdbc.Driver" ;
 	private String userName = "root" ; 
 	private String password = "root" ;
@@ -29,10 +29,11 @@ public class UserServiceImpl implements UserService {
 	private ResultSet resultSet = null ;
 	
 	private void connectToDB() {
-		System.out.println("Trying to connect to database.");
+		System.out.println("Trying to connect to database...");
 		try {
 			Class.forName(driver).newInstance() ;
 			connection = DriverManager.getConnection(dB_URL + dB_name, userName , password) ;
+			System.out.println("DB Connection Successful...!");
 		}
 		catch(Exception e) {
 			System.out.println("Could not connect to the database !" + e.toString()) ;
@@ -44,6 +45,7 @@ public class UserServiceImpl implements UserService {
 		try {
 			if(!connection.isClosed()) {
 				connection.close() ;
+				System.out.println("Connection to DB has been successfully closed.");
 			}
 		}
 		catch(Exception e) {
@@ -59,22 +61,21 @@ public class UserServiceImpl implements UserService {
 		return false ;
 	}
 	public User findByEmail(String email) {
-		// TODO Auto-generated method stub
 		users = findAllUsers() ;
 		for(User user : users) {
 			if(user.getEmail().equals(email)) {
+				System.out.println("Inside findByEmail method and email found...! user:"+user.getName()+" and email:"+user.getEmail());
 				return user ;
 			}
 		}
-		System.out.println("avbsh");
 		return null ;
 	}
 
 	public User findByID(int user_id) {
-		// TODO Auto-generated method stub
 		users = findAllUsers() ;
 		for(User user : users) {
 			if(user.getUserId() == user_id) {
+				System.out.println("Inside findByEmail method and email found...! user:"+user.getName()+" and email:"+user.getUserId());
 				return user ;
 			}
 		}
@@ -93,7 +94,6 @@ public class UserServiceImpl implements UserService {
 	
 	
 	public ArrayList<User> findAllUsers() {
-		// TODO Auto-generated method stub
 		connectToDB() ;
 		users = new ArrayList<User>();
 		try {
@@ -106,10 +106,10 @@ public class UserServiceImpl implements UserService {
 				user.setEmail(resultSet.getString("email")) ;
 				user.setPassword(resultSet.getString("password")) ;
 				user.setMobileNum(resultSet.getString("mobile_num")) ;
-				user.setName(resultSet.getString("name")) ;
+				user.setName(resultSet.getString("user_name")) ;
 				user.setAddress(resultSet.getString("address")) ;
-				user.setGender(resultSet.getString("gender")) ;
-				user.setAdmin(resultSet.getBoolean("user_type")) ;
+				user.setPincode(resultSet.getString("pincode"));
+				user.setUserType(resultSet.getInt("user_type")) ;
 				users.add(user) ;
 			}
 		}
@@ -124,31 +124,21 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public int saveUser(User user) {
-		// TODO Auto-generated method stub
 		System.out.println(user);
 		try {
 			connectToDB() ;
-			/*String query = "INSERT into user(email,password,mobile_num,is_admin,last_name,gender,first_name) values(?,?,?,?,?,?,?) ;" ;
-			String query = "INSERT into user(email,password) values(?,?) ;" ;
-			statement = connection.prepareStatement(query) ;
-			statement.setString(1,user.getEmail()) ;
-			statement.setString(2,user.getPassword()) ;
-			statement.setString(3, user.getMobileNum()) ;
-			statement.setInt(4, 0) ;
-			statement.setString(5, user.getLastname()) ;
-			statement.setString(6, "MALE");//user.getGender()) ;
-			statement.setString(7, user.getFirstname()) ; 
-			System.out.println(statement) ;
-			int returned = statement.executeUpdate() ;
-			if(returned == 1) users.add(user) ;
-			return returned ; */
+			
 			Statement stmt = connection.createStatement() ;
-			String query = "insert into user (email, name, address, password, mobile_num , user_type) values ('"+ user.getEmail()+"','"+ 
+			String query = "insert into user (email, user_name, address, password, mobile_num , user_type, pincode) values ('"+ user.getEmail()+"','"+ 
 							user.getName()+"','"+user.getAddress() +"','"+ user.getPassword()+"','"+
-							user.getMobileNum()+"',false);" ;
-			System.out.println(query) ;
+							user.getMobileNum()+"','"+user.getUserType()+"','"+user.getPincode()+"');" ;
+			System.out.println("saveUser Query:- "+query) ;
 			int returned = stmt.executeUpdate(query) ;
-			if(returned == 1) users.add(user) ;
+			if(returned == 1) 
+			{
+				users.add(user) ;
+				System.out.println("saveUser function added data successfully and returned value:- "+returned);
+			}
 			return returned ;
 		}
 		catch(SQLException e) {

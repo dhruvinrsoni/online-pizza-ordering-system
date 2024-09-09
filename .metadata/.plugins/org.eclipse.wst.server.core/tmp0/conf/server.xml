@@ -126,7 +126,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log." suffix=".txt"/>
 
-      <Context docBase="Z:\Projects 2019 Batch\P8_Online_Pizza_Ordering_System\00_Eclipse_Project_Root\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="Z:\Projects 2019 Batch\P8_Online_Pizza_Ordering_System\00_Eclipse_Project_Root\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\PizzaWale" path="/PizzaWale" reloadable="true" source="org.eclipse.jst.jee.server:PizzaWale"/></Host>
+      <Context docBase="Z:\Projects 2019 Batch\P8_Online_Pizza_Ordering_System\00_Eclipse_Project_Root\Pranav\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="Z:\Projects 2019 Batch\P8_Online_Pizza_Ordering_System\00_Eclipse_Project_Root\Pranav\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\PizzaWale" path="/PizzaWale" reloadable="true" source="org.eclipse.jst.jee.server:PizzaWale"/></Host>
     </Engine>
   </Service>
 </Server>

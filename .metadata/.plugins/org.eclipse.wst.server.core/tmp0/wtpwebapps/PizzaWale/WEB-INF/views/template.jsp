@@ -1,67 +1,74 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html ng-app="app">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html;" charset="ISO-8859-1">
-          <title>Pizza Wale</title>
-
-          <!-- Include CSS files -->
-          <!-- <link rel="stylesheet" type="text/css"  href="static/css/login.css"> -->
-          <style>
-            ul{
-              list-style-type: none;
-            }
-            li {
-                float: right;
-              }
-
-              li a:visited {
-                text-decoration: none;
-                color: white;
-              }
-
-              li a {
-                display: block;
-                color: white;
-                text-align: center;
-                padding-left: 10px;
-                padding-right: 10px;
-                text-decoration: none;
-              }
-
-              li a:hover {
-                color: skyblue;
-                text-decoration: none;
-              }
-              .logo{
-                height:60px;
-                padding-left: 20px;
-                padding-top: 15px;
-              }
-          </style>
-      </head>
-      <body style="">
-        <div style="">
-		<div style="z-index:-999;background-image: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.6)), url(static/images/pizza_background.jpg);background-repeat: no-repeat;background-size: cover;height:100%; margin:-10px; position: fixed; width:110%;background-position: center;background-attachment: fixed;    height: 100%;">
-		</div>
-            <div style="float:left;">
-              <img src="static/images/logo.jpg" class="logo">
-            </div>
-            <div style="float: right;">
-              <ul>
-                <li ng-show="$localStorage.email"><a href="#/end">Logout</a></li>
-                <li ng-hide="$localStorage.email"><a href="#/login">Login</a></li>
-                <li ng-hide="$localStorage.email"><a href="#/register">Register</a></li>
-                <li><a href="#/">Home</a></li>
-              </ul>
-            </div>
+<html  ng-app="app">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Pizza Wale</title>
+	<!-- link rel="stylesheet" href="static/bootstrap/bootstrap.min.css"-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="shortcut icon" href="static/images/favicon.ico"/>
+	<!--  script src="static/bootstrap/bootstrap.min.js"></script-->
+	<style>
+		body
+		{
+			//background-image: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.6)), url(static/images/pizza_background.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div style="display:none;z-index:-999;background-image: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.6)), url(static/images/pizza_background.jpg);background-repeat: no-repeat;background-size: cover;height:100%;  position: fixed; width:110%;background-position: center;background-attachment: fixed;height: 100%;"></div>
+	<div style=".">
+	<div style="float:left;">
+		<img src="static/images/logo.jpg" class="logo">
+	</div>
+	<div style="float: right;display:none;">
+		<ul>
+			<li ng-show="$localStorage.email"><a href="#/end">Logout</a></li>
+			<li ng-hide="$localStorage.email"><a href="#/login">Login</a></li>
+			<li ng-hide="$localStorage.email"><a href="#/register">Register</a></li>
+			<li><a href="#/">Home</a></li>
+		</ul>
+	</div>
+	
+<nav class="navbar navbar-inverse navbar-fixed-top" style="margin:0px;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#exampleNavComponents" aria-expanded"false">
+                <i class="glyphicon glyphicon-align-center" style=color:grey;></i>
+            </button>
+            <a href="#" class="navbar-brand">
+               Pizza Wale
+            </a>
         </div>
-        <!-- render view dynamically -->
-        <div ng-view>
+        <div class="collapse navbar-collapse" id="exampleNavComponents">
 
+            <!-- Navbar Menu -->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active" id="home_li"><a class="homered" href="#/home">HOME</a></li>
+                <li ng-show="$localStorage.email" id=""><a class="homeblack" href="#/order">ORDER</a></li>
+                <li id="aboutus_li"><a class="homeblack" href="#/aboutus">ABOUT US</a></li>
+                <li ng-hide="$localStorage.email" id="register_li"><a class="homeblack" href="#/register">REGISTER</a></li>				
+                <li ng-hide="$localStorage.email" id="login_li"><a class="homegreen "href="#/login">LOGIN</a>
+                <li ng-show="$localStorage.email" id="logout_li"><a class="homegreen "href="#/logout">LOGOUT</a>
+                </li>             
+            </ul>
         </div>
+    </div>
+</nav>
+	</div>
+	<br><br><br>
+	<!-- render view dynamically -->
+	<div ng-view>
+	
+	</div>
 
         <!-- Include JS files -->
         <!-- Include angular -->
@@ -73,7 +80,7 @@
         <!-- Include routing scripts -->
         <script src="static/js/app.js"></script>
         <!-- Include services -->
-             <script src="static/app-services/order.service.js"></script>
+        <script src="static/app-services/order.service.js"></script>
 
         <script src="static/app-services/user.service.js"></script>
         <!-- Include angular controller scripts -->
@@ -92,5 +99,5 @@
         	 }
          });
          </script>
-    </body>
+</body>
 </html>
