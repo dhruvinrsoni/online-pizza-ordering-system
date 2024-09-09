@@ -1,0 +1,26 @@
+#outer
+{
+margin:0% 20% 0%;
+width:60%;
+}
+
+#second 
+{
+border:1px solid white;
+}
+
+.mybody
+{
+color:white; 
+background:white;
+}
+
+.container
+{
+	color:cadetblue;
+}
+
+td
+{
+  word-break:break-all;
+}

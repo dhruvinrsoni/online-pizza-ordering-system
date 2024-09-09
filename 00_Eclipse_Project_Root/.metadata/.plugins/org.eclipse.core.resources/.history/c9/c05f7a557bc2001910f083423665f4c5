@@ -1,0 +1,82 @@
+<div id="fullscreen_bg" class="fullscreen_bg"/ ng-cloak ng-app="MyApp">
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.js"></script>
+
+<div class="well" ng-repeat="star in stars">
+<p>Type:{{star.type}}</p>
+
+</div>
+
+<b><span ng-bind="vm.items"  style="color:white;"></span></b>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--div>
+    <div style="float:right;">
+    <div class=container>
+	<table id="cart" class="table table-condensed"><h1 style="color:yellow; text-align:center;">Order Summary</h1>
+    				<thead>
+						<tr>
+							<th style="width:50%; float:right;"><h2 style="color:yellow;">Order Items</h2></th>
+							<th style="width:10%"><h2 style="color:yellow;">Price</h2></th>
+							<th style="width:8%"><h2 style="color:yellow;">Quantity</h2></th>
+							<th style="width:22%" class="text-center"><h2 style="color:yellow;">Subtotal</h2></th>
+							<th style="width:10%"></th>
+						</tr>
+					</thead>
+					<tbody >
+						<tr>
+							<td data-th="Product" style="padding-left:20%">
+							<b>{{result}}</b>
+								<!-- div class="row">
+									
+									<div class="row" data-ng-repeat="row in rows">
+            <div class="col" data-ng-repeat="col in row.col">{{x.itemName}}</div>
+        </div>
+								</div>
+							</td>
+							<td data-th="Price" style="color:orange;">Rs 250</td>
+							<td data-th="Quantity"style="color:white;">
+							Quantity
+								<!-- input type="number" class="form-control text-center" value="1">
+							</td>
+							<td data-th="Subtotal" class="text-center" style="color:white";>subtotal</td>
+							<td class="actions" data-th="">
+								
+								<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr class="visible-xs" >
+							<td class="text-center"style="color:white;"><strong>Total Amt</strong></td>
+						</tr>
+						<tr>
+							<td><a href="#/order" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+							<td colspan="2" class="hidden-xs"></td>
+							<td class="hidden-xs text-center"style="color:white;"><strong>Total Amt</strong></td>
+							
+							<td><a href="#/end" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+						</tr>
+					</tfoot>
+				</table>
+    
+    
+    </div>	
+    	
+    </div>
+    
+</div-->

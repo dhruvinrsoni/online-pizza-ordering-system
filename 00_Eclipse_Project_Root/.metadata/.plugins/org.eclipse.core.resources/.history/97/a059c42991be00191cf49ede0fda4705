@@ -1,0 +1,95 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="app">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;" charset="ISO-8859-1">
+          <title>Pizza Wale</title>
+
+          <!-- Include CSS files -->
+          <!-- <link rel="stylesheet" type="text/css"  href="static/css/login.css"> -->
+          <style>
+            ul{
+              list-style-type: none;
+            }
+            li {
+                float: right;
+              }
+
+              li a:visited {
+                text-decoration: none;
+                color: white;
+              }
+
+              li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding-left: 10px;
+                padding-right: 10px;
+                text-decoration: none;
+              }
+
+              li a:hover {
+                color: skyblue;
+                text-decoration: none;
+              }
+              .logo{
+                height:60px;
+                padding-left: 20px;
+                padding-top: 15px;
+              }
+          </style>
+      </head>
+      <body style="background-image: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.6)), url(static/images/pizza_background.jpg);background-repeat: no-repeat;background-size: cover;">
+        <div style="background: black; margin:-10px; position: fixed; width:110%;">
+		
+            <div style="float:left;">
+              <img src="static/images/logo.jpg" class="logo">
+            </div>
+            <div style="float: right; margin-right: 10%;">
+              <ul>
+                <li><a href="#/end">Logout</a></li>
+                <li ng-hide="$localStorage.email"><a href="#/login">Login</a></li>
+                <li ng-hide="$localStorage.email"><a href="#/register">Register</a></li>
+                <li><a href="#/">Home</a></li>
+              </ul>
+            </div>
+        </div>
+        <!-- render view dynamically -->
+        <div ng-view>
+
+        </div>
+
+        <!-- Include JS files -->
+        <!-- Include angular -->
+        <script src="static/js/angular.js"></script>
+        <script src="static/js/angular-route.js"></script>
+        <script src="static/js/angular-cookies.js"></script>
+        <script src="static/js/angular-animate.js"></script>
+        <script src="static/js/ngStorage.min.js"></script>
+        <!-- Include routing scripts -->
+        <script src="static/js/app.js"></script>
+        <!-- Include services -->
+             <script src="static/app-services/order.service.js"></script>
+
+        <script src="static/app-services/user.service.js"></script>
+        <!-- Include angular controller scripts -->
+        <script src="static/home/home.controller.js"></script>
+        <script src="static/login/login.controller.js"></script>
+        <script src="static/register/register.controller.js"></script>
+         <script src="static/order/order.controller.js"></script>
+         <script src="static/editorder/editorder.controller.js"></script>
+         <script src="static/end/end.controller.js"></script>
+         <script type="text/javascript">
+         app
+         .controller('MainCtrl',function($scope, $localStorage) {
+        	 var vm = function(){
+        		 if($localStorage.email){return true;}
+        		 else 
+        	 }
+         }
+         </script>
+    </body>
+</html>

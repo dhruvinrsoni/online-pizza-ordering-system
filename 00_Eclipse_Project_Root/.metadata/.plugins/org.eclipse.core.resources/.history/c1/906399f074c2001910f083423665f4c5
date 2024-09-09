@@ -1,0 +1,36 @@
+<style>
+input[type=number]
+{
+	margin:auto;
+}
+</style>
+
+
+<br>
+<br>
+<br>
+
+<div>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Cedarville+Cursive');
+  </style>
+  <!--  link rel="stylesheet" type="text/css"  href="static/css/order1.css"-->
+  <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <div style="padding-top:5%; text-align:center;" class="col-md-6 col-md-offset-3">
+  <h1 style=" color: #ffc107; font-size: 70px; margin-bottom: -10px;">About Us</h1><br>
+    <h2 style=" color: #ffc107; font-size: 70px; margin-bottom: -10px;">How it Started...</h2><br>
+  
+  <p style="color:white;font-family:;">The Pizza Wale in Indirapuram, Delhi
+The Pizza Wale in Delhi. Pizza Outlets with Address, Contact Number, Photos, Maps. View The Pizza Wale, Delhi on Justdial.
+
+Located in Indirapuram, The Pizza Wale in Delhi is amongst the top picks of the locals to satiate cravings for mouth-watering pizzas. This restaurant specializes in serving a range of cheesy pizzas made with the goodness of hand-picked toppings. In operation since 2015, the locals have developed a liking for its pocket-friendly and mouth-watering pizzas. The pizzas are generously sprinkled with a variety of toppings that make it a sheer delight to eat. This eatery's menu also includes sides like salads, burgers and sandwiches. This pizzeria occupies a favourable location at Shipra Shopping Plaza on the which works to its advantage in attracting a substantial number of footfalls day in and day out. Its patron base that usually comprises of school students, college goers, working professionals and the local residents. You can contact this pizza outlet on the following contact numbers: +(91)-9560590765,8588044748. Undoubtedly it is one of the best pizza outlets in Indirapuram, Delhi.
+
+Ambience and Services at The Pizza Wale
+The Pizza Wale near Indirapuram offers outdoor as well as indoor seating arrangements, which guests can choose as per their comfort. Though this dining venue is a compact setup with limited space for seating its dine-in guests, this restaurant also offers take away and speedy doorstep delivery services too. The staff are attentive and prompt at service, ensuring customers are served well. It is also a popular hangout for hosting birthday parties for kids. The operating hours of 15:00 - 23:00 make it convenient for customers to sate their cravings for pizzas late into the night as well. Pay with Cash.
+
+Scroll up to view the address and contact details of in Indirapuram, Delhi.</p>
+  
+    </div>
+</div>

@@ -1,0 +1,133 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="app">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;" charset="ISO-8859-1">
+          <title>Pizza Wale</title>
+			
+			 <!-- link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css"-->
+			 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="shortcut icon" href="static/images/favicon.ico"/>
+   <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+  			<!-- script src="static/bootstrap/js/bootstrap.min.js"></script-->
+          <!-- Include CSS files -->
+          <!-- <link rel="stylesheet" type="text/css"  href="static/css/login.css"> -->
+          <style>
+            ul{
+              list-style-type: none;
+            }
+            li {
+                float: right;
+              }
+
+              li a:visited {
+                text-decoration: none;
+                color: white;
+              }
+
+              li a {
+                
+                color: white;
+                
+                padding-left: 10px;
+                padding-right: 10px;
+                text-decoration: none;
+              }
+
+              li a:hover {
+                color: skyblue;
+                text-decoration: none;
+              }
+              .logo{
+                height:60px;
+                padding-left: 20px;
+                padding-top: 15px;
+              }
+          </style>
+      </head>
+      <body style="">
+        <div style="">
+        
+ <!-- nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+<div class="container-fluid">
+		<a class="navbar-brand" href="#"><img src=""></a>		
+		<div class="navbar-header">                                
+       </div>
+		<div class="collapse navbar-collapse" id="navbarResponsive" >
+			<ul class="navbar-nav ml-auto" >
+				<li class="nav-item">
+					<a class="nav-link" href="#">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Services</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Team</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Connect</a>
+				</li>
+			</ul>			
+		</div>
+		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarResponsive" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+</div>
+</nav-->
+        
+		<div style="z-index:-999;background-image: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.6)), url(static/images/pizza_background.jpg);background-repeat: no-repeat;background-size: cover;height:100%;  position: fixed; width:110%;background-position: center;background-attachment: fixed;    height: 100%;">
+		</div>
+            <div style="float:left;" >
+              <img src="static/images/logo.jpg" class="logo">
+            </div>
+            <div style="float: right;">
+              <ul>
+                <li ng-show="$localStorage.email"><a href="#/end">Logout</a></li>
+                <li ng-hide="$localStorage.email"><a href="#/login">Login</a></li>
+                <li ng-hide="$localStorage.email"><a href="#/register">Register</a></li>
+                <li><a href="#/">Home</a></li>
+              </ul>
+            </div>
+        </div>
+
+        <!-- render view dynamically -->
+        <div ng-view>
+
+        </div>
+
+        <!-- Include JS files -->
+        <!-- Include angular -->
+        <script src="static/js/angular.js"></script>
+        <script src="static/js/angular-route.js"></script>
+        <script src="static/js/angular-cookies.js"></script>
+        <script src="static/js/angular-animate.js"></script>
+        <script src="static/js/ngStorage.min.js"></script>
+        <!-- Include routing scripts -->
+        <script src="static/js/app.js"></script>
+        <!-- Include services -->
+             <script src="static/app-services/order.service.js"></script>
+
+        <script src="static/app-services/user.service.js"></script>
+        <!-- Include angular controller scripts -->
+        <script src="static/home/home.controller.js"></script>
+        <script src="static/login/login.controller.js"></script>
+        <script src="static/register/register.controller.js"></script>
+         <script src="static/order/order.controller.js"></script>
+         <script src="static/editorder/editorder.controller.js"></script>
+         <script src="static/end/end.controller.js"></script>
+         <script type="text/javascript">
+         app
+         .controller('MainCtrl',function($scope, $localStorage) {
+        	 var vm = function(){
+        		 if($localStorage.email){return true;}
+        		 else { return; }
+        	 }
+         });
+         </script>
+    </body>
+</html>

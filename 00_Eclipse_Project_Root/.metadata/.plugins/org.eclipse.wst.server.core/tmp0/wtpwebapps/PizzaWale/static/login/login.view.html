@@ -1,0 +1,51 @@
+<div id="fullscreen_bg" class="fullscreen_bg"/ ng-cloak ng-app="MyApp">
+<link rel="stylesheet" type="text/css"  href="static/css/login.css">
+
+<div class="well" ng-repeat="star in stars">
+<p>Type:{{star.type}}</p>
+</div>
+
+<div class="col-md-6 col-md-offset-3">
+    
+ <form name="form" ng-submit="vm.login()" role="form" class="form-signin" style="text-align: center; position:fixed; margin-top:20%; left:70%; -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%,-50%); transform: translate(-50%,-50%);">
+
+<h1 style="color: goldenrod;font-family: auto; font-size: 70px;display:none;">Sign In</h1>
+<label for = "email"> Email Id:  </label>
+<input type="text" name="email" id="email" class="form-control" placeholder="Enter Email" ng-model="vm.email" required="" autofocus=""><br>
+<span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Email is required</span><br>
+<label for = "password"> Password:  </label>
+<input type="password" name="password" id="password" class="form-control" placeholder="Enter Password" ng-model="vm.password" required=""><br>
+<span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span><br><br><br>
+<div id="login_err" style="color:red;display:none;">Login failed...!</div>
+<input class="btn btn-primary" type="submit" ng-disabled="form.$invalid || vm.dataLoading" value="Sign in"><br><br>
+ <a href="#/register">New here? Click me to Register</a>
+ </form>
+    
+	<!-- div class="" style="margin:auto;display: table;border: grey 0px solid;">
+	  <form class="px-4 py-3"  ng-submit="vm.login()" role="form"><h2 style="text-align:center;">Login</h2>
+	    <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+	      <label for="Email">Email address</label>	      
+	      <input type="email" name="email" class="form-control" id="email" placeholder="email@example.com" ng-model="vm.email" required >
+	       <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Email is required</span>
+	    </div>
+	    <div class="form-group">
+	      <label for="exampleDropdownFormPassword1">Password</label>
+	      <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" ng-model="vm.password" required>
+	      
+          <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+	    </div>
+	    <div class="form-check">
+	      <input type="checkbox" class="form-check-input" id="dropdownCheck">
+	      <label class="form-check-label" for="dropdownCheck">
+	        Remember me
+	      </label>
+	    </div>
+	    <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Login</button>
+	  </form>
+	  <div class="dropdown-divider"></div><br>
+	  <a class="dropdown-item"  href="#/register">New around here? Sign up</a>
+	  <a class="dropdown-item" href="#">Forgot password?</a>
+	</div-->
+</div>
+</div>

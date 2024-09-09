@@ -1,0 +1,13 @@
+(function(){
+    'use strict' ;
+    app
+    .controller('AboutUsController', AboutUsController);
+
+    // inject dependencies
+    AboutUsController.$inject = ['$location', 'UserService','$localStorage'] ;
+
+    function AboutUsController(adminService, $location,$localStorage) {
+    	
+    	alert("Who we are...");
+    }
+})();

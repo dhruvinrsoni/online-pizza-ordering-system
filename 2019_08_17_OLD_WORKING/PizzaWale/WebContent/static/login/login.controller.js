@@ -1,0 +1,62 @@
+﻿(function () {
+	'use strict';
+
+	app
+	.controller('LoginController', LoginController);
+
+	LoginController.$inject = ['$location', 'UserService','$localStorage'];
+	function LoginController($location, UserService,$localStorage) {
+		var vm = this;
+        console.log("inside LoginController");
+		vm.login = login;
+	
+
+		(function initController() {
+		
+		})();
+		var user = {};
+		
+		function login() {
+			  console.log("inside login");
+
+			vm.dataLoading = true;
+			UserService.Login(vm.email, vm.password)
+		    .then(function(response) {
+            	console.log(response) ;
+                if(response) {
+                	console.log("login success");
+                	$localStorage.email=vm.email;
+                	console.log($localStorage.email);
+                	
+                	/*let myArray = ["dhruvin@pizzawale","pranav@pizzawale","siddhant@pizzawale"];
+                	for(i = 0; i < myArray.length; i++){
+                		if (myArray[i].equals(vm.email)){
+                			$location.path('/admin') ;
+                			alert("Admin Login successful");
+                		}else{
+                			$location.path('/order') ;
+                		}}
+                	*/
+                	if(vm.email=="dhruvin@pizzawale"){ $location.path('/admin') ;alert("Admin Login successful");          		
+                	}else if(vm.email=="pranav@pizzawale"){$location.path('/admin') ; alert("Admin Login successful");  
+                	}else if(vm.email=="siddhant@pizzawale"){$location.path('/admin') ;alert("Admin Login successful");   }
+                	else {$location.path('/order') ;alert("User Login successful");}
+                	
+                    
+                }
+                else {
+                    vm.dataLoading = false ;
+                    alert("Unsuccessful Login");
+                }
+            }) ;
+		    
+		
+		
+		
+	
+
+
+
+	}
+
+}})();

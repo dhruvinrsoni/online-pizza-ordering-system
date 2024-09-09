@@ -1,0 +1,64 @@
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+
+
+<head >
+
+  
+
+  <title>Employee Page</title>
+ 
+</head>
+
+
+
+  <div "class="ng-scope" style="text-align:center;">
+  <b><span ng-bind="vm.items"  style="color:white;"></span></b>
+    <div ></div>
+    <div >
+      <div class="address">
+      </div>
+    </div>
+  </div>
+  
+  <div style="text-align:center;">
+  <hr class="style2">
+
+    <h3 style= "color:white"><br>All Orders</h3>
+		
+		
+    <div  ng-repeat="order in orders"   ng-class="getorderClass(order.done)">
+      <span style="    font-size: 17px;    color:white;"> &nbsp {{order.serialKey}}. &nbsp&nbsp OrderID: &nbsp {{order.orderid}} &nbsp&nbsp Name: &nbsp {{order.name}} </span>
+      <input type="checkbox" ng-model="myVar" ng-init="myVar = false" >
+      <input type="button" ng-click="order.done=!order.done" value="Change Order Status" style=" width: 15%; background-color: #1E1E20; color: white; border: single white; border-radius: 4px;"></div><br>
+      
+      
+      <div ng-if="myVar" style="margin-left:5%; font-size: 15px;    color:white;">
+      <hr>
+      <span style="font-size:20px; text-decoration: underline">Items Ordered</span>
+      <div  ng-repeat="item in items" ng-if="getitems(order.orderid,item.orderid)">
+      <span> {{item.item}} <br></span>
+      </div>
+      <hr>
+      </div>
+    
+    
+    <h3 style="color:white">Pending Orders<br></h3>
+
+    <div ng-repeat="order in orders" ng-class="getorderClass(order.done)">
+      <span ng-show="!order.done" style="font-family: Café Françoise, cursive;    font-size: 17px;    color:white;"> &nbsp {{order.serialKey}} &nbsp&nbsp OrderID: &nbsp {{order.orderid}} &nbsp&nbsp Name: &nbsp {{order.name}}</span>
+
+    </div>
+
+      <h3 style="color:white">Completed Orders</h3>
+
+    <div ng-repeat="order in orders" ng-class="getorderClass(order.done)">
+      <span ng-show="order.done"  style="font-family: Café Françoise, cursive;    font-size: 17px;    color:white;"> &nbsp {{order.serialKey}} &nbsp&nbsp OrderID: &nbsp {{order.orderid}} &nbsp&nbsp Name: &nbsp {{order.name}} </span>
+
+    </div><br>
+
+   </div>   
+    
+
+

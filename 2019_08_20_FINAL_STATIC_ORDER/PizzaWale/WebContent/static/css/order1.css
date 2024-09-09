@@ -1,0 +1,36 @@
+
+
+
+
+label{
+  color:#DACA9F; font-size:20px;
+}
+
+
+
+.field
+{
+  height: 300px;
+  margin:0 auto;
+  border:single;
+  width:80%;
+  background-color: white;
+  color: black;
+}
+
+
+.card{
+	/*background-color:#2d2315;*/
+background-color: #643629;
+border-radius: 30px ;
+
+}
+img {
+    border-radius: 30px ;
+}
+.card-title{
+	color:yellowgreen;
+}
+.card-text{
+	color:orange;
+}

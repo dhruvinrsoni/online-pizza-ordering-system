@@ -1,0 +1,74 @@
+﻿(function () {
+    'use strict';
+
+    angular
+        .module('app')
+        .factory('UserService', UserService);
+
+    UserService.$inject = ['$http'];
+    function UserService($http) {
+        var serverUrl = 'http://localhost:8080/SpringAngular';
+		var service = {};
+         
+        service.GetAll = GetAll;
+        service.GetById = GetById;
+        service.GetByUsername = GetByUsername;
+        service.Create = Create;
+        service.Update = Update;
+        service.Delete = Delete;
+        service.Logout = Logout;
+
+        return service;
+        
+        function GetAll() {
+			//alert('inside GetAll()...');
+
+            return $http.get(serverUrl + '/api/users').then(handleSuccess, handleError('Error getting all users'));
+        }
+
+        function GetById(id) {
+            return $http.get(serverUrl + '/api/users/' + id).then(handleSuccess, handleError('Error getting user by id'));
+        }
+
+        function GetByUsername(username) {
+			alert('inside GetByUsername()...[' + username + ']');
+            return $http.get(serverUrl + '/api/users/uname/' + username).then(handleSuccess, handleError('Error getting user by username'));
+        }
+
+        //new start
+        function Logout() {
+			alert('inside Logout()...[' + '' + ']');
+            return $http.get(serverUrl + '/api/logout').then(handleSuccess, handleError('Error in logout'));
+        }
+        //new end
+        
+        function Create(user) {
+			alert('inside Create(user)...');
+            return $http.post(serverUrl + '/api/users', user).then(handleSuccess, handleError('Error creating user'));
+        }
+
+        function Update(user) {
+            return $http.put('/api/users/' + user.id, user).then(handleSuccess, handleError('Error updating user'));
+        }
+
+        function Delete(id) {
+			alert('inside Delete(id)...');
+            return $http.delete(serverUrl + '/api/users/' + id).then(handleSuccess, handleError('Error deleting user'));
+        }
+
+        // private functions
+
+        function handleSuccess(res) {
+			//alert('inside handleSuccess(res)...' + res);
+            return res.data;
+        }
+
+        function handleError(error) {
+			//alert('inside handleError(error)...' + error);
+            return function () {
+                return { success: false, message: error };
+            };
+        }
+    }
+
+})();

@@ -1,0 +1,8 @@
+package com.springmvc.model;
+
+public class OrderItem extends Order{
+	private int qty;
+	private String itemName;
+	private int price;
+	
+}

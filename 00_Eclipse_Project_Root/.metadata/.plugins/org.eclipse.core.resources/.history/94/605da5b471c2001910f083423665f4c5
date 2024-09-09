@@ -1,0 +1,37 @@
+﻿(function () {
+	'use strict';
+
+	app
+	.controller('LogoutController', LogoutController);
+
+	LogoutController.$inject = ['$location', 'UserService','$localStorage', '$cookies'];
+	function LogoutController($location, UserService,$localStorage, $cookies) {
+		var vm = this;
+        console.log("inside LogoutController");
+		logout();
+		
+		function logout() {
+			  console.log("inside logout");
+			  vm.email=$localStorage.email;
+			vm.dataLoading = false;
+			UserService.logout(vm.email, vm.password)
+		    .then(function(response) {
+            	console.log(response) ;
+                if(response) {
+                	console.log("logout success");
+                	$localStorage.email=null;
+                	$cookies.remove();
+                	console.log("$localStorage.email after logout:- ",$localStorage.email);
+                	
+                		$location.path('/') ;
+                	
+                	alert("User Logout successful.");
+                }     
+                else {
+                    vm.dataLoading = true ;
+                	$localStorage.email=vm.email;
+                    alert("Unsuccessful logout");
+                }
+            }) ;
+	}
+}})();

@@ -1,0 +1,44 @@
+(function(){
+    'use strict' ;
+    app
+    .controller('orderController', orderController);
+
+    // inject dependencies
+   orderController.$inject = ['OrderService','$location','$localStorage', '$scope'] ;
+
+    function orderController(OrderService, $location,$localStorage, $scope) {
+    	if($localStorage.email==null){$location.path('/') ;}
+    	var vm = this;
+        console.log("Order Controller: Order Here...") ;
+        vm.order = function() {
+        	console.log("Inside  order controller") ;
+        	console.log("$localStorage.email:- "+$localStorage.email);
+        	vm.order1.email=$localStorage.email;
+            vm.dataLoading = true ;
+            var scope={};
+            scope.push(vm.order1.margherita);
+            console.log(scope);
+            //console.log("vm.order1:- "+vm.order1+" & vm.order1.peppyPaneer:- "+vm.order1.peppyPaneer+" & vm.order1.email:-"+vm.order1.email);
+            console.log("vm.order1.peppyPaneer_id:- "+vm.order1.peppyPaneer_id);
+            console.log(vm.order1);
+            OrderService.create(vm.order1)
+            .then(function(response) {
+            	console.log("response from OrderService.create:- "+response) ;
+            	
+            	if(response!=false) {
+                	console.log("order success");
+                	$localStorage.ordered=response.orderItem;
+                    $location.path('/editorder') ;
+                    alert("Order placed in cart..");
+                }
+                else {
+                    vm.dataLoading = false ;
+                    $location.path('/order') ;
+                    alert("Sorry! Your Order is not placed");
+                }
+            	
+           
+            }) ;
+        } ;
+    }
+})();

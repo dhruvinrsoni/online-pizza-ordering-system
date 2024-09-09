@@ -1,0 +1,12 @@
+package com.springmvc.model;
+
+public class Item {
+	private int itemId;
+	private String itemName;
+	private int ItemType;
+	private int price;
+	private int isVeg;
+	private String description;
+	private String imageUrl;
+	
+}

@@ -1,0 +1,11 @@
+﻿(function () {
+	'use strict';
+
+	app
+	.controller('NavBarController', LoginController);
+
+	LoginController.$inject = ['$scope', '$rootScope', '$location', 'UserService','$localStorage'];
+	function LoginController($scope, $rootScope, $location, UserService,$localStorage) {
+		var vm = this;
+        console.log("inside NavBarController");
+}})();

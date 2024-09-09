@@ -1,0 +1,16 @@
+INDEX VERSION 1.122+Z:\Projects 2019 Batch\P8_Online_Pizza_Ordering_System\00_Eclipse_Project_Root\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+312167218.index
+1358441497.index
+2382674479.index
+1815148258.index
+3613158253.index
+332030512.index
+3410325228.index
+4120895284.index
+3627358757.index
+2819639486.index
+3247377645.index
+1430351246.index
+2182873284.index
+2242597688.index
+174077190.index

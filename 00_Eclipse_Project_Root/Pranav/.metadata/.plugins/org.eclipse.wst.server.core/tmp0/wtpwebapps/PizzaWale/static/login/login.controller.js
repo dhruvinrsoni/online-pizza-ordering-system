@@ -1,0 +1,71 @@
+﻿(function () {
+	'use strict';
+
+	app
+	.controller('LoginController', LoginController);
+
+	LoginController.$inject = ['$location', 'UserService','$localStorage'];
+	function LoginController($location, UserService,$localStorage) {
+		var vm = this;
+        console.log("inside LoginController");
+		vm.login = login;
+		
+		(function initController() {
+		
+		})();
+		var user = {};
+		
+		function login() {
+			  console.log("inside login");
+
+			vm.dataLoading = true;
+			UserService.Login(vm.email, vm.password)
+		    .then(function(response) {
+            	console.log(response) ;
+                if(response) {
+                	console.log("login.controller:-> login success. showing the response", response);
+                	$localStorage.email=vm.email;
+                	$localStorage.userName=response.data.name;
+                	console.log($localStorage.email);
+                	
+                	switch(response.data.userType)
+                	{
+                		case 1:
+                			 $location.path('/admin') ;alert("Admin Login successful");
+                			break;
+                			
+                		case 2:
+                			$location.path('/employee') ; alert("Employee Login successful");  
+                			break;
+                			
+                		case 3:
+                			$location.path('/order') ;alert("User Login successful");
+                			break;
+                			
+                		case 4:
+                			//$location.path('/order') ;
+                			alert("Guest Login successful");
+                			break;
+                			
+                		case 5:
+                			break;
+                			
+                		default:
+                			
+                			
+                	}
+                	/*if(vm.email=="dhruvin@pizzawale"){ $location.path('/admin') ;alert("Admin Login successful");          		
+                	}else if(vm.email=="pranav@pizzawale"){$location.path('/admin') ; alert("Admin Login successful");  
+                	}else if(vm.email=="siddhant@pizzawale"){$location.path('/admin') ;alert("Admin Login successful");}
+                	else if(vm.email=="employee@pizzawale"){$location.path('/employee') ;alert("Employee Login successful");}
+                	else {$location.path('/order') ;alert("User Login successful");}     */
+                	
+                }
+                else {
+                    vm.dataLoading = false ;
+                	$localStorage.email="";
+                    alert("Unsuccessful Login");
+                }
+            }) ;
+	}
+}})();

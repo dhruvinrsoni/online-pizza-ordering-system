@@ -1,0 +1,167 @@
+package com.springmvc.service;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.UsesJava7;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.springmvc.model.Order;
+import com.springmvc.model.OrderItem;
+
+import com.springmvc.model.User;
+
+import com.springmvc.service.UserService;
+
+
+
+@Service("OrderService")
+@Transactional
+public class OrderServiceimpl implements OrderService {
+	
+	private static ArrayList<Order> orders;
+	private static ArrayList<OrderItem> orderItems;
+	private Connection connection = null ;
+	private String dB_URL = "jdbc:mysql://localhost:3306/" ;
+	private String dB_name = "pizzawale" ;
+	private String driver = "com.mysql.jdbc.Driver" ;
+	private String userName = "root" ; 
+	private String password = "root" ;
+	private PreparedStatement statement = null ; 
+	private ResultSet resultSet = null ;
+ 
+	private void connectToDB() {
+		System.out.println("Trying to connect to database...");
+		try {
+			Class.forName(driver).newInstance() ;
+			connection = DriverManager.getConnection(dB_URL + dB_name, userName , password) ;
+		}
+		catch(Exception e) {
+			System.out.println("Could not connect to the database !" + e.toString()) ;
+		}
+	}
+
+	
+	private void closeDBconnection() {
+		try {
+			System.out.println("Closing the connection with DB...");
+			if(!connection.isClosed()) {
+				connection.close() ;
+				System.out.println("DB Connection closed...!");
+			}
+		}
+		catch(Exception e) {
+			System.out.println("Could not close the database !" + e.toString()) ;
+		}
+	}
+	
+	@Autowired
+	UserService userService ;
+	
+	@override
+	public int getItemPrice(int itemId)
+	{
+		try
+		{
+			connectToDB() ;
+			Statement stmt = connection.createStatement() ;
+			String query1 = "select * from items where item_id='"+itemId+"';" ;
+			System.out.println("Insert Query to saveOrder:- "+query1) ;
+			stmt.executeUpdate(query1) ;
+
+			String query = "" ;
+			System.out.println(query) ;
+			int returned = stmt.executeUpdate(query) ;
+			if(returned == 1) orders.add((Order) orderItem) ;
+			return returned ;
+			
+		}catch(SQLException e) {
+			e.printStackTrace() ; return 0 ;
+		}
+		finally {
+			closeDBconnection() ;
+		}
+	}
+	
+	@Override
+	public int saveOrder(String[] orderList) {
+		System.out.println("inside saveOrder of orderServiceImpl...");
+		//delete
+		OrderItem orderItem = new OrderItem();
+		List<OrderItem> orderItems;
+		int subtotal=0, total=0;
+		for(int i=1;i<orderList.length;i++)
+		{
+			subtotal=Integer.parseInt(orderList[i])*getItemPrice(i);
+			
+			orderItem.setOrdertotal(subtotal);
+			
+		}
+		
+		try {
+			//'"+ order.getOrderid()+"',
+			connectToDB() ;
+			Statement stmt = connection.createStatement() ;
+			String query1 = "" ;
+			System.out.println("Insert Query to orderinfo:- "+query1) ;
+			stmt.executeUpdate(query1) ;
+
+			String query = "" ;
+			System.out.println(query) ;
+			int returned = stmt.executeUpdate(query) ;
+			if(returned == 1) orders.add((Order) orderItem) ;
+			return returned ;
+		}
+		catch(SQLException e) {
+			e.printStackTrace() ; return 0 ;
+		}
+		finally {
+			closeDBconnection() ;
+		}
+		
+	}
+
+
+	@Override
+	public int updateOrder(OrderItem orderItem) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public String printOrder(List<String> orderItem) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public int submitOrder(OrderItem orderItem) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public String printOrder(OrderItem orderItem) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public OrderItem getOrderItem(OrderItem orderItem)
+	{
+		return orderItem;
+	}
+	
+}
+

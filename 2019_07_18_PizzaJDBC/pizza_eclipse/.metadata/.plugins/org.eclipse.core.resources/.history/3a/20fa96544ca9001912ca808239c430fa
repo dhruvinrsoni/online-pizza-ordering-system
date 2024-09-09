@@ -1,0 +1,15 @@
+package com.reflexis.project8;
+
+public class Customer {
+
+	/**
+	 * @param args
+	 */
+	int custID;
+	String custName;
+	String custAddr;
+	String username;
+	int number;
+	int pincode;
+	
+}

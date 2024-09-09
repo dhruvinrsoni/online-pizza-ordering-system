@@ -1,0 +1,9 @@
+INDEX VERSION 1.126
+Z:\Projects 2019 Batch\P8_Online_Pizza_Ordering_System\00_Eclipse_Project_Root\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2668633316.index
+\SpringAngular\src
+Z:\Projects 2019 Batch\P8_Online_Pizza_Ordering_System\00_Eclipse_Project_Root\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1815148258.index
+\PizzaWale\src
+Z:\Projects 2019 Batch\P8_Online_Pizza_Ordering_System\00_Eclipse_Project_Root\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3542673141.index
+\PizzaWalw\src
+Z:\Projects 2019 Batch\P8_Online_Pizza_Ordering_System\00_Eclipse_Project_Root\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3613158253.index
+\pizza order\src

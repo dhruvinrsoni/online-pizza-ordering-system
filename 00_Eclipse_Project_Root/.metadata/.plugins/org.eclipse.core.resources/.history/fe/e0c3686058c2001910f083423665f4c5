@@ -1,0 +1,18 @@
+﻿(function () {
+	'use strict';
+
+	app
+	.controller('NavBarController', LoginController);
+
+	LoginController.$inject = ['$scope', '$rootScope', '$location', 'UserService','$localStorage'];
+	function LoginController($scope, $rootScope, $location, UserService,$localStorage) {
+        console.log("inside NavBarController");
+        $scope.checkLoggedIn = function(){
+        	if($localStorage.email!=null){
+        		return true;
+        	}
+        	else{
+        		return false;
+        	}
+    	};
+}})();

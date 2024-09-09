@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Payment@PizzaWale</title>
+ 
+ <link rel="stylesheet" type="text/css" href="static/css/payment.css">
+ <style>
+
+
+
+</style>
+</head>
+<body class="mybody">
+
+<div class="container" align= "center" id="outer">
+
+<h1 align= "left">Payment Options</h1>
+
+
+
+<div id="second">
+
+<table>
+
+	<tr>
+
+		<td> <img src="upi1.jpg"></td>
+
+			<td>
+
+				<table>
+					<h2 align="left">Paytm/BHIM/UPI</h2>
+
+						
+<tr>
+
+<td>
+
+
+
+
+
+ 
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<input type="button" value="Proceed">
+
+</div>
+<br>
+<div id="second">
+
+
+<table>
+
+	<tr>
+
+		<td> <img src="cod.jpg"></td>
+
+			<td>
+
+				<table>
+					<h2 align="left">Cash on Delivery</h2>
+
+						
+<tr>
+
+<td>
+
+
+
+ 
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<input type="button" value="Proceed">
+
+</div>
+<br>
+
+<div id="second">
+
+
+<table>
+
+	<tr>
+
+		<td> <img src="debit.jpg"></td>
+
+			<td>
+
+				<table>
+					<h2 align="left">Credit/Debit Card</h2>
+
+						
+<tr>
+
+<td>
+
+
+</table>
+
+ 
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<input type="button" value="Proceed">
+
+</div>
+<br>
+
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+/**
+ * 
+ */
+package com.reflexis.training.pizzofilia;
+
+/**
+ * @author dhruvin.soni
+ *
+ */
+public class Customer {
+	private String name;
+	private String username;
+	private String password;
+	private int customer_id;
+	private String email_id;
+	private long mobile_number;
+	private String address;
+	
+	public Customer(String name, String username, String password,
+			int customer_id, String email_id, long mobile_number, String address) {
+		super();
+		this.name = name;
+		this.username = username;
+		this.password = password;
+		this.customer_id = customer_id;
+		this.email_id = email_id;
+		this.mobile_number = mobile_number;
+		this.address = address;
+	}
+	
+	public String toString() {
+		return "Customer [name=" + name + ", username=" + username
+				+ ", password=" + password + ", customer_id=" + customer_id
+				+ ", email_id=" + email_id + ", mobile_number=" + mobile_number
+				+ ", address=" + address + ", getName()=" + getName()
+				+ ", getUsername()=" + getUsername() + ", getPassword()="
+				+ getPassword() + ", getCustomer_id()=" + getCustomer_id()
+				+ ", getEmail_id()=" + getEmail_id() + ", getMobile_number()="
+				+ getMobile_number() + ", getAddress()=" + getAddress()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
+
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public int getCustomer_id() {
+		return customer_id;
+	}
+	public void setCustomer_id(int customer_id) {
+		this.customer_id = customer_id;
+	}
+	public String getEmail_id() {
+		return email_id;
+	}
+	public void setEmail_id(String email_id) {
+		this.email_id = email_id;
+	}
+	public long getMobile_number() {
+		return mobile_number;
+	}
+	public void setMobile_number(long mobile_number) {
+		this.mobile_number = mobile_number;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+	
+}

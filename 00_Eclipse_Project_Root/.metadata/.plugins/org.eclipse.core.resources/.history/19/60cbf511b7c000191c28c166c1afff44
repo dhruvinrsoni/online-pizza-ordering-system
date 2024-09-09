@@ -1,0 +1,39 @@
+(function(){
+    'use strict' ;
+    app
+    .controller('orderController', orderController);
+
+    // inject dependencies
+   orderController.$inject = ['OrderService','$location','$localStorage'] ;
+
+    function orderController(OrderService, $location,$localStorage) {
+    	if($localStorage.email==null){$location.path('/') ;}
+    	var vm = this;
+        console.log("Order Controller: Order Here...") ;
+        vm.order = function() {
+        	console.log("Inside  order controller") ;
+        	console.log("$localStorage.email:- "+$localStorage.email);
+        	vm.order1.email=$localStorage.email;
+            vm.dataLoading = true ;
+            console.log("vm:- "+vm+" & vm.order1.peppyPaneer:- "+vm.order1.peppyPaneer);
+            OrderService.create(vm.order1)
+            .then(function(response) {
+            	console.log("response from OrderService.create:- "+response) ;
+            	
+            	if(response!=false) {
+                	console.log("order success");
+                	$localStorage.ordered=response.orderItem;
+                    $location.path('/editorder') ;
+                    alert("Order placed in cart..");
+                }
+                else {
+                    vm.dataLoading = false ;
+                    $location.path('/order') ;
+                    alert("Sorry! Your Order is not placed");
+                }
+            	
+           
+            }) ;
+        } ;
+    }
+})();

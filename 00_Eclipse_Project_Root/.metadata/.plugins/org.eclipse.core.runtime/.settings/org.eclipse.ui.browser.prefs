@@ -1,0 +1,4 @@
+browser-choice=1
+browsers=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<web-browsers current\="0">\r\n<system/>\r\n<external location\="C\:\\Program Files\\Mozilla Firefox\\firefox.exe" name\="Firefox"/>\r\n<external location\="C\:\\Program Files\\Internet Explorer\\iexplore.exe" name\="Internet Explorer"/>\r\n</web-browsers>
+eclipse.preferences.version=1
+internalWebBrowserHistory=http\://localhost\:8080/PizzaWale/|*|http\://localhost\:8080/PizzaWale/\#/logout|*|http\://localhost\:8080/PizzaWale/\#/login|*|http\://localhost\:8080/PizzaWale/\#/register|*|http\://localhost\:8080/PizzaWale/\#/aboutus|*|http\://localhost\:8080/PizzaWale/\#/order|*|http\://localhost\:8080/PizzOFilia/|*|http\://localhost\:8080/SpringAngular/\#/login|*|http\://localhost\:8080/SpringAngular/|*|http\://localhost\:8080/pizza_order/\#/|*|http\://localhost\:8080/pizza_order/|*|
