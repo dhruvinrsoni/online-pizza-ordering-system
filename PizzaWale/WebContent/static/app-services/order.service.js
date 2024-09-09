@@ -12,7 +12,9 @@
         
         service.create = Create;
         service.Update = Update;
-        service.GetAll=GetAll;
+        service.getItems=getItems;
+
+        service.create = Create;
        function Create(order) {
         	console.log("Inside create order of order.service");
         	console.log("order=>");
@@ -39,13 +41,11 @@
        	 console.log("in editordersummary ");
            return $http.get(serverUrl + '/editorder').then(handleSuccess1, handleError1('Error getting all users'));
        }
-         
-
         
         function getItems()
         {
         	console.log("Inside order service: getItems:- ");
-        	return $http.get(serverUrl + '/orderitems').then(handleSuccess1, handleError1('Error getting all users'));
+        	return $http.get(serverUrl + '/items').then(handleSuccess1, handleError1('Error getting all users'));
         	
         }
         

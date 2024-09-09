@@ -6,8 +6,8 @@
  
  
 <div class="container"id="register_form" style=" width: max-content;height:100%;position:fixed;">
-
-    <form name="form" ng-submit="vm.register()" role="form" style=" top:50%;left:65%;position:fixed;    text-align: center; -ms-transform: translateX(-50%) translateY(-50%);
+<br><br><br><br>
+    <form name="form" ng-submit="vm.register()" role="form" style=" top:60%;left:65%;position:fixed;height: inherit;overflow-y: overlay;    text-align: center; -ms-transform: translateX(-50%) translateY(-50%);
      transform: translate(-50%,-50%);">
       
      
@@ -51,7 +51,7 @@
             <span ng-show="form.pincode.$dirty && form.pincode.$error.required" class="help-block" >Pincode is required</span>
         </div>
         <br>
-         <div class="form-group">
+         <!-- <div class="form-group">
          <label for = "mobileNum"> You are a:  </label>
             <select name="userType" ng-model="vm.user.userType" class="form-control" id="userType" required>
             <option selected disabled hidden style='display: none' value=''></option>
@@ -59,13 +59,13 @@
             	<option value="2" selected="" >Employee</option>
             </select>
             <span ng-show="form.pincode.$dirty && form.userType.$error.required" class="help-block" >User Type is required</span>
-        </div>
+        </div> -->
         <br><br><br>
         <div class="form-actions">
             <input type="submit" class="btn btn-primary" value="Register">
             <input type="reset" class="btn btn-primary"  value="Reset">
             
             
-        </div>
+        </div><br><br><br><br>
     </form>
 </div>

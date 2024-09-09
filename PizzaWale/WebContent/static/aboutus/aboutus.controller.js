@@ -8,6 +8,6 @@
 
     function AboutUsController(adminService, $location,$localStorage, $timeout) {
     	
-    	$timeout(function(){alert("Welcome to About Us section: Who we are...");}, 1000);
+    	/*$timeout(function(){alert("Welcome to About Us section: Who we are...");}, 1000);*/
     }
 })();

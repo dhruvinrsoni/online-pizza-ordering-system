@@ -9,7 +9,25 @@
     function orderController(OrderService, $location,$localStorage, $scope) {
     	if($localStorage.email==null){$location.path('/') ;}
     	var vm = this;
+    	
         console.log("Order Controller: Order Here...") ;
+        
+        
+        getItemFromController();
+        
+       function getItemFromController()
+       {
+    	   console.log("inside order Controller-> getItemFromController()");
+    	   OrderService.getItems()
+           .then(function(response){
+           	
+           	console.log("response of items:", response);
+           	
+           	$localStorage.itemList=response;
+           	vm.itemList=$localStorage.itemList;
+           	
+           });
+        
         vm.order = function() {
         	console.log("Inside  order controller") ;
         	console.log("$localStorage.email:- "+$localStorage.email);
@@ -26,6 +44,7 @@
             //console.log("vm.order1:- "+vm.order1+" & vm.order1.peppyPaneer:- "+vm.order1.peppyPaneer+" & vm.order1.email:-"+vm.order1.email);
             //console.log("vm.order1.peppyPaneer_id:- "+vm.order1.peppyPaneer_id);
             vm.order1 = scope;
+            console.log("==================================Order Object");
             console.log(vm.order1);
             console.log("calling orderservice");
             OrderService.create(vm.order1)
@@ -45,18 +64,9 @@
                     $location.path('/order') ;
                     alert("Sorry! Your Order is not placed");
                 }
-            	
-           
             }) ;
-            
-            
-            /*OrderService.getItems()
-            .then(function(response){
-            	
-            	
-            	
-            });*/
-            
         } ;
+       
+       }
     }
 })();

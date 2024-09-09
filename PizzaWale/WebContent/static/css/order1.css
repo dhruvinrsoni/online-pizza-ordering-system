@@ -22,6 +22,11 @@ label{
 .card{
 	/*background-color:#2d2315;*/
 background-color: #643629;
+border-radius: 30px ;
+
+}
+img {
+    border-radius: 30px ;
 }
 .card-title{
 	color:yellowgreen;

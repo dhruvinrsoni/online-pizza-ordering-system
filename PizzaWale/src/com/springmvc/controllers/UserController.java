@@ -1,9 +1,11 @@
 package com.springmvc.controllers;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -106,7 +108,7 @@ public class UserController {
     
 	
 	@RequestMapping(value="/logout", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<User> logout(HttpServletRequest req ) 
+	public ResponseEntity<User> logout(HttpServletRequest req,HttpServletResponse res ) throws IOException 
 	{
 		System.out.println("Inside User Controller: logout method...") ;
 		int returned = 1;
@@ -114,10 +116,15 @@ public class UserController {
  		//session.removeAttribute("user");
  		session.invalidate();
 		User user = new User();
+		System.out.println("Logout method -> Successful...") ;
+		//res.sendRedirect("/home");
+		//doGet(req, res);
  		return new ResponseEntity<User>(user, HttpStatus.OK) ;
 	}
 
     
-    
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException{
+	    resp.sendRedirect(req.getContextPath() + "#/");
+	}
 
 }

@@ -4,8 +4,8 @@
 	app
 	.controller('LoginController', LoginController);
 
-	LoginController.$inject = ['$location', 'UserService','$localStorage'];
-	function LoginController($location, UserService,$localStorage) {
+	LoginController.$inject = ['$timeout', '$location', 'UserService','$localStorage'];
+	function LoginController($timeout, $location, UserService,$localStorage) {
 		var vm = this;
         console.log("inside LoginController");
 		vm.login = login;
@@ -26,20 +26,25 @@
                 	console.log("login.controller:-> login success. showing the response", response);
                 	$localStorage.email=vm.email;
                 	$localStorage.userName=response.data.name;
+                	
+                	
                 	console.log($localStorage.email);
                 	
                 	switch(response.data.userType)
                 	{
                 		case 1:
-                			 $location.path('/admin') ;alert("Admin Login successful");
+                			 $location.path('/admin') ;
+                			 //alert("Admin Login successful");
                 			break;
                 			
                 		case 2:
-                			$location.path('/employee') ; alert("Employee Login successful");  
+                			$location.path('/employee') ;
+                			// alert("Employee Login successful");  
                 			break;
                 			
                 		case 3:
-                			$location.path('/order') ;alert("User Login successful");
+                			$location.path('/order') ;
+                			//alert("User Login successful");
                 			break;
                 			
                 		case 4:
@@ -51,7 +56,7 @@
                 			break;
                 			
                 		default:
-                			
+                			$location.path('/order');
                 			
                 	}
                 	/*if(vm.email=="dhruvin@pizzawale"){ $location.path('/admin') ;alert("Admin Login successful");          		
@@ -63,8 +68,13 @@
                 }
                 else {
                     vm.dataLoading = false ;
-                	$localStorage.email="";
-                    alert("Unsuccessful Login");
+                	$localStorage.email=null;
+                	
+                    alert("Login Failed");
+                    //$location.path('/login') ;
+                    //document.getElementById("login_err").style.display="block";
+                    //setTimeout(function(){document.getElementById("login_err").style.display="none";},3000);
+                    //document.location.reload();
                 }
             }) ;
 	}

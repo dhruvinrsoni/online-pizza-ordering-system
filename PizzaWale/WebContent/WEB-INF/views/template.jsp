@@ -6,9 +6,22 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
+	
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	
+	<meta http-equiv="cache-control" content="max-age=0" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="expires" content="0" />
+	<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+	<meta http-equiv="pragma" content="no-cache" />	
+	
+	<meta http-equiv="Cache-control" content="public">
+	<meta http-equiv="Cache-control" content="private">
+	<meta http-equiv="Cache-control" content="no-cache">
+	<meta http-equiv="Cache-control" content="no-store">
+	
 	<title>Pizza Wale</title>
 	<!-- link rel="stylesheet" href="static/bootstrap/bootstrap.min.css"-->
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
@@ -69,7 +82,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="" id="home_li"><a class="homered" href="#/home">HOME</a></li>
                 <li ng-show="checkLoggedIn()" id="order_li"><a class="homeblack" href="#/order">ORDER</a></li>
-                <li id="aboutus_li"><a class="homeblack" href="#/aboutus">ABOUT US</a></li>
+                <li id="aboutus_li"><a class="homeblack" href="#/aboutus">CONTACT US</a></li>
                 <li ng-hide="checkLoggedIn()" id="register_li"><a class="homeblack" href="#/register">REGISTER</a></li>				
                 <li ng-hide="checkLoggedIn()" id="login_li"><a class="homegreen" href="#/login">LOGIN</a>
                 <li ng-show="checkLoggedIn()" id="logout_li"><a class="homegreen" href="#/logout">LOGOUT</a>
@@ -138,7 +151,7 @@
          	};*/
          	$scope.checkLoggedIn=function() {
          		console.log("inside checkLoggedIn()");
-     			if($localStorage!=null){
+     			if($localStorage.email!=null){
              		if($localStorage.email!=null)
              			{
              			return true;
@@ -150,7 +163,24 @@
              		return false;
              	}
      		};
-         	
+         	function checkLogin()
+         	{
+
+             	$scope.checkLoggedIn=function() {
+             		console.log("inside checkLoggedIn()");
+         			if($localStorage!=null){
+                 		if($localStorage.email!=null)
+                 			{
+                 			return true;
+                 			}
+                 		else return false;
+                 		
+                 	}
+                 	else{
+                 		return false;
+                 	}
+         		};
+         	}
      		$scope.getUserName=function()
         	{
         		console.log("$localStorage.userName:-"+$localStorage.userName);

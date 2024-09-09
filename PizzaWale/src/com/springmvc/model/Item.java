@@ -9,17 +9,6 @@ public class Item {
 	private String description;
 	private String imageUrl;
 	
-	public Item(int itemId, String itemName, int itemType, int price,
-			int isVeg, String description, String imageUrl) {
-		super();
-		this.itemId = itemId;
-		this.itemName = itemName;
-		ItemType = itemType;
-		this.price = price;
-		this.isVeg = isVeg;
-		this.description = description;
-		this.imageUrl = imageUrl;
-	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

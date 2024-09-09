@@ -1,5 +1,7 @@
 package com.springmvc.service;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -143,7 +145,7 @@ public class UserServiceImpl implements UserService {
 			String password = user.getPassword();
 			System.out.println("User Email:-"+email+" & password:-"+password);
 			statement.setString(1,email);
-			statement.setString(2, password);
+			statement.setString(2, getHash(password));
 			System.out.println(statement);
 			ResultSet resultSet = statement.executeQuery() ;
 			if(resultSet.next()) 
@@ -205,8 +207,8 @@ public class UserServiceImpl implements UserService {
 			
 			Statement stmt = connection.createStatement() ;
 			String query = "insert into user (email, user_name, address, password, mobile_num , user_type, pincode) values ('"+ user.getEmail()+"','"+ 
-							user.getName()+"','"+user.getAddress() +"','"+ user.getPassword()+"','"+
-							user.getMobileNum()+"','"+user.getUserType()+"','"+user.getPincode()+"');" ;
+							user.getName()+"','"+user.getAddress() +"','"+ getHash(user.getPassword())+"','"+
+							user.getMobileNum()+"','"+3+"','"+user.getPincode()+"');" ;
 			System.out.println("saveUser Query:- "+query) ;
 			int returned = stmt.executeUpdate(query) ;
 			if(returned == 1) 
@@ -225,6 +227,34 @@ public class UserServiceImpl implements UserService {
 		
 	}
 	
+	public String getHash(String password)
+	{
+		String passwordToHash = password;
+        String generatedPassword = null;
+        try {
+            // Create MessageDigest instance for MD5
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            //Add password bytes to digest
+            md.update(passwordToHash.getBytes());
+            //Get the hash's bytes
+            byte[] bytes = md.digest();
+            //This bytes[] has bytes in decimal format;
+            //Convert it to hexadecimal format
+            StringBuilder sb = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++)
+            {
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            //Get complete hashed password in hex format
+            generatedPassword = sb.toString();
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
+        System.out.println(">>>>>generatedPassword:-"+generatedPassword);
+        return generatedPassword;
+	}
 
 }
 

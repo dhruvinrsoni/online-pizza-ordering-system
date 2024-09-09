@@ -125,10 +125,8 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    width: 45%;
-    height: 65px;
+   
     color: white;
-    font-size: 250%;
     BACKGROUND-COLOR: green;
     border: none;
     padding: 10px;
@@ -148,10 +146,8 @@ input[type=reset] {
 }
 
 input[type=reset]:hover {
-    width: 45%;
-    height: 65px;
+   
     color: white;
-    font-size: 250%;
     BACKGROUND-COLOR: orange;
     border: none;
     padding: 10px;

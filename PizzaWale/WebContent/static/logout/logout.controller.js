@@ -27,8 +27,10 @@
                 	console.log("localStorage cleared...");
                 	$cookies.remove();
                 	console.log("$localStorage after logout:- ",$localStorage);
-                	alert("User Logout successful.");
+                	//alert("User Logout successful.");
                 	$location.path('/') ;
+                	//NavBarController.checkLogin();
+                	document.location.reload();
                 }     
                 else {
                     vm.dataLoading = true ;
