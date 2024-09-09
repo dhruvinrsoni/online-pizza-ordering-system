@@ -17,9 +17,10 @@
 		var user = {};
 		
 		function login() {
-			  console.log("inside login");
+			  console.log("inside login of login.controller");
 
 			vm.dataLoading = true;
+			console.log("calling user service with email as "+vm.email+" and password as:"+vm.password);
 			UserService.Login(vm.email, vm.password)
 		    .then(function(response) {
             	console.log(response) ;
@@ -27,36 +28,13 @@
                 	console.log("login success");
                 	$localStorage.email=vm.email;
                 	console.log($localStorage.email);
-                	
-                	/*let myArray = ["dhruvin@pizzawale","pranav@pizzawale","siddhant@pizzawale"];
-                	for(i = 0; i < myArray.length; i++){
-                		if (myArray[i].equals(vm.email)){
-                			$location.path('/admin') ;
-                			alert("Admin Login successful");
-                		}else{
-                			$location.path('/order') ;
-                		}}
-                	*/
-                	if(vm.email=="dhruvin@pizzawale"){ $location.path('/admin') ;alert("Admin Login successful");          		
-                	}else if(vm.email=="pranav@pizzawale"){$location.path('/admin') ; alert("Admin Login successful");  
-                	}else if(vm.email=="siddhant@pizzawale"){$location.path('/admin') ;alert("Admin Login successful");   }
-                	else {$location.path('/order') ;alert("User Login successful");}
-                	
-                    
+                    $location.path('/order') ;
+                    alert("Login successful");
                 }
                 else {
                     vm.dataLoading = false ;
                     alert("Unsuccessful Login");
                 }
             }) ;
-		    
-		
-		
-		
-	
-
-
-
 	}
-
 }})();

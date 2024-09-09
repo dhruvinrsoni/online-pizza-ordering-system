@@ -4,9 +4,9 @@
     .controller('registerController', registerController);
 
     // inject dependencies
-    registerController.$inject = ['UserService','$location','$localStorage'] ;
+    registerController.$inject = ['UserService','$location'] ;
 
-    function registerController(UserService, $location, $localStorage) {
+    function registerController(UserService, $location) {
     	if($localStorage.email!=null){$location.path('/') ;}
     	var vm = this ;
         console.log("Here") ;
@@ -20,11 +20,11 @@
                 if(response.email != undefined) {
                 	console.log("UserService.create() returned Success");
                     $location.path('/login') ;
-                    alert("registration successful.");
+                    alert("abdec");
                 }
                 else {
                     vm.dataLoading = false ;
-                    alert("problem in registration");
+                    alert("abc");
                 }
             }) ;
         } ;

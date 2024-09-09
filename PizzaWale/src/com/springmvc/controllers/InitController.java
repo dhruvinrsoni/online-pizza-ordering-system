@@ -16,7 +16,7 @@ public class InitController {
 
 	@RequestMapping(value="/" , method=RequestMethod.GET)
 	public String getHome() {
-		System.out.println("Inside Init Controller");
+		System.out.println("Inside InitController.java: returning jsp file name 'template'...");
 		return "template" ;
 	}
 
