@@ -60,6 +60,18 @@ public class UserServiceImpl implements UserService {
 		}
 		return false ;
 	}
+
+	public User findByID(int user_id) {
+		users = findAllUsers() ;
+		for(User user : users) {
+			if(user.getUserId() == user_id) {
+				System.out.println("Inside findByEmail method and email found...! user:"+user.getName()+" and email:"+user.getUserId());
+				return user ;
+			}
+		}
+		return null ;
+	}
+
 	public User findByEmail(String email) {
 		try
 		{
@@ -98,19 +110,8 @@ public class UserServiceImpl implements UserService {
 			}
 		}*/
 	}
-
-	public User findByID(int user_id) {
-		users = findAllUsers() ;
-		for(User user : users) {
-			if(user.getUserId() == user_id) {
-				System.out.println("Inside findByEmail method and email found...! user:"+user.getName()+" and email:"+user.getUserId());
-				return user ;
-			}
-		}
-		return null ;
-	}
 	
-	public User findByemail(String email) {
+	/*public User findByemail(String email) {
 		if(email==null)
 		{
 			System.out.println("There is no email id sent...");
@@ -124,11 +125,11 @@ public class UserServiceImpl implements UserService {
 			}
 		}
 		return null;
-	}
+	}*/
 	
 	//String loginQuery = "select * from user where user_id=? and password=?;";
 	
-	public int validateLogin(User user)
+	public User validateLogin(User user)
 	{
 		User loginUser = new User();
 		User nullLoginUser = new User();
@@ -147,19 +148,20 @@ public class UserServiceImpl implements UserService {
 			ResultSet resultSet = statement.executeQuery() ;
 			if(resultSet.next()) 
 			{
+				loginUser = findByEmail(user.getEmail());
 				System.out.println("Success!");
 				//return loginUser;
-				return 1;
+				return loginUser;
 			}
 			else
 			{
 				System.out.println("Failure!");
 				//return nullLoginUser;
-				return 0;
+				return null;
 			}
 		}
 		catch(SQLException e) {
-			e.printStackTrace(); return 0;
+			e.printStackTrace(); return null;
 		}
 		finally {
 			closeDBconnection() ;
@@ -209,7 +211,7 @@ public class UserServiceImpl implements UserService {
 			int returned = stmt.executeUpdate(query) ;
 			if(returned == 1) 
 			{
-				users.add(user) ;
+				/*users.add(user) ;*/
 				System.out.println("saveUser function added data successfully and returned value:- "+returned);
 			}
 			return returned ;

@@ -6,9 +6,13 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 	<title>Pizza Wale</title>
 	<!-- link rel="stylesheet" href="static/bootstrap/bootstrap.min.css"-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="static/bootstrap/bootstrap.min.css">
         
         
 	<link rel="shortcut icon" href="static/images/favicon.ico"/>
@@ -69,6 +73,7 @@
                 <li ng-hide="checkLoggedIn()" id="register_li"><a class="homeblack" href="#/register">REGISTER</a></li>				
                 <li ng-hide="checkLoggedIn()" id="login_li"><a class="homegreen" href="#/login">LOGIN</a>
                 <li ng-show="checkLoggedIn()" id="logout_li"><a class="homegreen" href="#/logout">LOGOUT</a>
+                <li ng-show="checkLoggedIn()" id="username_li"><a class="homegreen" href="#">Welcome, {{getUserName()}}</a>
                 </li>             
             </ul>
         </div>
@@ -103,6 +108,7 @@
          <script src="static/logout/logout.controller.js"></script>
            <script src="static/aboutus/aboutus.controller.js"></script>
            <script src="static/employee/employee.controller.js"></script>
+           <script src="static/admin/admin.controller.js"></script>
          <!-- <script src="static/end/end.controller.js"></script> -->
          <script type="text/javascript">
          app
@@ -120,7 +126,7 @@
      	.controller('NavBarController', NavBarController);
 
          NavBarController.$inject = ['$scope', '$location', 'UserService','$localStorage'];
-     	function NavBarController($scope, $location, UserService,$localStorage) {
+			function NavBarController($scope, $location, UserService,$localStorage) {
              console.log("inside NavBarController");
              /*$scope.checkLoggedIn = function(){
              	if($localStorage.email!=null){
@@ -131,15 +137,42 @@
              	}
          	};*/
          	$scope.checkLoggedIn=function() {
-     			if($localStorage.email!=null){
-             		return true;
+         		console.log("inside checkLoggedIn()");
+     			if($localStorage!=null){
+             		if($localStorage.email!=null)
+             			{
+             			return true;
+             			}
+             		else return false;
+             		
              	}
              	else{
              		return false;
              	}
      		};
-     		
          	
+     		$scope.getUserName=function()
+        	{
+        		console.log("$localStorage.userName:-"+$localStorage.userName);
+        		if($localStorage!=null)
+        			{
+        				if($localStorage.userName!=null)
+        					{
+        					return $localStorage.userName;
+        					}
+        				else
+        					{
+        						return "";
+        					}
+        			}
+        		else
+        			{
+        				return "Guest";
+        			}
+        	}
+     		
+     		
+     		
      		/* (function checkLoggedIn() {
      			if($localStorage.email!=null){
              		return true;

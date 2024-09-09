@@ -48,6 +48,15 @@
             	
            
             }) ;
+            
+            
+            /*OrderService.getItems()
+            .then(function(response){
+            	
+            	
+            	
+            });*/
+            
         } ;
     }
 })();

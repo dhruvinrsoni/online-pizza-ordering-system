@@ -42,6 +42,12 @@
          
 
         
+        function getItems()
+        {
+        	console.log("Inside order service: getItems:- ");
+        	return $http.get(serverUrl + '/orderitems').then(handleSuccess1, handleError1('Error getting all users'));
+        	
+        }
         
         
         

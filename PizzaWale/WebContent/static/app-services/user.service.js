@@ -29,12 +29,13 @@
         	console.log("fetching account...");
             //return $http.post(serverUrl + '/user/login',user ).then(handleSuccess1, handleError1('Error getting user by email'));
         	return $http.post(serverUrl + '/user/login',user ).then(function(response){
-        		console.log("user.service.js:-> Login():-> Login Successful!...");
-        		return true;    		
+        		console.log("user.service.js:-> Login():-> Login Successful!... Now showing response:->");
+        		console.log(response);
+        		return response;    		
         	}, function(response){
         		
         		console.log("Login Credentials wrong");
-        		return false;
+        		return 0;
         	});
             
         };

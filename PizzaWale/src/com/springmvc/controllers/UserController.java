@@ -60,14 +60,15 @@ public class UserController {
         if(sql)
         {
         	//SQL Injection proof
-        	 int returnVal=userService.validateLogin(user);
-        	 System.out.println("returnVal is:-"+returnVal);
-             if(returnVal!=0)
+        	 //int returnVal=userService.validateLogin(user);
+        	 User dbUser=userService.validateLogin(user);
+        	 System.out.println("dbUser is:-"+dbUser);
+             if(dbUser!=null)
              {
              	HttpSession session= req.getSession();
-         		session.setAttribute("email", user);
+         		session.setAttribute("user", dbUser);
          		System.out.println("UserController.java: getUser: User password correct.!");
-         		return new ResponseEntity<User>(user, HttpStatus.OK);
+         		return new ResponseEntity<User>(dbUser, HttpStatus.OK);
              }
              else
              {
@@ -110,7 +111,7 @@ public class UserController {
 		System.out.println("Inside User Controller: logout method...") ;
 		int returned = 1;
 		HttpSession session= req.getSession();
- 		session.removeAttribute("email");
+ 		//session.removeAttribute("user");
  		session.invalidate();
 		User user = new User();
  		return new ResponseEntity<User>(user, HttpStatus.OK) ;

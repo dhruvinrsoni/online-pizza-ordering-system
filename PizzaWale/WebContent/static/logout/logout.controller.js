@@ -19,16 +19,16 @@
             	console.log(response) ;
                 if(response) {
                 	console.log("logout success");
-                	$localStorage.email=null;
+                	
+
+                	$localStorage=null;
                 	console.log("Clearing the localStorage...");
                 	localStorage.clear();
                 	console.log("localStorage cleared...");
                 	$cookies.remove();
-                	console.log("$localStorage.email after logout:- ",$localStorage.email);
-                	
-                		$location.path('/') ;
-                	
+                	console.log("$localStorage after logout:- ",$localStorage);
                 	alert("User Logout successful.");
+                	$location.path('/') ;
                 }     
                 else {
                     vm.dataLoading = true ;

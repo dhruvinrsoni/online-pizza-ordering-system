@@ -1,4 +1,21 @@
-(function(){
+
+(function () {
+    'use strict';
+    app
+    .controller('employeeController',employeeController);
+    employeeController.$inject = ['OrderService','$scope','$localStorage'] ;
+    	function employeeController(OrderService,$scope,$localStorage){
+    		var vm = this;
+            console.log("inside employeeController");
+           
+    }
+
+})();
+        
+
+
+
+/*(function(){
     'use strict' ;
     angular.module('app')
     .controller('employeeController', employeeController);
@@ -7,7 +24,7 @@
     var vm = this;
     console.log(" employee Here") ;
     vm.employeeController = function($scope) {
-    		/*'MainCtrl',function($scope) {*/
+    		'MainCtrl',function($scope) {
 
         $scope.orders = [
           {serialKey: '1', done: true, orderid:'123', name: 'Shyam Sharma', address:'4, Pune road, Pune' ,  phone:'7618032564', items:'1. Pizza bleh bleh  2. Pasta bleh bleh'},
@@ -73,4 +90,6 @@
 
         };
     };
-    });
+    });*/
+
+

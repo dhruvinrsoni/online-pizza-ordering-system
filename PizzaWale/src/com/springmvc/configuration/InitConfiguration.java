@@ -15,7 +15,7 @@ public class InitConfiguration extends WebMvcConfigurerAdapter {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		System.out.println("Setting Resource Handler to /static and /static/**");
 		registry.addResourceHandler("/static/**").addResourceLocations("/static/");
-		
+		registry.addResourceHandler("/WEB-INF/**").addResourceLocations("/WEB-INF/");
 	}
 	
 	@Override

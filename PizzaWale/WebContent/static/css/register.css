@@ -1,9 +1,9 @@
-.help-block
-{
-	colro:#FF5722;
-	margin:0px;
+.help-block {
+    display: -webkit-inline-box;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #FF5722;
 }
-
   
 
 a:visited {

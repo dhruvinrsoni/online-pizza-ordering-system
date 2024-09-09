@@ -11,7 +11,7 @@ public interface UserService {
 	public User findByEmail(String email);
 	public User findByID(int user_id) ;
 	public ArrayList<User> findAllUsers() ;
-	User findByemail(String email);
-	public int validateLogin(User user);
+	//User findByemail(String email);
+	public User validateLogin(User user);
 	
 }

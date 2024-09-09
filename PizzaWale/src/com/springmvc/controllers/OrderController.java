@@ -68,6 +68,25 @@ public class OrderController {
 		}
 	}
     
+
+    @RequestMapping(value="/orderitems", method=RequestMethod.POST,  produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<OrderItem>> getOrderItems(@RequestBody OrderItem orderItem, HttpServletRequest req) {
+		System.out.println("Inside getOrderItems Controller") ;
+		
+		List<OrderItem> orderItems= orderService.getOrderItems() ;
+		HttpHeaders headers = new HttpHeaders() ;
+		HttpSession session= req.getSession();
+		User user =(User)session.getAttribute("email");
+		
+		
+		System.out.println(orderItem + " " ) ;
+		if(orderItems !=null) {
+			return new ResponseEntity<List<OrderItem>>(orderItems, HttpStatus.CREATED) ;
+		}
+		else {
+			return new ResponseEntity<List<OrderItem>>(orderItems ,HttpStatus.CONFLICT) ;
+		}
+	}
     
 	
     @RequestMapping(value="/updateorder", method=RequestMethod.POST,  produces = MediaType.APPLICATION_JSON_VALUE)

@@ -410,7 +410,37 @@ public class OrderServiceimpl implements OrderService {
 		}*/
 		
 	}
-
+	
+	@Override
+	public List<OrderItem> getOrderItems()
+	{
+		List<OrderItem> nullOrderItemList = new ArrayList<OrderItem>();
+		List<OrderItem> orderItemList = new ArrayList<OrderItem>();
+		
+		try
+		{
+			int itemPrice=0;
+			connectToDB() ;
+			Statement stmt = connection.createStatement();
+			
+			String getPriceQuery =  "select * from items;" ;
+			System.out.println("Select  Query of getOrderItems:- "+getPriceQuery) ;
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery(getPriceQuery) ;
+			if(resultSet.next()){
+				itemPrice=resultSet.getInt("item_price");
+				}
+			
+			return orderItemList;
+			
+		}catch(SQLException e) {
+			e.printStackTrace() ; return nullOrderItemList ;
+		}
+		finally {
+			closeDBconnection() ;
+		}
+		
+	}
 
 	@Override
 	public int updateOrder(OrderItem orderItem) {

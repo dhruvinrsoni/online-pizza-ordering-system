@@ -1,6 +1,6 @@
 <div id="fullscreen_bg" class="fullscreen_bg"/ ng-cloak ng-app="MyApp">
 <link rel="stylesheet" type="text/css"  href="static/css/login.css">
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <div class="well" ng-repeat="star in stars">
 <p>Type:{{star.type}}</p>
 </div>
@@ -10,7 +10,7 @@
  <form name="form" ng-submit="vm.login()" role="form" class="form-signin" style="text-align: center; position:fixed; margin-top:20%; left:70%; -ms-transform: translateX(-50%) translateY(-50%);
   -webkit-transform: translate(-50%,-50%); transform: translate(-50%,-50%);">
 
-<h1 style="color: white; font-size: 70px;">Sign In</h1>
+<h1 style="color: goldenrod;font-family: auto; font-size: 70px;">Sign In</h1>
 <label for = "email"> Email Id:  </label>
 <input type="text" name="email" id="email" class="form-control" placeholder="Enter Email" ng-model="vm.email" required="" autofocus=""><br>
 <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Email is required</span><br>

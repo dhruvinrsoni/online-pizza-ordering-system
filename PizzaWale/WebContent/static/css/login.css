@@ -1,45 +1,3 @@
-@font-face{
-    font-family:'squeaky chalk sound';
-    src: url('SqueakyChalkSound.ttf') format('truetype');
-}
-
-@font-face{
-    font-family:'Café Françoise';
-    src: url('Café Françoise.ttf') format('truetype');
-}
-
-@font-face{
-    font-family:'Scribble Box';
-    src: url('scribble box demo.ttf') format('truetype');
-}
-
-@font-face{
-    font-family:'Stardust Adventure';
-    src: url('StardustAdventure.ttf') format('truetype');
-}
-
-@font-face{
-    font-family:'Lemonade Stand';
-    src: url('Lemonade Stand D.otf') format('opentype');
-}
-
-@font-face{
-    font-family:'Cut the crap';
-    src: url('Cut the crap.ttf') format('truetype');
-}
-
-@font-face{
-    font-family:'Eutemia I';
-    src: url('Eutemia.ttf') format('truetype');
-}
-@font-face{
-    font-family:'Alegreya SC';
-    src: url('AlegreyaSC-Black.ttf') format('truetype');
-}
-@font-face{
-    font-family:'Alegreya';
-    src: url('Alegreya-Black.ttf') format('truetype');
-}
 
 
 a:visited {
@@ -57,13 +15,13 @@ a {
 }
 
 a:hover {
-    color: white;
+    color: #ff9c09;
     text-decoration: none;
 }
 .address{
   padding-top: 22px;
   float:right;
-  font-family: Café Françoise, cursive;
+  font-family: Caf� Fran�oise, cursive;
   font-size: 15px;
   color:#DACA9F;
 
@@ -170,5 +128,5 @@ span{
 }
 
 label{
-  color:#DACA9F; font-size:20px;
+  color:#ff9800; font-size:20px;
 }
