@@ -58,7 +58,7 @@
             })
             .when('/logout' , {
             	controller : 'LogoutController' ,
-            	templateUrl : 'static/logout/logout.view.html' ,
+            	templateUrl : 'static/home/home.view.html' ,
             	controllerAs : 'vm'
             })
         	.when('/end' , {

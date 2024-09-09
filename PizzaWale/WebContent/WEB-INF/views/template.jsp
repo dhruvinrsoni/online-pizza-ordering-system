@@ -48,6 +48,7 @@
 			width:45px;
 			height:45px;
 			float:left;
+			border-radius: 100% ;
 		}
 	</style>
 </head>

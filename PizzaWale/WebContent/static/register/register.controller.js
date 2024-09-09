@@ -8,6 +8,13 @@
 
     function registerController(UserService, $location, $localStorage) {
     	if($localStorage.email!=null){$location.path('/') ;}
+    	
+        var name = document.forms["RegForm"]["Name"];               
+        var email = document.forms["RegForm"]["EMail"];    
+        var phone = document.forms["RegForm"]["Telephone"];   
+        var password = document.forms["RegForm"]["Password"];  
+        var address = document.forms["RegForm"]["Address"];
+    	
     	var vm = this ;
         console.log("Here") ;
         vm.register = function() {
