@@ -31,6 +31,11 @@
             	controller: "LoginController",
             	controllerAs: 'vm'
             })
+            .when('/admin' , {
+            	controller : 'adminController' ,
+            	templateUrl : 'static/admin/admin.view.html' ,
+            	controllerAs : 'vm'
+            })
         	.when('/end' , {
         		templateUrl : 'static/end/end.view.html',
         		controller: "endController",

@@ -22,13 +22,12 @@
 //service.Order = Order;
 
         function Login(email, password) {
-        	console.log("inside Login of user.service with email as:-"+email+" and password as:- "+password);
+        	console.log("inside Login");
         	var user = {};
         	user.email=email;
         	user.password=password;
-        	
             return $http.post(serverUrl + '/user/login',user ).then(handleSuccess1, handleError1('Error getting user by email'));
-            console.log("fetching account...");
+             
         };
         
   

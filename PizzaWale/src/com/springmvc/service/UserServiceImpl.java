@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
 	private static ArrayList<User> users ;
 	private Connection connection = null ;
 	private String dB_URL = "jdbc:mysql://localhost:3306/" ;
-	private String dB_name = "pizzawale" ;
+	private String dB_name = "pizza" ;
 	private String driver = "com.mysql.jdbc.Driver" ;
 	private String userName = "root" ; 
 	private String password = "root" ;
@@ -29,11 +29,10 @@ public class UserServiceImpl implements UserService {
 	private ResultSet resultSet = null ;
 	
 	private void connectToDB() {
-		System.out.println("Trying to connect to database...");
+		System.out.println("Trying to connect to database.");
 		try {
 			Class.forName(driver).newInstance() ;
 			connection = DriverManager.getConnection(dB_URL + dB_name, userName , password) ;
-			System.out.println("DB Connection Successful...!");
 		}
 		catch(Exception e) {
 			System.out.println("Could not connect to the database !" + e.toString()) ;
@@ -45,7 +44,6 @@ public class UserServiceImpl implements UserService {
 		try {
 			if(!connection.isClosed()) {
 				connection.close() ;
-				System.out.println("Connection to DB has been successfully closed.");
 			}
 		}
 		catch(Exception e) {
@@ -64,10 +62,10 @@ public class UserServiceImpl implements UserService {
 		users = findAllUsers() ;
 		for(User user : users) {
 			if(user.getEmail().equals(email)) {
-				System.out.println("Inside findByEmail method and email found...! user:"+user.getName()+" and email:"+user.getEmail());
 				return user ;
 			}
 		}
+		System.out.println("avbsh");
 		return null ;
 	}
 
@@ -75,7 +73,6 @@ public class UserServiceImpl implements UserService {
 		users = findAllUsers() ;
 		for(User user : users) {
 			if(user.getUserId() == user_id) {
-				System.out.println("Inside findByEmail method and email found...! user:"+user.getName()+" and email:"+user.getUserId());
 				return user ;
 			}
 		}
@@ -85,7 +82,6 @@ public class UserServiceImpl implements UserService {
 	public User findByemail(String email) {
 		for(User user : users){
 			if(user.getEmail().equalsIgnoreCase(email)){
-				System.out.println(" Still finding...");
 				return user;
 			}
 		}
@@ -107,10 +103,9 @@ public class UserServiceImpl implements UserService {
 				user.setEmail(resultSet.getString("email")) ;
 				user.setPassword(resultSet.getString("password")) ;
 				user.setMobileNum(resultSet.getString("mobile_num")) ;
-				user.setName(resultSet.getString("user_name")) ;
+				user.setName(resultSet.getString("name")) ;
 				user.setAddress(resultSet.getString("address")) ;
-				user.setPincode(resultSet.getString("pincode"));
-				user.setUserType(resultSet.getInt("user_type")) ;
+				user.setAdmin(resultSet.getBoolean("user_type")) ;
 				users.add(user) ;
 			}
 		}
@@ -130,16 +125,12 @@ public class UserServiceImpl implements UserService {
 			connectToDB() ;
 			
 			Statement stmt = connection.createStatement() ;
-			String query = "insert into user (email, user_name, address, password, mobile_num , user_type, pincode) values ('"+ user.getEmail()+"','"+ 
+			String query = "insert into user (email, name, address, password, mobile_num , user_type) values ('"+ user.getEmail()+"','"+ 
 							user.getName()+"','"+user.getAddress() +"','"+ user.getPassword()+"','"+
-							user.getMobileNum()+"','"+user.getUserType()+"','"+user.getPincode()+"');" ;
-			System.out.println("saveUser Query:- "+query) ;
+							user.getMobileNum()+"',false);" ;
+			System.out.println(query) ;
 			int returned = stmt.executeUpdate(query) ;
-			if(returned == 1) 
-			{
-				users.add(user) ;
-				System.out.println("saveUser function added data successfully and returned value:- "+returned);
-			}
+			if(returned == 1) users.add(user) ;
 			return returned ;
 		}
 		catch(SQLException e) {

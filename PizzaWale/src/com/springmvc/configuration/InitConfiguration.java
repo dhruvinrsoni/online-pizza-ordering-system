@@ -13,20 +13,17 @@ public class InitConfiguration extends WebMvcConfigurerAdapter {
 	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		System.out.println("Setting Resource Handler to /static and /static/**");
 		registry.addResourceHandler("/static/**").addResourceLocations("/static/");
 		
 	}
 	
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
-		System.out.println("Inside configureViewResolvers... ");
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		viewResolver.setViewClass(JstlView.class);
 		viewResolver.setPrefix("/WEB-INF/views/");
 		viewResolver.setSuffix(".jsp");
 		registry.viewResolver(viewResolver);
-		System.out.println("configureViewResolvers completed successfully...!");
 		
 	}
 }

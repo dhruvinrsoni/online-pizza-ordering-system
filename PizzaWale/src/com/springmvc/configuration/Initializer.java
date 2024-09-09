@@ -11,7 +11,6 @@ public class Initializer extends AbstractAnnotationConfigDispatcherServletInitia
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		// TODO Auto-generated method stub
-		System.out.println("Inside getRootConfigClass: getting InitConfiguartion...");
 		return new Class[] {InitConfiguration.class};
 	}
 
@@ -24,7 +23,7 @@ public class Initializer extends AbstractAnnotationConfigDispatcherServletInitia
 	@Override
 	protected String[] getServletMappings() {
 		// TODO Auto-generated method stub
-		System.out.println("Inside getServletMapping (inside the initializer)...");
+		System.out.println("inside the initializer");
 		return new String[] { "/" };
 	}
 	
