@@ -1,8 +1,0 @@
-CREATE TABLE `siddhant`.`Food_Items` (
-  `Item_Id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  `Item_Name` VARCHAR(45) NOT NULL,
-  `Type` VARCHAR(45) NOT NULL,
-  `Price` INTEGER UNSIGNED NOT NULL,
-  PRIMARY KEY (`Item_Id`)
-)
-ENGINE = InnoDB;

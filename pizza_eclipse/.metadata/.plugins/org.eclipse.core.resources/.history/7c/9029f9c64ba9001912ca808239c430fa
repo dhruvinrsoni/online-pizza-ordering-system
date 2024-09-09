@@ -1,8 +1,0 @@
-package com.reflexis.project8;
-
-public class CustomerDAO {
-	int custID;
-	String custName;
-	String custAddr;
-	
-}
