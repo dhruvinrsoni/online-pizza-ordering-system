@@ -4,18 +4,30 @@
     .controller('orderController', orderController);
 
     // inject dependencies
-   orderController.$inject = ['OrderService','$location','$localStorage'] ;
+   orderController.$inject = ['OrderService','$location','$localStorage', '$scope'] ;
 
-    function orderController(OrderService, $location,$localStorage) {
+    function orderController(OrderService, $location,$localStorage, $scope) {
     	if($localStorage.email==null){$location.path('/') ;}
     	var vm = this;
-        console.log(" order Here") ;
+        console.log("Order Controller: Order Here...") ;
         vm.order = function() {
         	console.log("Inside  order controller") ;
         	console.log("$localStorage.email:- "+$localStorage.email);
         	vm.order1.email=$localStorage.email;
             vm.dataLoading = true ;
-            console.log("vm.order1:- "+vm.order1);
+            var scope=[];
+            scope.push($localStorage.email);
+            scope.push(vm.order1.margherita);
+            scope.push(vm.order1.farmhouse);
+            scope.push(vm.order1.peppyPaneer);
+            scope.push(vm.order1.chickenFiesta);
+            scope.push(vm.order1.chickenGoldenDelight);
+            scope.push(vm.order1.nonVegSupreme);
+            //console.log("vm.order1:- "+vm.order1+" & vm.order1.peppyPaneer:- "+vm.order1.peppyPaneer+" & vm.order1.email:-"+vm.order1.email);
+            //console.log("vm.order1.peppyPaneer_id:- "+vm.order1.peppyPaneer_id);
+            vm.order1 = scope;
+            console.log(vm.order1);
+            console.log("calling orderservice");
             OrderService.create(vm.order1)
             .then(function(response) {
             	console.log("response from OrderService.create:- "+response) ;

@@ -1,0 +1,24 @@
+package com.springmvc.service;
+
+
+
+import com.springmvc.model.Order;
+import com.springmvc.model.OrderItem;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public interface OrderService {
+	
+	public int saveOrder(String[] orderList) ;
+	public int getItemPrice(int itemId);
+	public String getItemName(int itemId);
+	
+	public int updateOrder(OrderItem orderItem);
+	public String printOrder(OrderItem orderItem);
+	public int submitOrder(OrderItem orderItem) ;
+	public OrderItem getOrderItem(OrderItem orderItem);
+	String printOrder(List<String> orderItem);
+	
+	
+}

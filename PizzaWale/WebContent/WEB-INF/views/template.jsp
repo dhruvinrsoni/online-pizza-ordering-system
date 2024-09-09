@@ -21,13 +21,21 @@
 			background-attachment: fixed;
 			height: 100%;
 		}
+		.logo
+		{
+			margin-top:-15px;
+			margin-bottom:-15px;
+			width:45px;
+			height:45px;
+			float:left;
+		}
 	</style>
 </head>
 <body>
 	<div style="display:none;z-index:-999;background-image: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.6)), url(static/images/pizza_background.jpg);background-repeat: no-repeat;background-size: cover;height:100%;  position: fixed; width:110%;background-position: center;background-attachment: fixed;height: 100%;"></div>
 	<div style=".">
-	<div style="float:left;">
-		<img src="static/images/logo.jpg" class="logo">
+	<div style="float:left;display:none;]">
+		<img  src="static/images/logo.png" class="logo">
 	</div>
 	<div style="float: right;display:none;">
 		<ul>
@@ -41,10 +49,12 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" style="margin:0px;">
     <div class="container">
         <div class="navbar-header">
+           
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#exampleNavComponents" aria-expanded"false">
                 <i class="glyphicon glyphicon-align-center" style=color:grey;></i>
             </button>
-            <a href="#" class="navbar-brand">
+            <a href="#/" class="navbar-brand">
+               <img  src="static/images/favicon.ico" class="logo">&nbsp;&nbsp;&nbsp;
                Pizza Wale
             </a>
         </div>
@@ -89,7 +99,7 @@
         <script src="static/register/register.controller.js"></script>
          <script src="static/order/order.controller.js"></script>
          <script src="static/editorder/editorder.controller.js"></script>
-         <script src="static/end/end.controller.js"></script>
+         <!-- <script src="static/end/end.controller.js"></script> -->
          <script type="text/javascript">
          app
          .controller('MainCtrl',function($scope, $localStorage) {
